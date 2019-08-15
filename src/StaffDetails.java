@@ -82,7 +82,7 @@ public class StaffDetails{
 	 }
 	 public String toString()
 	 {
-		 return String.format("|%-20s |%-14s |%-15s |%-5d|%-6s |%-10.2f |%-8s |%-13s |%-12s |%-65s|",name,staffID,icNumber,getAge(),gender,calculateSalary(),position,dateOfBirth,handphone,address);
+		 return String.format("|%-16s |%-14s |%-15s |%-5d|%-6s |%-10.2f |%-8s |%-13s |%-12s |%-65s|",name,staffID,icNumber,getAge(),gender,calculateSalary(),position,dateOfBirth,handphone,address);
 	 }
 	 
 	 

@@ -60,16 +60,10 @@ public class Staff{
 	 
 	 public static void AddStaff(ArrayList<StaffDetails> staff)
 	 {
-		int selection=8,decision=0,valid=8,check=8,overtimeHours;
-		String position="";
-		String gender="";
-		String handphone;
-		 String name="";
-		 int selected=0;
-		 String status="";
+		int selection=8,decision=0,valid=8,check=8,overtimeHours, selected=0,workingHours=0;
+		String position="",gender="",handphone, name="",status="";
 		char choice,confirm;
-		int workingHours;
-		double salary;
+		double salary=0;
 		Scanner input=new Scanner(System.in);
 		 
 		
@@ -156,6 +150,8 @@ public class Staff{
 		}
 		}while(selected!=1 && selected!=2);
 		 
+		
+		//Enter a position
 		do {
 		try {
 		 System.out.println("Enter a position :");
@@ -184,24 +180,37 @@ public class Staff{
 		}
 		}while(selection!=1 && selection !=2);
 		 
+		 //if user choose full time,then will prompt out basic salary
 		 if(selected==1)
 		 {
+			 try {
 			 System.out.print("Enter a basic salary (RM) :");
 			 salary=input.nextDouble();
+			 }
+			 catch(Exception salaryError)
+			 {   input.next();
+				 System.out.println("Error");
+			 }
 		 }
 		 else
 			 salary=0;
 		 
-		 
+		 //check=1 means part-time,so salary is based on working hours
 		 if(check==1)
-		 {
-			 System.out.print("Enter total working hours in 1 months:");
+		 {  
+			try {
+			System.out.print("Enter total working hours in 1 months:");
 			workingHours=input.nextInt();
+			}
+			catch(Exception workingHoursError)
+			{
+				System.out.println("Error");
+			}
 		 }
 		 else
 			 workingHours=240;
 		 
-		 
+		 //check=0 mean full-time,overtime will get paid
 		 if(check==0)
 		 {
 			 System.out.print("Enter total overtime hours :");
@@ -211,12 +220,14 @@ public class Staff{
 			 overtimeHours=0;		 
 		 
 		 input.nextLine();
+		 
+		 //Entering date of birth start from "day-month-year"
 		 System.out.print("Enter date of birth(DD-MM-YYYY) :");
 		 String DOB=input.nextLine();
 		 DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //date format
 		 LocalDate lDate = LocalDate.parse(DOB,format); //date format
 
-		 
+		 //Entering phone number
 		 System.out.print("Enter a phone number :");
 		do {
 		   handphone=input.nextLine();
@@ -225,6 +236,8 @@ public class Staff{
 			 System.out.print("Please enter a correct handphone number!");
 		 }
 		 }while(handphone.length()!=10);
+		
+		//Entering Home address
 		 System.out.print("Enter a street name :");
 		 String streetName = input.nextLine();
 		 
@@ -240,12 +253,13 @@ public class Staff{
 		 System.out.print("Enter country :");
 		 String country=input.nextLine();
 		 
+		 //display the data entered by user just now
 		 System.out.println("+=================================================================================================================================================================================================+");
-		 System.out.printf("|%-20s |%-12s |%-6s |%-8s|%-13s|%-9s|%-10s |%-8s |%-13s |%-12s |%-65s|\n",
+		 System.out.printf("|%-20s |%-12s |%-6s |%-8s|%-13s|%-9s|%-10s |%-8s |%-13s |%-12s |%-62s|\n",
 				 "Staff Name","Staff IC","Gender","Status","Working Hours","Overtime","Salary(RM)","Position","Date of birth",
 				 "Phone Number","Home Address");
 		 System.out.println("+=================================================================================================================================================================================================+");
-		 System.out.printf("|%-20s |%-12s |%-6s |%-8s|%-13d|%-9d|%-10.2f |%-8s |%-13s |%-12s |%-65s|\n",name,icNumber,gender,status,workingHours,overtimeHours,salary,position,DOB,handphone,streetName+","+rArea+","+postCode+","+state+","+country);
+		 System.out.printf("|%-20s |%-12s |%-6s |%-8s|%-13d|%-9d|%-10.2f |%-8s |%-13s |%-12s |%-62s|\n",name,icNumber,gender,status,workingHours,overtimeHours,salary,position,DOB,handphone,streetName+","+rArea+","+postCode+","+state+","+country);
 		 System.out.println("+=================================================================================================================================================================================================+");
 		 System.out.println("Confirm to add these data?(Y/N)");
 		 confirm=input.next().charAt(0);
@@ -254,11 +268,11 @@ public class Staff{
 	     {
 	  
 		 Address address = new Address(streetName,rArea,postCode,state,country);
-		 if(check==0)
+		 if(check==0)//if is full-time then will stored into full time object arrays
 		 {
 		 staff.add(new FullTime(name,icNumber,gender,address,salary,position,lDate,handphone,status,workingHours,overtimeHours));
 		 }
-		 else
+		 else//if is part-time then will stored into part time object arrays
 			 staff.add(new PartTime(name,icNumber,gender,address,salary,position,lDate,handphone,status,workingHours,overtimeHours));
 		 System.out.println("Staff details added successfully!");
 	     }
@@ -275,20 +289,20 @@ public class Staff{
 	 public static void viewStaff(ArrayList<StaffDetails> staff)
 	 {
 		 System.out.println("Displaying Staff Details :\n");
-		 System.out.println("+=============================================================================================================================================================================================+");
-		 System.out.printf("|%3s|%-20s |%-14s |%-15s |%-5s|%-6s|%-13s|%-9s|%-9s|%-10s |%-8s |%-13s |%-12s |%-65s|\n",
-				 "No.","Staff Name","Staff ID","Staff IC","Age","Gender","Status","WorkingHours","Overtime","Salary(RM)","Position","Date of birth","Phone Number","Home Address");
-		 System.out.println("+=============================================================================================================================================================================================+");
+		 System.out.println("+========================================================================================================================================================================================================+");
+		 System.out.printf("|%3s|%-16s |%-10s |%-15s |%-5s|%-6s|%-9s|%-9s|%-10s |%-8s |%-13s |%-12s |%-62s|\n",
+				 "No.","Staff Name","Staff ID","Staff IC","Age","Gender","Status","WorkingHours","Salary(RM)","Position","Date of birth","Phone Number","Home Address");
+		 System.out.println("+========================================================================================================================================================================================================+");
 		 for (int i=0; i<staff.size(); i++) 
 	     {
 		 System.out.printf("|%3s",1+i);
 		 System.out.print(staff.get(i).toString()+"\n");
 		 if(1+i==staff.size())
 		 {
-			 System.out.println("+=============================================================================================================================================================================================+"); 
+			 System.out.println("+========================================================================================================================================================================================================+"); 
 		 }
 		 else
-			 System.out.println("+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+");
+			 System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+");
      }
 	
 
@@ -297,20 +311,22 @@ public class Staff{
 	 
 	 public static void modifyStaff(ArrayList<StaffDetails>staff)
 	 {   Scanner m=new Scanner(System.in);
-	     int y=0,validation=8,selection,valid=8;
-	     String tempPosition = "";
-	     String tempPhoneNumber="";
+	     int y=0,validation=8,selection,valid=8,choice=0;
+	     String tempPosition = "",tempPhoneNumber="";
 	     char confirm;
-		 viewStaff(staff);
-			 do {
+		 viewStaff(staff);//display before modify
+			
+		 
+		 
+		 do {
 			 System.out.print("Select the row want to modify by entering Staff ID:");
 			 String staffID=m.nextLine();
 			 for(int i=0;i<staff.size();i++)
 			 {
 				 if(staff.get(i).getStaffID().equals(staffID))
 				 {   
-					 validation=0;
-					 y=i;
+					 validation=0;//to jump out the loop if found the array
+					 y=i;   //save index i into y know the array index
 				 }
 			 }
 			 if(validation!=0)
@@ -318,15 +334,18 @@ public class Staff{
 				 System.out.println("Invalid Staff ID!!!");
 			 }
 			 }while(validation!=0);
+		 
+		do { 
+		 try {
 		 System.out.println("Which Details you wish to change? :");
 		 System.out.println("1.Staff Salary");
 		 System.out.println("2.Position");
 		 System.out.println("3.Phone number");
 		 System.out.println("4.Home Address");
+		 System.out.println("-----------------------------------");
 		 System.out.print("Enter the index number :");
-		 int choice=m.nextInt();
+		 choice=m.nextInt();
 
-		 
 		 if(choice!=1 &&choice!=2 &&choice!=3 &&choice!=4)
 		 {
 			 System.out.println("Invalid Options entered");
@@ -452,7 +471,12 @@ public class Staff{
 			 }
 			 else
 				 System.out.println("Update cancelled");
-		 }	 
+		 }
+		 }catch(Exception choiceError)
+		 {   m.next();
+			 System.out.println("Error");
+		 }
+		}while(choice!=1 &&choice!=2 &&choice!=3 &&choice!=4);
 		 		 
 	}
 	

@@ -65,6 +65,6 @@ public class Address{
 	}
 	public String toString()
 	{
-		return String.format("%-65s",streetName+","+residentialArea+","+postCode+","+state+","+country);
+		return String.format("%-62s",streetName+","+residentialArea+","+postCode+","+state+","+country);
 	}
 }
