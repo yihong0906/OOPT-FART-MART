@@ -16,7 +16,7 @@ public class Staff{
 			 0,"Staff",LocalDate.parse("15-02-1998",format),"0184428901","benjamin","parttime",220,0)),
 	 (new FullTime("CHEONG SIONG HOU","18WMD06254","000906-10-1001","Male",new Address("C3/30","Taman Murni","J6alan Inamo 61000","Selangor","Malaysia"),
 			 2700.00,"Staff",LocalDate.parse("12-11-1997",format),"0151230915","sionghou","fulltime",240,8) ),
-	 (new PartTime("CHEE BAO QI1","18WMD06255","000906-10-1001","Female",new Address("L13/22","Taman Bangkok","Jalan Batu 64000","Selangor","Malaysia"),
+	 (new PartTime("CHEE BAO QI","18WMD06255","000906-10-1001","Female",new Address("L13/22","Taman Bangkok","Jalan Batu 64000","Selangor","Malaysia"),
 			 2800.00,"Staff",LocalDate.parse("18-06-1996",format),"0136091423","baoqi","parttime",190,0) ),
 	 (new FullTime("YAP KIM CHUN","18WMD06256","000906-10-1001","Male",new Address("Z01/25","Taman Bangsar","Jalan Pahang 56000","Kuala Lumpur","Malaysia"),
 			 2900.00,"Manager",LocalDate.parse("25-10-1996",format),"0181120909","kimchun","fulltime",240,15) )));
@@ -25,7 +25,9 @@ public class Staff{
 	 {   Scanner s=new Scanner(System.in);
 		 int selection;
 		  
-		do{
+		
+		try {	
+			do{
 		 System.out.println("1.Add Staff");
 		 System.out.println("2.View Staff");
 		 System.out.println("3.Modify Staff");
@@ -33,6 +35,7 @@ public class Staff{
 	     System.out.println("5.Back");
 		 System.out.print("Please enter your choice: ");
 		 selection=s.nextInt();
+		
 		 if(selection==1)
 		 {
 			AddStaff(staffs);
@@ -48,23 +51,33 @@ public class Staff{
 		 else
 			 System.out.println("Invalid Options...");
 		}while(selection !=5);
+		}
+		catch(Exception selectionError) {
+			System.out.println("Error");
+		}
 		System.out.println("Exiting Staff details module...");
 	 }
 	 
 	 public static void AddStaff(ArrayList<StaffDetails> staff)
 	 {
-		int selection,decision,valid=8,check=8,overtimeHours;
+		int selection=8,decision=0,valid=8,check=8,overtimeHours;
 		String position="";
 		String gender="";
 		String handphone;
 		 String name="";
-		 int selected;
+		 int selected=0;
 		 String status="";
 		char choice,confirm;
 		int workingHours;
 		double salary;
 		Scanner input=new Scanner(System.in);
-		 do {
+		 
+		
+		
+		
+		do {
+			
+		//entering staff name
 		 System.out.print("Enter a new employee name :");
 		 do {
 	      name=input.nextLine();
@@ -79,9 +92,14 @@ public class Staff{
 		   }
 		 }
 		 }while(valid==0);
+		 
+		 
+		 //Entering ic number
 		 System.out.print("Enter a IC number :");
 		 String icNumber=input.nextLine();
 		 
+		 //Entering gender
+		do{try { 
 		 System.out.println("Enter a gender :");
 		 System.out.println("1.Male");
 		 System.out.println("2.Female");
@@ -89,8 +107,7 @@ public class Staff{
 		 System.out.print(": ");
 		 do { decision=input.nextInt();
 		 if(decision==1)
-		 {
-			 gender="Male";
+		 {			 gender="Male";
 		 }
 		 else if(decision==2)
 		 {
@@ -101,7 +118,15 @@ public class Staff{
 			 System.out.print("Please enter again: ");
 			 }
 		}while(decision !=1 && decision !=2);
+		}catch(Exception decisionError) {
+			input.next();
+			System.out.println("Error");
+		}
+		}while(decision!=1&& decision !=2);
 		 
+		//Entering Staff status whether full time or part time
+		do {
+		try{
 		 System.out.println("Status :");
 		 System.out.println("1.Full-timer ");
 		 System.out.println("2.Part-timer ");
@@ -123,9 +148,16 @@ public class Staff{
 			 System.out.println("Invalid Option!");
 			 System.out.print("Please enter again: ");
 		    } 
-		 }while(decision !=1 && decision !=2);
+		 }while(selected !=1 && selected !=2);
+		}
+		catch(Exception selectedError){
+			input.next();
+			System.out.println("Error");
+		}
+		}while(selected!=1 && selected!=2);
 		 
-		 
+		do {
+		try {
 		 System.out.println("Enter a position :");
 		 System.out.println("1.Manager");
 		 System.out.println("2.Staff");
@@ -144,6 +176,13 @@ public class Staff{
 		 else
 			 System.out.println("Invalid Options");
 		 }while(selection!=1 && selection!=2);
+		}
+		catch(Exception selectionError)
+		{
+			input.next();
+			System.out.println("Error");
+		}
+		}while(selection!=1 && selection !=2);
 		 
 		 if(selected==1)
 		 {

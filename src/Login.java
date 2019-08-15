@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Login {
 
-	public static void login()
+	public void login()
 	{   
 		ArrayList<StaffDetails>staff=Staff.staffs;
 		Scanner input=new Scanner(System.in);
@@ -55,6 +55,12 @@ public class Login {
 		}
 		}while(check!=0);
 		
+		System.out.println("1.Staff Details");
+		System.out.println("2.Product Details");
+		System.out.println("3.Accept Order");
+		System.out.println("4.Memberships");
+		System.out.println("5.Reports");
+		int
 	}
 	
 }
