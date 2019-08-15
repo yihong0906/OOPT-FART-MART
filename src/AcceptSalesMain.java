@@ -45,8 +45,8 @@ public class AcceptSalesMain {
 		orderDetails.setOrderNo();
 		paymentDetails.setPaymentNo();
 		
-		paymentDetails.setSubTotal();
-		paymentDetails.setUpdateSubTotal();
+		paymentDetails.setSubTotal(0.0);
+		paymentDetails.setUpdateSubTotal(10.0);
 		
 		//delete
 		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -129,11 +129,13 @@ public class AcceptSalesMain {
 			typeOfCustomer = acceptSalesUserInput.nextInt();
 			
 			if(typeOfCustomer == 1) {
-				System.out.println("Member Customer Purchasing.");
-				paymentDetails.setIsMember();
-			}
-			else if(typeOfCustomer == 2)
 				System.out.println("Normal Customer Purchasing.");
+				paymentDetails.setIsMember(false);
+			}
+			else if(typeOfCustomer == 2) {
+				System.out.println("Member Customer Purchasing.");
+				paymentDetails.setIsMember(true);
+			}
 			else
 				System.out.println("Invalid Input.");
 			
@@ -151,18 +153,23 @@ public class AcceptSalesMain {
 				System.out.print("Quantity Need : ");
 				purchaseProductQuantity = acceptSalesUserInput.nextInt();
 				acceptSalesUserInput.nextLine();
-		        
+				
 				orderDetailsList.add(new OrderDetails(salesProductList.get(choiceProduct-1).getProductCode(), salesProductList.get(choiceProduct-1).getProductName(),
 												      salesProductList.get(choiceProduct-1).getProductWeight(),
-												      salesProductList.get(choiceProduct-1).getProductUnitPrice(), purchaseProductQuantity,
-												      (salesProductList.get(choiceProduct-1).getProductUnitPrice() * purchaseProductQuantity)));
+												      salesProductList.get(choiceProduct-1).getProductUnitPrice(), purchaseProductQuantity));
 				
 				System.out.print("\nHaving Another Order ? (Y or N) : ");
 				nextOrder = acceptSalesUserInput.next().charAt(0);
 				nextOrder = Character.toUpperCase(nextOrder);
 				acceptSalesUserInput.nextLine();
 				
-				System.out.println(paymentDetails.getSubTotal());
+				System.out.println(orderDetails.getProductCode());
+				System.out.println(orderDetails.getProductName());
+				System.out.println(orderDetails.getProductWeight());
+				System.out.println(orderDetails.getProductUnitPrice());
+				System.out.println(orderDetails);
+				//System.out.println(orderDetails.getSubtotalPerItem());
+				//System.out.println(paymentDetails.getSubTotal());
 			}while(nextOrder == 'Y');
 			
 			paymentDetails.setSstAmount(paymentDetails.getSubTotal());

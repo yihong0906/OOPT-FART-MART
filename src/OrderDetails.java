@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class OrderDetails extends PaymentDetails{
 	private static String updateOrderNo = "OD1900001";
@@ -24,6 +23,7 @@ public class OrderDetails extends PaymentDetails{
 		subtotalPerItem = 0.0;
 	}
 	
+	//history constructor
 	public OrderDetails(String orderNo, String productCode, String productName, double productWeight,
 			            double productUnitPrice, int purcahseQuantity, double subtotalPerItem) {
 		this.orderNo = orderNo;
@@ -36,15 +36,14 @@ public class OrderDetails extends PaymentDetails{
 	}
 	
 	//constructor
-	public OrderDetails(String productCode, String productName, double productWeight, double productUnitPrice, int purcahseQuantity, double subtotalPerItem) {
-		//LocalDateTime paymentDate, LocalDateTime paymentTime, double paymentTotalAmount
-		//super(paymentDate, paymentTime, paymentTotalAmount);
+	public OrderDetails(String productCode, String productName, double productWeight, double productUnitPrice, int purcahseQuantity) {
 		this.productCode = productCode;
 		this.productName = productName;
 		this.productWeight = productWeight;
 		this.productUnitPrice = productUnitPrice;
 		this.purcahseQuantity = purcahseQuantity;
-		this.subtotalPerItem = subtotalPerItem;
+		
+		this.subtotalPerItem = (productUnitPrice * purcahseQuantity);
 		super.calculateSubTotal(subtotalPerItem);
 		
 		this.orderNo = updateOrderNo;
@@ -99,7 +98,7 @@ public class OrderDetails extends PaymentDetails{
 	
 	//toString Method
 	public String toString() {
-		return String.format("| %-9s | %-10s | %-30s | %14.2f | %7.2f | %3d |", orderNo, productCode, productName, productWeight, productUnitPrice, purcahseQuantity);
+		return String.format("| %-9s | %-10s | %-30s | %14.2f | %7.2f | %3d | %7.2f |", orderNo, productCode, productName, productWeight, productUnitPrice, purcahseQuantity, subtotalPerItem);
 	}
 }
 
