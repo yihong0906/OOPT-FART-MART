@@ -8,7 +8,7 @@ public class PaymentDetails {
 	
 	protected static String updatePaymentNo = "P1900001";     //payment number that will update after one payment done
 	protected String paymentNo;                               //payment number represent each payment
-	protected boolean isMember = false;                       //customer is a member or not
+	protected boolean isMember;                       //customer is a member or not
 	protected LocalDateTime paymentDateTime;                  //payment date & time
 	ArrayList<OrderDetails> wholeOrderDetailsList;            //store the whole order details of a customer
 	
@@ -102,17 +102,17 @@ public class PaymentDetails {
 		updatePaymentNo = "P" + (Integer.parseInt(updatePaymentNo.substring(1, updatePaymentNo.length()))+1);
 		paymentNo = updatePaymentNo;
 	}
-	public void setIsMember() {
-		isMember = true;
+	public void setIsMember(boolean isMember) {
+		this.isMember = isMember;
 	}
 	public void setPaymentDateTime(LocalDateTime paymentDateTime) {
 		this.paymentDateTime = paymentDateTime;
 	}
-	public void setSubTotal() {
-		subTotal = updateSubTotal;
+	public void setSubTotal(double subTotal) {
+		this.subTotal = subTotal;
 	}
-	public void setUpdateSubTotal() {
-		updateSubTotal = 0.0;
+	public void setUpdateSubTotal(double updateSubTotal) {
+		PaymentDetails.updateSubTotal = updateSubTotal;
 	}
 	public void setSstAmount(double subTotal) {
 		sstAmount = (subTotal * SST);
@@ -136,13 +136,10 @@ public class PaymentDetails {
 	//Calculate SubTotal Pay By Customer Method
 	public void calculateSubTotal(double subtotalPerItem) {
 		updateSubTotal += subtotalPerItem;
-		setSubTotal();
 	}
 	
 	//Display Receipt Method
 	public void displayReceipt(ArrayList<PaymentDetails> paymentDetailsList, ArrayList<OrderDetails> orderDetailsList) {
-		int change;   //how much customer pay
-		
 		System.out.print("\n\n");
 		System.out.println(" =================================================================================================== ");
 		System.out.println("|                                         F A R T . M A R T                                         |");
