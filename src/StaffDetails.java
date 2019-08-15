@@ -15,6 +15,7 @@ public class StaffDetails{
 	 protected String handphone;
 	 protected String userName;
 	 protected static String generateID="18WMD06257";
+	 protected String password;
      
 	 
 	 //for addStaff method
@@ -58,6 +59,7 @@ public class StaffDetails{
 	 public LocalDate getDateOfBirth() {return dateOfBirth;}
 	 public String getHandphone() {return handphone;}
 	 public String getUserName() {return userName;}
+	 public String getPassword() {return password;}
 	 
 	 public void setStaffID(String staffID) {this.staffID=staffID;}
 	 public void setIcNumber(String icNumber) {this.icNumber=icNumber;}

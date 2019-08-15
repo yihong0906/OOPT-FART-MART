@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AcceptSalesMain {
-	public static void main(String[] args) {
+	public static void ACCEPT_SALES() {
 		Scanner acceptSalesUserInput = new Scanner(System.in);
 		
 		PaymentDetails paymentDetails = new PaymentDetails();
