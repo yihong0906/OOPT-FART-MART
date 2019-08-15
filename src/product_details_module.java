@@ -15,7 +15,7 @@ import java.text.ParseException;
 class product_details_module {
 
     
-    public void PRODUCT_DETAILS_MODULE(){
+    public  void PRODUCT_DETAILS_MODULE(String position){
     	
     	//variables declartions
     	String username;
@@ -45,50 +45,65 @@ class product_details_module {
     	
     	//System.out.println("TARC MINI MARKET");
     	System.out.println(" ");
-    	System.out.println(" ____  ____   ___  ____  _   _  ____ _____ ____    __  __  ___  ____  _   _ _     _____ ");
-    	System.out.println("|  _ \\|  _ \\ / _ \\|  _ \\| | | |/ ___|_   _/ ___|  |  \\/  |/ _ \\|  _ \\| | | | |   | ____|");
- 		System.out.println("| |_) | |_) | | | | | | | | | | |     | | \\___ \\  | |\\/| | | | | | | | | | | |   |  _|  ");
- 		System.out.println("|  __/|  _ <| |_| | |_| | |_| | |___  | |  ___) | | |  | | |_| | |_| | |_| | |___| |___ ");
- 		System.out.println("|_|   |_| \\_\\\\___/|____/ \\___/ \\____| |_| |____/  |_|  |_|\\___/|____/ \\___/|_____|_____|");
+    	System.out.println("\t\t\t\t\t\t\t\t\t\t ____  ____   ___  ____  _   _  ____ _____ ____    ");
+    	System.out.println("\t\t\t\t\t\t\t\t\t\t|  _ \\|  _ \\ / _ \\|  _ \\| | | |/ ___|_   _/ ___|  ");
+ 		System.out.println("\t\t\t\t\t\t\t\t\t\t| |_) | |_) | | | | | | | | | | |     | | \\___ \\    ");
+ 		System.out.println("\t\t\t\t\t\t\t\t\t\t|  __/|  _ <| |_| | |_| | |_| | |___  | |  ___) |   ");
+ 		System.out.println("\t\t\t\t\t\t\t\t\t\t|_|   |_| \\_\\\\___/|____/ \\___/ \\____| |_| |____/  ");
 
-                                                                                         
+                                                                         
 
   	
     	
     	//************************** USER CHOOSE THEIR FUNCTIONS**********************************/
-    	
-    	System.out.println("\n1. View Product\n2. Add Product\n3. Modify Product\n4. Delete Product\n5. Back");
-    	
-    	
-    	
-    	
     	int choice;
-    	System.out.print("What task would you like to perform? > ");
-    	choice = input.nextInt();
+    	
+    	
+    
+    	
+    	
+    	
     	
     	do {
-    	  	if(choice == 1){
+    		System.out.println("\n                                        +===============================================+");
+			System.out.println("                                        |              	  PRODUCTS MODULE               |");
+			System.out.println("                                        +===============================================+");
+			System.out.println("                                        |1. View Product                                |");
+			System.out.println("                                        |2. Add Product                                 |");
+			System.out.println("                                        |3. Modify Product                              |");
+			System.out.println("                                        |4. Delete Product                              |");
+			System.out.println("                                        |5. Back                                        |");
+			System.out.println("                                        +===============================================+");
+	    	System.out.print("                                           What task would you like to perform? > ");
+	    	choice = input.nextInt();
+	    	  
+	    	  if(choice == 1){
+
     			viewProduct(product,food_product);  //passing the products array into view method
     			
-    			System.out.println("\n1. View Product\n2. Add Product\n3. Modify Product\n4. Delete Product\n5. Back");
-    			System.out.print("What task would you like to perform? > ");
-    			choice = input.nextInt();
-    		} else if (choice ==2){
-    			addProduct(product,food_product);
     			
-    			System.out.println("\n1. View Product\n2. Add Product\n3. Modify Product\n4. Delete Product\n5. Back");
-    			System.out.print("What task would you like to perform? > ");
-    			choice = input.nextInt();
+    		} else if (choice ==2){
+    			
+    			if(position.equals("Manager")){ //check whether manager or staff
+    				addProduct(product,food_product);
+    			}else
+    				System.out.println("                                          Oops! You have no access to this function!");
+    			
+    			
+    		
     		} else if (choice ==3) {
-    			modifyProduct(product,food_product);
-    			System.out.println("\n1. View Product\n2. Add Product\n3. Modify Product\n4. Delete Product\n5. Back");
-    			System.out.print("What task would you like to perform? > ");
-    			choice = input.nextInt();
+    			if(position.equals("Manager")){ //check whether manager or staff
+    				modifyProduct(product,food_product);
+    			}else
+    				System.out.println("                                          Oops! You have no access to this function!");
+    				
+    			
     		} else if (choice ==4) {
-    			deleteProduct(product,food_product);
-    			System.out.println("\n1. View Product\n2. Add Product\n3. Modify Product\n4. Delete Product\n5. Back");
-    			System.out.print("What task would you like to perform? > ");
-    			choice = input.nextInt();
+    			if(position.equals("Manager")){ //check whether manager or staff
+    				deleteProduct(product,food_product);
+    			}else
+    				System.out.println("                                          Oops! You have no access to this function!");
+
     		} else if (choice ==5) {
     			
     		}else {
@@ -343,17 +358,7 @@ class product_details_module {
 					    		}
 	
 				    		} while (validateDate(manu_date) == false);
-					        //validate manu date must < today date
-					        //should make it to todays date
-					        /*
-					        int year= Integer.parseInt(manu_date.substring(7)); //put manu year into vaar	
-					        do {
-					        	 if(year > 2019){
-					    				System.out.print("Invalid year! Please enter correct manufacturing date (dd-MM-yyyy): ");
-					                	manu_date = scan.nextLine();
-					                	year= Integer.parseInt(manu_date.substring(7)); //put manu year into vaar
-					    			}	
-					        }while (year < 2019); */
+					        
 					       
 	    		
 	    		System.out.print("\n\tEnter product expiry date(dd-MM-yyyy), (0 = if none): "  ); 
@@ -439,24 +444,7 @@ class product_details_module {
 		    		
 		    	} while ((choice!='y' && choice!='Y' && choice != 'n' && choice !='N'));
 	    		
-	    		/*//if yes, data will be added as below
-	    		//Change date (string datatype) into date datatype
-	    		DateTimeFormatter format= DateTimeFormatter.ofPattern("dd-MM-yyyy");
-				LocalDate manuDate=LocalDate.parse(manu_date, format);
-				LocalDate expDate=LocalDate.parse(exp_date, format);
-				
-				
-	    		//enter data into class array
-	    		Category c = new Category (category_id,category_desc);
-	    		Manufacturer m = new Manufacturer (manufac,manuDate,expDate);
-	    		
-	    		
-	    		//insert data into array
-	    		product.add (new Product (product_code,product_name,product_weight,qty,price,c,m));
-
-
-		    	System.out.println("\n\t\tProduct successfully added!");
-		    	*/
+	    	
 		    	
 
     			System.out.println("\n\n==================================ADD PRODUCT(S) DETAILS=================================="  );
@@ -493,7 +481,7 @@ class product_details_module {
     	modify_cat_type = modifyScanner.nextInt();
     	//validate the input data
 
-    	//Product prod_or_food_prod = new Product()
+    	
     	do {
 			if(modify_cat_type != 1 && modify_cat_type != 2) {
 	    		System.out.printf("\nInvalid types of product! Please select '1' or '2' based on the description beside it: ");
@@ -506,8 +494,8 @@ class product_details_module {
     	System.out.print("Great! Now please enter the product number you wish to modify: ");
     	modify_index = modifyScanner.nextInt();
     	
-    	//find the modified index number
-    	//modify_index = modify_index-1;
+    	
+    	
     	
     	if (modify_cat_type == 1) {
     		do {
@@ -664,7 +652,7 @@ class product_details_module {
 	    			System.out.printf("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");
 	    			System.out.println("\nQuantity successfully modified!\n");
 	    		}
-    			//product.get(modify_index).setPrice(newPrice);
+    			
     			System.out.println("\nPrice successfully modified!\n");
     			break;
     			
@@ -680,7 +668,7 @@ class product_details_module {
 	    		} else
 	    			 oldSupplier = food_product.get(modify_index).getManu().getManufacture();
 	    		
-    			//String oldSupplier = product.get(modify_index).getManu().getManufacture();
+    			
     			System.out.println("\nOld Supplier : "+oldSupplier + "\nNew Supplier : "+ newSupplier);
     			
     			//get user confirmation on modifying product
@@ -746,7 +734,9 @@ class product_details_module {
     	System.out.print("Are you sure you want to enter 'Delete Products'? (Y=yes/ N=no): ");
     	
     	choice = input.next().charAt(0);
-   		
+   		if (validateYN(choice) == false){
+   			return;
+   		}
    		//print all product details
     	viewProduct(product,food_product);
     	//------------------------------------------------------------------------------------------------------------------
