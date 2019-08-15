@@ -33,7 +33,7 @@ public class StaffDetails{
 		 
 	 }
 	 
-	 public StaffDetails(String name,String staffID,String icNumber,String gender,Address address,double basicSalary,String position,LocalDate dateOfBirth,String handphone,String userName)
+	 public StaffDetails(String name,String staffID,String icNumber,String gender,Address address,double basicSalary,String position,LocalDate dateOfBirth,String handphone,String userName,String password)
 	 {
 		 this.name=name;
 		 this.staffID=staffID;
@@ -45,6 +45,7 @@ public class StaffDetails{
 		 this.dateOfBirth=dateOfBirth;
 		 this.handphone=handphone;
 		 this.userName=userName;
+		 this.password=password;
 		 
 	 }
 	 public String getName() {return name;}

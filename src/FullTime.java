@@ -6,9 +6,9 @@ public class FullTime extends StaffDetails {
 	private int overtime;
 	private String status;
 	private static double overtimeRate=1.5;
-	public FullTime(String name,String staffID,String icNumber,String gender,Address address,double basicSalary,String position,LocalDate dateOfBirth,String handphone,String userName,String status,int workingHours,int overtime)
+	public FullTime(String name,String staffID,String icNumber,String gender,Address address,double basicSalary,String position,LocalDate dateOfBirth,String handphone,String userName,String password,String status,int workingHours,int overtime)
 	{
-		super(name, staffID, icNumber,gender,address, basicSalary, position, dateOfBirth, handphone,userName);
+		super(name, staffID, icNumber,gender,address, basicSalary, position, dateOfBirth, handphone,userName,password);
 		this.status=status;
 		this.workingHours=workingHours;
 		this.overtime=overtime;
