@@ -25,7 +25,7 @@ public class Login {
 		do {
 		System.out.print("Username :");
 		String username=input.nextLine();
-		System.out.print("Password :");
+		System.out.print("Password :hfghfghgfh");
 		String pass=input.nextLine();
 		
 		for(checking=0;checking<staff.size();checking++)
