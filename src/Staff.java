@@ -28,12 +28,15 @@ public class Staff{
 		
 		try {	
 			do{
+		 System.out.println("Staff Module");
+		 System.out.println("---------------------");
 		 System.out.println("1.Add Staff");
 		 System.out.println("2.View Staff");
 		 System.out.println("3.Modify Staff");
 		 System.out.println("4.Delete Staff");
 	     System.out.println("5.Back");
-		 System.out.print("Please enter your choice: ");
+	     System.out.println("---------------------");
+		 System.out.print("Please enter index no: ");
 		 selection=s.nextInt();
 		
 		 if(selection==1)
@@ -72,7 +75,7 @@ public class Staff{
 		do {
 			
 		//entering staff name
-		 System.out.print("Enter a new employee name :");
+		 System.out.print("\nEnter a new employee name :");
 		 do {
 	      name=input.nextLine();
 		 name=name.toUpperCase();
@@ -288,7 +291,7 @@ public class Staff{
 	 }
 	 public static void viewStaff(ArrayList<StaffDetails> staff)
 	 {
-		 System.out.println("Displaying Staff Details :\n");
+		 System.out.println("\nDisplaying Staff Details :");
 		 System.out.println("+========================================================================================================================================================================================================+");
 		 System.out.printf("|%3s|%-16s |%-10s |%-15s |%-5s|%-6s|%-9s|%-9s|%-10s |%-8s |%-13s |%-12s |%-62s|\n",
 				 "No.","Staff Name","Staff ID","Staff IC","Age","Gender","Status","WorkingHours","Salary(RM)","Position","Date of birth","Phone Number","Home Address");
@@ -299,7 +302,7 @@ public class Staff{
 		 System.out.print(staff.get(i).toString()+"\n");
 		 if(1+i==staff.size())
 		 {
-			 System.out.println("+========================================================================================================================================================================================================+"); 
+			 System.out.println("+========================================================================================================================================================================================================+\n"); 
 		 }
 		 else
 			 System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+");
@@ -337,7 +340,8 @@ public class Staff{
 		 
 		do { 
 		 try {
-		 System.out.println("Which Details you wish to change? :");
+		
+		 System.out.println("\nWhich Details you wish to change? :");
 		 System.out.println("1.Staff Salary");
 		 System.out.println("2.Position");
 		 System.out.println("3.Phone number");
@@ -361,19 +365,19 @@ public class Staff{
 			 if(confirm == 'y')
 			 {
 				 staff.get(y).setSalary(tempSalary);
-				 System.out.println("Salary Updated..");
+				 System.out.println("Salary Updated..\n");
 			 }
 			 else
-				 System.out.println("Update cancelled");
+				 System.out.println("Update cancelled\n");
 		 }
 		 else if(choice==2)
 		 {
-			 System.out.println("Current Position :"+staff.get(y).getPosition());
+			 System.out.println("\nCurrent Position :"+staff.get(y).getPosition());
 			 System.out.println("New Position :");
 			 System.out.println("1.Manager");
 			 System.out.println("2.Staff");
 			 System.out.println("------------------");
-			 System.out.println(": ");
+			 System.out.print(": ");
 			 do {
 				 do {
 			 selection=m.nextInt();
@@ -387,6 +391,7 @@ public class Staff{
 				if("Manager".equals(staff.get(y).getPosition()))
 				{
 					System.out.println("Cant choose current position!");
+					System.out.print("Enter again :");
 				}
 				else
 					{
@@ -415,17 +420,17 @@ public class Staff{
 			 if(confirm == 'y')
 			 {
 				 staff.get(y).setPosition(tempPosition);
-				 System.out.println("Position Updated..");
+				 System.out.println("Position Updated..\n");
 			 }
 			 else
-				 System.out.println("Update cancelled");
+				 System.out.println("Update cancelled\n");
 			  
 		 }
 		 else if(choice==3)
 		 {
-			 System.out.println("Current Phone number :"+staff.get(y).getHandphone());
+			 System.out.println("\nCurrent Phone number :"+staff.get(y).getHandphone());
 			 m.nextLine();
-			 System.out.println("Enter a new phone number :");
+			 System.out.print("Enter a new phone number :");
 			 do {
 				 tempPhoneNumber=m.nextLine();
 				 if(tempPhoneNumber.equals(staff.get(y).getHandphone()) || tempPhoneNumber.length()!=10)
@@ -440,15 +445,15 @@ public class Staff{
 			 if(confirm == 'y')
 			 {
 				 staff.get(y).setHandPhone(tempPhoneNumber);
-				 System.out.println("Phone number Updated..");
+				 System.out.println("Phone number Updated..\n");
 			 }
 			 else
-				 System.out.println("Update cancelled");
+				 System.out.println("Update cancelled\n");
 			 
 		 }
 		 else
 		 {   m.nextLine();
-			 System.out.println("Current Home Address :"+staff.get(y).getAddress());
+			 System.out.println("\nCurrent Home Address :"+staff.get(y).getAddress());
 			 System.out.println("Enter a new address :");
 			 System.out.print("Enter Street Name :");
 			 String tempStreet=m.nextLine();
@@ -490,15 +495,15 @@ public class Staff{
 	  {
 		  System.out.println("Invalid Options...");
 	  }
-	  System.out.println("+=============================================================================================================================================================================================+");
-		 System.out.printf("|%3s|%-20s |%-14s |%-15s |%-5s|%-6s |%-10s |%-8s |%-13s |%-12s |%-65s|\n",
-				 "No.","Staff Name","Staff ID","Staff IC","Age","Gender","Salary(RM)","Position","Date of birth",
-				 "Phone Number","Home Address");
-		 System.out.println("+=============================================================================================================================================================================================+");  
+	  System.out.println("Displaying Staff Details :\n");
+		 System.out.println("+========================================================================================================================================================================================================+");
+		 System.out.printf("|%3s|%-16s |%-10s |%-15s |%-5s|%-6s|%-9s|%-9s|%-10s |%-8s |%-13s |%-12s |%-62s|\n",
+				 "No.","Staff Name","Staff ID","Staff IC","Age","Gender","Status","WorkingHours","Salary(RM)","Position","Date of birth","Phone Number","Home Address");
+		 System.out.println("+========================================================================================================================================================================================================+");  
 		 System.out.printf("|%3s",choice);	  
 		 System.out.println(staff.get(choice-1).toString());
-	  System.out.println("+=============================================================================================================================================================================================+");
-		 System.out.print("Do you sure want to delete? :");
+	  System.out.println("+========================================================================================================================================================================================================+");
+		 System.out.print("Do you sure want to delete?(y/n) :");
 		 char selection=delete.next().charAt(0);
 		 selection=Character.toLowerCase(selection);
 		 if(selection=='y')
