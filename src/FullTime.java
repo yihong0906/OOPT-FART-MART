@@ -14,9 +14,10 @@ public class FullTime extends StaffDetails {
 		this.overtime=overtime;
 	}
 
-	public FullTime(String name,String icNumber,String gender,Address address,double basicSalary,String position,LocalDate dateOfBirth,String handphone,String status,int workingHours,int overtime)
+	//for add method
+	public FullTime(String name,String icNumber,String gender,Address address,double basicSalary,String position,LocalDate dateOfBirth,String handphone,String userName,String password,String status,int workingHours,int overtime)
 	{
-		super(name,icNumber,gender,address,basicSalary,position,dateOfBirth,handphone);
+		super(name,icNumber,gender,address,basicSalary,position,dateOfBirth,handphone,userName,password);
 		this.status=status;
 		this.workingHours=workingHours;
 		this.overtime=overtime;

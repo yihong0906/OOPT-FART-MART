@@ -297,13 +297,13 @@ public class Staff{
 		 String country=input.nextLine();
 		 
 		 //display the data entered by user just now
-		 System.out.println("+========================================================================================================================================================================================+");
-		 System.out.printf("|%-17s |%-9s|%-12s |%-6s |%-8s|%-13s|%-9s|%-10s |%-8s |%-13s |%-12s |%-46s|\n",
+		 System.out.println("+======================================================================================================================================================================================+");
+		 System.out.printf("|%-17s |%-10s|%-12s |%-6s |%-8s|%-13s|%-9s|%-10s |%-8s |%-13s |%-12s |%-46s|\n",
 				 "Staff Name","User name","Staff IC","Gender","Status","Working Hours","Overtime","Salary(RM)","Position","Date of birth",
 				 "Phone Number","Home Address");
-		 System.out.println("+========================================================================================================================================================================================+");
-		 System.out.printf("|%-17s |%-9s|%-12s |%-6s |%-8s|%-13d|%-9d|%-10.2f |%-8s |%-13s |%-12s |%-46s|\n",name,userName,icNumber,gender,status,workingHours,overtimeHours,salary,position,DOB,handphone,streetName+","+rArea+","+postCode+","+state+","+country);
-		 System.out.println("+========================================================================================================================================================================================+");
+		 System.out.println("+======================================================================================================================================================================================+");
+		 System.out.printf("|%-17s |%-10s|%-12s |%-6s |%-8s|%-13d|%-9d|%-10.2f |%-8s |%-13s |%-12s |%-46s|\n",name,userName,icNumber,gender,status,workingHours,overtimeHours,salary,position,DOB,handphone,streetName+","+rArea+","+postCode+","+state+","+country);
+		 System.out.println("+======================================================================================================================================================================================+");
 		 System.out.print("Confirm to add these data?(Y/N) :");
 		 confirm=input.next().charAt(0);
 		 confirm=Character.toLowerCase(confirm);
@@ -313,10 +313,10 @@ public class Staff{
 		 Address address = new Address(streetName,rArea,postCode,state,country);
 		 if(check==0)//if is full-time then will stored into full time object arrays
 		 {
-		 staff.add(new FullTime(name,icNumber,gender,address,salary,position,lDate,handphone,status,workingHours,overtimeHours));
+		 staff.add(new FullTime(name,icNumber,gender,address,salary,position,lDate,handphone,userName,password,status,workingHours,overtimeHours));
 		 }
 		 else//if is part-time then will stored into part time object arrays
-			 staff.add(new PartTime(name,icNumber,gender,address,salary,position,lDate,handphone,status,workingHours,overtimeHours));
+			 staff.add(new PartTime(name,icNumber,gender,address,salary,position,lDate,handphone,userName,password,status,workingHours,overtimeHours));
 		 System.out.println("Staff details added successfully!");
 	     }
 	     else
