@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public class PaymentDetails {
 	public final double SST = 0.1;               //market get SST 10%
-	public final double memberDiscount = 0.05;   //member get discount 5%
+	public final double MEMBERDISCOUNT = 0.05;   //member get discount 5%
 	
 	protected static String updatePaymentNo = "P1900001";     //payment number that will update after one payment done
 	protected String paymentNo;                               //payment number represent each payment
@@ -52,7 +52,7 @@ public class PaymentDetails {
 		subTotal = updateSubTotal;
 		sstAmount = subTotal * SST;
 		if(isMember == true)
-			discountAmount = (subTotal + sstAmount) * memberDiscount;
+			discountAmount = (subTotal + sstAmount) * MEMBERDISCOUNT;
 		totalAmount = subTotal + sstAmount - discountAmount;
 		roundingAdjustment = Double.valueOf(String.format("%.1f", totalAmount));
 		change = cashPay - roundingAdjustment;

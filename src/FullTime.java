@@ -14,9 +14,10 @@ public class FullTime extends StaffDetails {
 		this.overtime=overtime;
 	}
 
-	public FullTime(String name,String icNumber,String gender,Address address,double basicSalary,String position,LocalDate dateOfBirth,String handphone,String status,int workingHours,int overtime)
+	//for add method
+	public FullTime(String name,String icNumber,String gender,Address address,double basicSalary,String position,LocalDate dateOfBirth,String handphone,String userName,String password,String status,int workingHours,int overtime)
 	{
-		super(name,icNumber,gender,address,basicSalary,position,dateOfBirth,handphone);
+		super(name,icNumber,gender,address,basicSalary,position,dateOfBirth,handphone,userName,password);
 		this.status=status;
 		this.workingHours=workingHours;
 		this.overtime=overtime;
@@ -62,7 +63,7 @@ public class FullTime extends StaffDetails {
 	}
 	
 	public String toString() {
-		return String.format("|%-16s |%-10s |%-15s |%-5d|%-6s|%-9s|%-12d|%-10.2f |%-8s |%-13s |%-12s |%-62s|",name,staffID,icNumber,getAge(),gender,status,workingHours,calculateSalary(),position,dateOfBirth,handphone,address);
+		return String.format("|%-16s |%-10s |%-15s |%-5d|%-6s|%-9s|%-12d|%-10.2f |%-8s |%-13s |%-12s |%-46s|",name,staffID,icNumber,getAge(),gender,status,workingHours,calculateSalary(),position,dateOfBirth,handphone,address);
 		
 	
 	}

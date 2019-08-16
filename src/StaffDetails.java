@@ -19,7 +19,7 @@ public class StaffDetails{
      
 	 
 	 //for addStaff method
-	 public StaffDetails(String name,String icNumber,String gender,Address address,double basicSalary,String position,LocalDate dateOfBirth,String handphone)
+	 public StaffDetails(String name,String icNumber,String gender,Address address,double basicSalary,String position,LocalDate dateOfBirth,String handphone,String userName,String password)
 	 {
 		 this.name=name;
 		 this.staffID=generateID;
@@ -30,6 +30,8 @@ public class StaffDetails{
 		 this.position=position;
 		 this.dateOfBirth=dateOfBirth;
 		 this.handphone=handphone;
+		 this.userName=userName;
+		 this.password=password;
 		 generateID = "18WMD0" + (Integer.parseInt(generateID.substring(5,generateID.length()))+1);
 		 
 	 }
