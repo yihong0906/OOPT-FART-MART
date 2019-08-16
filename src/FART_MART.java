@@ -1,16 +1,19 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import report.Report;
 
 
 public class FART_MART {
     
     public static void main(String[] args) {
     	//create object so can call other module
-    	//testing 123
+    	
+    	//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         product_details_module prod_details = new product_details_module();
         MembershipMain membership = new MembershipMain();
         Staff staff_info = new Staff();
-        
+        AcceptSalesMain accept_sales = new AcceptSalesMain();
+        Report reports = new Report(); 
     	Scanner input = new Scanner(System.in);
     	int choice, logoutChoice;
     	
@@ -44,9 +47,9 @@ public class FART_MART {
 			choice = input.nextInt();
 	    	
 	    	
-	    	
+	    		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	    	  	if(choice == 1){
-	    			
+	    			accept_sales.ACCEPT_SALES();
 	    			// make transaction - siong hou
 	
 	    		} else if (choice ==2){
@@ -62,22 +65,23 @@ public class FART_MART {
 	    			
 	
 	    		} else if (choice ==4) {
-	    			membership.MEMBERSHIP_MODULE();
+	    			membership.MEMBERSHIP_MODULE(position);
 		    			
 	
 	    		} else if(choice ==5){
 	    			
 	    				if (position.equals("Manager") ){
+	    					reports.REPORT_MODULE();
 		    				//reports menu - bao qi
 		    			} else if (position.equals("Staff")){
 		    				System.out.println("Oops! You are now allowed to enter this module!");
 		    			}
 						
 	    		}else if (choice ==6) {
-	    			
+	    			System.out.println("\t\tLogged out!");
 	    		}else {
 	    			
-	    		System.out.println("Invalid input!");
+	    		System.out.print("Invalid input!");
 	    		choice = input.nextInt();
 	    		}
 		
@@ -85,6 +89,7 @@ public class FART_MART {
     		
 
     	}while(!position.equals("0"));
+    	
     }
     
    		    
