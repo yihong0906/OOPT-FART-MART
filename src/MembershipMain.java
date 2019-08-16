@@ -22,7 +22,9 @@ public class MembershipMain {
 			
 	
 	/***************************** MAIN MEMBERSHIP MODULE *****************************/
-	public static void MEMBERSHIP_MODULE(String position) {
+	public static void MEMBERSHIP_MODULE(int loginIndex) {
+		ArrayList<StaffDetails> staffDetails = Staff.staffs; //check user position
+		
 		Scanner membershipUserInput = new Scanner(System.in);
 		
 		ArrayList<String> allowModifyList = new ArrayList<String>();
@@ -102,12 +104,14 @@ public class MembershipMain {
 						addMemberDetails(memberDetails);
 					else if(userChoice == 3)
 						modifyMemberDetails(memberDetails, allowModifyList);
-					else if(userChoice == 4)
-						if(position.equals("Manager")){ //check whether manager or staff
+					else if(userChoice == 4){
+						if(staffDetails.get(loginIndex).getPosition().equals("Manager")){
 		    				deleteMemberDetails(memberDetails);
-		    			}else
-    						System.out.println("Oops! You have no access to this function!");
-						deleteMemberDetails(memberDetails);
+		    			}	else if (staffDetails.get(loginIndex).getPosition().equals("Staff")){
+		    				System.out.println("Oops! You have no access to this function!");
+		    				return;
+		    			}
+					}
 					else if(userChoice == 5)
 						System.out.println("\nExit Membership.");
 					else

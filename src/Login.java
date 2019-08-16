@@ -2,13 +2,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Login {
 
-	public static String login()
+	public static int login()
 	{   
 		ArrayList<StaffDetails>staff=Staff.staffs;
 		Scanner input=new Scanner(System.in);
 	    //String[] password= {"hxkiller03","hxkiller04","hxkiller05","hxkiller06","hxkiller07","hxkiller08"};
 	    int check=8,valid=3,checking,usernameIndex=1,passwordIndex=0;
-	    String position="0";
+	    int position=999;
 	    String fakePosition="0";
 	    
 		System.out.println("\r\n" + 
@@ -33,8 +33,10 @@ public class Login {
 		do {
 		System.out.print("\t\t\t\t\t\t\t\t\t\t\t\tUsername : ");
 		String username=input.nextLine();
-		if (username.equals("0"))
-			return "0";
+		if (username.equals("0")){
+			position = -1;
+			return position;
+		}
 		System.out.print("\n\t\t\t\t\t\t\t\t\t\t\t\tPassword : ");
 		String pass=input.nextLine();
 		
@@ -69,15 +71,15 @@ public class Login {
 		}while(check!=0);
 		
 		
-		
+		return checking;
 
 		
-		if(staff.get(usernameIndex).getPosition().equals("Staff")){
+	/*	if(staff.get(usernameIndex).getPosition().equals("Staff")){
 			position="Staff";	
 			}else
 			position="Manager";	
 		
-		return position;
+		return position;*/
 	}
 	
 }

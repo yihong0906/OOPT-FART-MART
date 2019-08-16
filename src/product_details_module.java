@@ -16,12 +16,12 @@ import java.util.Arrays;
 class product_details_module {
 	static DateTimeFormatter format= DateTimeFormatter.ofPattern("dd-MM-yyyy");
 	static ArrayList <Food_Related_Product> food_product = new ArrayList <Food_Related_Product>(Arrays.asList( 
-(new Food_Related_Product("E001", "ABC Fresh Egg 15pcs", 49.60, 21, 6.49,new Category("FF05", "Fresh Foods"),new Manufacturer("ABC", LocalDate.parse("12-08-2019", format)),LocalDate.parse("31-08-2019", format))),
+	(new Food_Related_Product("E001", "ABC Fresh Egg 15pcs", 49.60, 21, 6.49,new Category("FF05", "Fresh Foods"),new Manufacturer("ABC", LocalDate.parse("12-08-2019", format)),LocalDate.parse("31-08-2019", format))),
 	(new Food_Related_Product("E034", "BAO Yellow Noodle", 450.00, 50, 1.10,new Category("FF81", "Fresh Foods"),new Manufacturer("BAO", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2019", format))),
 	(new Food_Related_Product("B009", "Anmum Milk Powder", 650.00, 15, 66.10,new Category("BM20", "Baby"),new Manufacturer("Anmum", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format))),
 	(new Food_Related_Product("C201", "Nestlé Chocolate Ice Cream", 850.00, 25, 8.49,new Category("CF90", "Frozen"),new Manufacturer("Nestlé", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format))),
 	(new Food_Related_Product("D002", "Homesoy Soya Milk", 1.00, 10, 2.50,new Category("DD01", "Drinks"),new Manufacturer("Homesoy", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-12-2019", format))),
-(new Food_Related_Product("D792", "Pedigree Dog Food", 10.00, 27, 77.90 ,new Category("PD19", "Pets"),new Manufacturer("Pedigree", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format))),
+	(new Food_Related_Product("D792", "Pedigree Dog Food", 10.00, 27, 77.90 ,new Category("PD19", "Pets"),new Manufacturer("Pedigree", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format))),
 	(new Food_Related_Product("A809", "Snickers 12 x 20g", 240.00, 40, 13.99 ,new Category("GA12", "Grocery"),new Manufacturer("Snickers", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-12-2020", format)))));
 	
 	static ArrayList <Product> product = new ArrayList <Product>(Arrays.asList(
@@ -29,10 +29,10 @@ class product_details_module {
 			(new Product("P023", "Royal Gold Bathroom Tissue 240Sheetsx20Rolls",3.56, 30, 29.90,new Category("HH21", "Household"),new Manufacturer("Royal Gold", LocalDate.parse("12-08-2019", format)))),
 			(new Product("F201", "Febreze Fabric Refresher 200ml", 200.00, 20, 8.50,new Category("HC12", "Household"),new Manufacturer("Febreze", LocalDate.parse("01-01-2019", format))))));
     
-	public  void PRODUCT_DETAILS_MODULE(String position){
-    	
+	public  void PRODUCT_DETAILS_MODULE(int loginIndex){
+    	ArrayList<StaffDetails> staffDetails = Staff.staffs; //check user position
     	//variables declartions
-    	String username;
+    	String username;  
     	String password;
     		
     	
@@ -82,27 +82,29 @@ class product_details_module {
     			
     			
     		} else if (choice ==2){
-    			
-    			if(position.equals("Manager")){ //check whether manager or staff
-    				addProduct(product,food_product);
-    			}else
-    				System.out.println("                                          Oops! You have no access to this function!");
-    			
-    			
+    				if(staffDetails.get(loginIndex).getPosition().equals("Manager")){
+	    				addProduct(product,food_product);
+	    			}	else if (staffDetails.get(loginIndex).getPosition().equals("Staff")){
+	    				System.out.println("                                          Oops! You have no access to this function!");
+	    	
+	    			}
+
     		
     		} else if (choice ==3) {
-    			if(position.equals("Manager")){ //check whether manager or staff
-    				modifyProduct(product,food_product);
-    			}else
-    				System.out.println("                                          Oops! You have no access to this function!");
-    				
+    			if(staffDetails.get(loginIndex).getPosition().equals("Manager")){
+	    					modifyProduct(product,food_product);
+	    			}	else if (staffDetails.get(loginIndex).getPosition().equals("Staff")){
+	    				System.out.println("                                          Oops! You have no access to this function!");
+	    	
+	    			}
     			
     		} else if (choice ==4) {
-    			if(position.equals("Manager")){ //check whether manager or staff
-    				deleteProduct(product,food_product);
-    			}else
-    				System.out.println("                                          Oops! You have no access to this function!");
-
+    				if(staffDetails.get(loginIndex).getPosition().equals("Manager")){
+	    					deleteProduct(product,food_product);
+	    			}	else if (staffDetails.get(loginIndex).getPosition().equals("Staff")){
+	    				System.out.println("                                          Oops! You have no access to this function!");
+	    	
+	    			}
     		} else if (choice ==5) {
     			
     		}else {
