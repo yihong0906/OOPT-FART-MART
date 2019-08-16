@@ -51,7 +51,7 @@ public class Report {
                 case 0:
                 {
                     System.out.println("\nThank you and have a nice day :) ");
-                    System.exit(0);
+                    return;
                 }
                 default:
                     if(n>0){
