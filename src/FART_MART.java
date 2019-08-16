@@ -24,7 +24,8 @@ public class FART_MART {
     	
     	do {
     		position=login1.login();
-    		if(position=-1) {
+    		
+    		if(position==-1) {
     			return;
     		}
 	    	do {
@@ -88,7 +89,7 @@ public class FART_MART {
 	    	}while (choice !=6);  
     		
 
-    	}while(position!=999);
+    	}while(position!=-1);
     	
     }
     

@@ -8,8 +8,9 @@ public class Login {
 		Scanner input=new Scanner(System.in);
 	    //String[] password= {"hxkiller03","hxkiller04","hxkiller05","hxkiller06","hxkiller07","hxkiller08"};
 	    int check=8,valid=3,checking,usernameIndex=1,passwordIndex=0;
-	    int position=999;
+	    int position=-1;
 	    String fakePosition="0";
+	    
 	    
 		System.out.println("\r\n" + 
 				"\t\t\t\t\t\t\t\t\t  ______      _____ _______     __  __          _____ _______ \r\n" + 
@@ -33,8 +34,8 @@ public class Login {
 		do {
 		System.out.print("\t\t\t\t\t\t\t\t\t\t\t\tUsername : ");
 		String username=input.nextLine();
+		
 		if (username.equals("0")){
-			position = -1;
 			return position;
 		}
 		System.out.print("\n\t\t\t\t\t\t\t\t\t\t\t\tPassword : ");
@@ -56,9 +57,8 @@ public class Login {
 		}
 		if(usernameIndex==passwordIndex)
 		{
+			checking=usernameIndex;
 			check=0;
-			
-		
 		}	
 		if(check!=0)
 		{

@@ -1,7 +1,4 @@
- 
-
 import java.util.Scanner;
-import java.util.Date;
 import java.time.LocalDate;
 import java.text.DateFormat;
 import java.time.format.DateTimeFormatter;
@@ -12,14 +9,13 @@ import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.Arrays;
 
-
 class product_details_module {
 	static DateTimeFormatter format= DateTimeFormatter.ofPattern("dd-MM-yyyy");
 	static ArrayList <Food_Related_Product> food_product = new ArrayList <Food_Related_Product>(Arrays.asList( 
 	(new Food_Related_Product("E001", "ABC Fresh Egg 15pcs", 49.60, 21, 6.49,new Category("FF05", "Fresh Foods"),new Manufacturer("ABC", LocalDate.parse("12-08-2019", format)),LocalDate.parse("31-08-2019", format))),
 	(new Food_Related_Product("E034", "BAO Yellow Noodle", 450.00, 50, 1.10,new Category("FF81", "Fresh Foods"),new Manufacturer("BAO", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2019", format))),
 	(new Food_Related_Product("B009", "Anmum Milk Powder", 650.00, 15, 66.10,new Category("BM20", "Baby"),new Manufacturer("Anmum", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format))),
-	(new Food_Related_Product("C201", "Nestlé Chocolate Ice Cream", 850.00, 25, 8.49,new Category("CF90", "Frozen"),new Manufacturer("Nestlé", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format))),
+	(new Food_Related_Product("C201", "Nestle Chocolate Ice Cream", 850.00, 25, 8.49,new Category("CF90", "Frozen"),new Manufacturer("Nestlé", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format))),
 	(new Food_Related_Product("D002", "Homesoy Soya Milk", 1.00, 10, 2.50,new Category("DD01", "Drinks"),new Manufacturer("Homesoy", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-12-2019", format))),
 	(new Food_Related_Product("D792", "Pedigree Dog Food", 10.00, 27, 77.90 ,new Category("PD19", "Pets"),new Manufacturer("Pedigree", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format))),
 	(new Food_Related_Product("A809", "Snickers 12 x 20g", 240.00, 40, 13.99 ,new Category("GA12", "Grocery"),new Manufacturer("Snickers", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-12-2020", format)))));
@@ -27,17 +23,15 @@ class product_details_module {
 	static ArrayList <Product> product = new ArrayList <Product>(Arrays.asList(
 			(new Product("T171", "Colgate Toothbrush", 430.00, 50, 12.99,new Category("HB46", "Health & Beauty"),new Manufacturer("Colgate", LocalDate.parse("12-08-2019", format)))),
 			(new Product("P023", "Royal Gold Bathroom Tissue 240Sheetsx20Rolls",3.56, 30, 29.90,new Category("HH21", "Household"),new Manufacturer("Royal Gold", LocalDate.parse("12-08-2019", format)))),
+			(new Product("P123", "FABER-CASTELL PRO GEL PEN 0.5MM",50.0, 0, 3.90,new Category("HS10", "Stationery"),new Manufacturer("Faber Castell", LocalDate.parse("12-12-2019", format)))),
 			(new Product("F201", "Febreze Fabric Refresher 200ml", 200.00, 20, 8.50,new Category("HC12", "Household"),new Manufacturer("Febreze", LocalDate.parse("01-01-2019", format))))));
     
-	public  void PRODUCT_DETAILS_MODULE(int loginIndex){
+	public void PRODUCT_DETAILS_MODULE(int loginIndex){
     	ArrayList<StaffDetails> staffDetails = Staff.staffs; //check user position
     	//variables declartions
     	String username;  
     	String password;
-    		
-    	
-    	
-    
+
     	// for input
     	Scanner input = new Scanner(System.in); //number
     	Scanner text = new Scanner(System.in); //for string, idk why need 2 input
@@ -50,19 +44,8 @@ class product_details_module {
  		System.out.println("\t\t\t\t\t\t\t\t\t\t|  __/|  _ <| |_| | |_| | |_| | |___  | |  ___) |   ");
  		System.out.println("\t\t\t\t\t\t\t\t\t\t|_|   |_| \\_\\\\___/|____/ \\___/ \\____| |_| |____/  ");
 
-                                                                         
-
-  	
-    	
     	//************************** USER CHOOSE THEIR FUNCTIONS**********************************/
-    	int choice;
-    	
-    	
-    
-    	
-    	
-    	
-    	
+    	int choice;	
     	do {
     		System.out.println("\n                                        +===============================================+");
 			System.out.println("                                        |              	  PRODUCTS MODULE               |");
@@ -123,13 +106,6 @@ class product_details_module {
     
     //*********************************************END OF MAIN*************************************************
     
-    
-    
-    
-    
-    
-    
-    
     //*************************************VIEW PRODUCT************************************************
     public static void viewProduct(ArrayList<Product> product, ArrayList<Food_Related_Product> food_product){
 
@@ -142,7 +118,21 @@ class product_details_module {
     	for (int i=0; i<product.size(); i++){
     		System.out.printf( "|%2d %s\n", i+1,product.get(i).toString() );// +(i+1) + " "+ product.get(i).toString() );
     		System.out.print("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");
+    	
     	}
+    	//display low quantity products
+    	for (int i=0;i<product.size(); i++){
+    		if(product.get(i).getQty() <5){
+    			System.out.println("\n+===================================================================DISPLAY LOW QUANTITY PRODUCTS==================================================================+");
+		    	System.out.printf("								*Any products that have quantity less than 5 will be displayed as below! Please re-stock as soon as possible!							 |");
+		    	 System.out.printf("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");
+    	 
+	    		System.out.printf( "|%2d %s\n", i+1,product.get(i).toString() );// +(i+1) + " "+ product.get(i).toString() );
+	    		System.out.print("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");
+    		
+    		}
+    	}
+    	
     	
     	System.out.println("\n\n+================================================================DISPLAY FOOD-RELATED PRODUCTS=======================================================================+");
     	System.out.printf("| %s |%-5s |              %-35s|%5s |%5s |%6s   | %10s | %10s | %15s   | %10s |%10s|\n", "No" , "Code" ,"         Name" ," Weight ", "Qty", "Price", "Category ID",
@@ -153,6 +143,18 @@ class product_details_module {
     		System.out.printf( "|%2d %s\n", j+1,food_product.get(j).toString() );// +(i+1) + " "+ product.get(i).toString() );
     		System.out.print("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");
     	}
+    	//display low quantity products
+    	for (int j=0;j<food_product.size(); j++){
+    		if(food_product.get(j).getQty() <5){
+    			System.out.println("\n+===================================================================DISPLAY LOW QUANTITY PRODUCTS==================================================================+");
+		    	System.out.printf("								*Any products that have quantity less than 5 will be displayed as below! Please re-stock as soon as possible!							 |");
+		    	 System.out.printf("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");
+    	 
+	    		System.out.printf( "|%2d %s\n", j+1,food_product.get(j).toString() );// +(i+1) + " "+ product.get(i).toString() );
+	    		System.out.print("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");
+    		
+    		}}
+    	
  
 		System.out.println("Press any key to continue...");
         try
@@ -545,7 +547,6 @@ class product_details_module {
 	    					newQty = input.nextInt();
 	    				}
 	    			}while (newQty <= 0);
-	    			//--------------------------------------------------------------------------------------------------------------------------------
 	    		if(modify_cat_type == 1){ //get quantity based on the product type
 	    			 oldQty = product.get(modify_index).getQty();
 	    		} else 
@@ -565,8 +566,6 @@ class product_details_module {
     				System.out.println("Product failed to be modified! ");
     				return;
     			}
-
-    			//--------------------------------------------------------------------------------------------------------------------------------
     			//check class type then set new data into arraylist
    	    		if(modify_cat_type == 1){
 	    			product.get(modify_index).setQty(newQty);
@@ -606,7 +605,6 @@ class product_details_module {
 	    					newPrice = input.nextDouble();
 	    				}
 	    			}while (newPrice <= 0);
-	    		//------------------------------------------------------------------------------------------------------------------------	
 	    		if(modify_cat_type == 1){
 	    			 oldPrice = product.get(modify_index).getPrice();
 	    			
@@ -614,7 +612,7 @@ class product_details_module {
 	    			 oldPrice = food_product.get(modify_index).getPrice();
 	    		
 	    		
-    			//double oldPrice = product.get(modify_index).getPrice();
+    			
     			System.out.println("\nOld Price : " + oldPrice + "\nNew Price : " + newPrice);
     			
     			//get user confirmation on modifying product
@@ -740,7 +738,6 @@ class product_details_module {
    		}
    		//print all product details
     	viewProduct(product,food_product);
-    	//------------------------------------------------------------------------------------------------------------------
     	System.out.println("Before we begin, which type of products you would like to delete?\n1. Non-food related products\n2. Food related products");
     	System.out.print("Please enter your choice based on the numbers: ");
     	Scanner deleteType = new Scanner (System.in);
@@ -755,10 +752,7 @@ class product_details_module {
 	    		delete_cat_type = deleteType.nextInt(); //this is used to check whether is it food product or normal product
 	    	}
     	} while(delete_cat_type!=1 && delete_cat_type!=2);
-    	
-    	
-    	
-    	
+
     	System.out.print("Great! Now please enter the product number you wish to delete: ");
     	Scanner deleteScanner = new Scanner (System.in);
     	int delete_index = deleteScanner.nextInt();
@@ -785,10 +779,7 @@ class product_details_module {
     			}
     		}while ((delete_index > food_product.size()) ||(delete_index<1));
     	}
-    	
-    	
-    	
-    	
+	
     	delete_index=delete_index-1;
     	
     	 if(delete_cat_type == 1){
@@ -868,7 +859,6 @@ class product_details_module {
 			DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 
         // Input to be parsed should strictly follow the defined date format
-        // above.
         format.setLenient(false);
 
         String date = validate_date;
