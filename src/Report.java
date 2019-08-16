@@ -8,11 +8,11 @@ public class Report {
         Scanner input = new Scanner (System.in);
         
         System.out.println("\n    _____                       _    ");
-        System.out.println("   |  __ \                     | |   ");
+        System.out.println("   |  __ \\                     | |   ");
         System.out.println("   | |__) |___ _ __   ___  _ __| |_  ");
-        System.out.println("   |  _  // _ \ '_ \ / _ \| '__| __| ");
-        System.out.println("   | | \ \  __/ |_) | (_) | |  | |_  ");
-        System.out.println("   |_|  \_\___| .__/ \___/|_|   \__| ");
+        System.out.println("   |  _  // _ \\ '_ \\ / _ \\| '__| __| ");
+        System.out.println("   | | \\ \\  __/ |_) | (_) | |  | |_  ");
+        System.out.println("   |_|  \\_\\___| .__/ \\___/|_|   \\__| ");
         System.out.println("              | |                    ");
         System.out.println("              |_|                    ");
     
