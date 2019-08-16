@@ -6,7 +6,7 @@ public class Login {
 	{   
 		ArrayList<StaffDetails>staff=Staff.staffs;
 		Scanner input=new Scanner(System.in);
-	    String[] password= {"hxkiller03","hxkiller04","hxkiller05","hxkiller06","hxkiller07","hxkiller08"};
+	    //String[] password= {"hxkiller03","hxkiller04","hxkiller05","hxkiller06","hxkiller07","hxkiller08"};
 	    int check=8,valid=3,checking,usernameIndex=1,passwordIndex=0;
 	    String position="0";
 	    String fakePosition="0";
@@ -45,9 +45,9 @@ public class Login {
 				usernameIndex=checking;
 				}
 		}
-		for(checking=0;checking<password.length;checking++)
+		for(checking=0;checking<staff.size();checking++)
 		{
-			if(pass.equals(password[checking]))
+			if(pass.equals(staff.get(checking).getPassword()))
 				{
 					passwordIndex=checking;
 				}
