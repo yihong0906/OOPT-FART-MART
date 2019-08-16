@@ -1,7 +1,7 @@
 
 package report;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class SalaryOfTheEmployees {
     public static void r3(){
@@ -17,7 +17,7 @@ public class SalaryOfTheEmployees {
         System.out.println("---------------------------------------------------------------------------");
         
         for(StaffDetails e:staffDetails){
-                             System.out.printf("\n%s %s %s %lf\n",e.getStaffID(),e.getStaffName(),e.getIcNumber(),e.getSalary());
+                             System.out.printf("\n%-10s %-25s %-25s %lf\n",e.getStaffID(),e.getStaffName(),e.getIcNumber(),e.getSalary());
                              total+=e.getSalary();
                              
                          }

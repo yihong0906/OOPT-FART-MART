@@ -13,6 +13,8 @@ public class TotalSalesBasedOnTheProduct {
         System.out.println("1. ABC Fresh Egg");
         System.out.println("2. BAO Yellow Noodle");
         System.out.println("3. Anmum Milk Powder");
+        System.out.println("4. Pedigree Dog Food");
+        System.out.println("5. Febreze Fabric Refresher 200ml");
         System.out.println("------------------------------------");
         
         while(true){
@@ -42,7 +44,7 @@ public class TotalSalesBasedOnTheProduct {
                             String str1 = "E001";
                             int x = str1.compareTo(p.getProduct_code);
                             if(x == 0){
-                             System.out.printf("%s %s %d %lf %lf\n",p.getProduct_code(),p.getCatDescription(),p.getQty(),p.getPrice(),total);
+                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProduct_code(),p.getCatDescription(),p.getQty(),p.getPrice(),total);
         }
                          }
        System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
@@ -71,7 +73,7 @@ public class TotalSalesBasedOnTheProduct {
                             String str1 = "E034";
                             int x = str1.compareTo(p.getProduct_code);
                             if(x == 0){
-                             System.out.printf("%s %s %d %lf %lf\n",p.getProduct_code(),p.getCatDescription(),p.getQty(),p.getPrice(),total);
+                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProduct_code(),p.getCatDescription(),p.getQty(),p.getPrice(),total);
                             }
                             }
        System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
@@ -100,12 +102,69 @@ public class TotalSalesBasedOnTheProduct {
                             String str1 = "B009";
                             int x = str1.compareTo(p.getProduct_code);
                             if(x == 0){
-                             System.out.printf("%s %s %d %lf %lf\n",p.getProduct_code(),p.getCatDescription(),p.getQty(),p.getPrice(),total);
+                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProduct_code(),p.getCatDescription(),p.getQty(),p.getPrice(),total);
                             }
                             }
        System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
         break;
                     }
+                    case 4:
+                    {
+                        double total=0;
+                        int totalQty=0;
+                        double totalA=0;
+                        ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
+       
+        System.out.println("\nTotal Sales based on the product");
+        System.out.println("[FART MART]");
+        System.out.println("Month : August 2019");
+        System.out.println("Product : Pedigree Dog Food");
+        System.out.println("------------------------------------------------------------------------------------");
+        System.out.println("Product code    Description             Quantity    Unit Price          Total price");
+        System.out.println("------------------------------------------------------------------------------------");
+        
+        for(OrderDetails p:orderDetailsList1){
+                            total=p.getPrice()*p.getQty();
+                            totalQty+=p.getQty();
+                            totalA+=total;
+                            String str1 = "D792";
+                            int x = str1.compareTo(p.getProduct_code);
+                            if(x == 0){
+                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProduct_code(),p.getCatDescription(),p.getQty(),p.getPrice(),total);
+                            }
+                            }
+       System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
+        break;
+                    }
+                    case 5:
+                    {
+                        double total=0;
+                        int totalQty=0;
+                        double totalA=0;
+                        ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
+       
+        System.out.println("\nTotal Sales based on the product");
+        System.out.println("[FART MART]");
+        System.out.println("Month : August 2019");
+        System.out.println("Product : Febreze Fabric Refresher 200ml");
+        System.out.println("------------------------------------------------------------------------------------");
+        System.out.println("Product code    Description             Quantity    Unit Price          Total price");
+        System.out.println("------------------------------------------------------------------------------------");
+        
+        for(OrderDetails p:orderDetailsList1){
+                            total=p.getPrice()*p.getQty();
+                            totalQty+=p.getQty();
+                            totalA+=total;
+                            String str1 = "F201";
+                            int x = str1.compareTo(p.getProduct_code);
+                            if(x == 0){
+                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProduct_code(),p.getCatDescription(),p.getQty(),p.getPrice(),total);
+                            }
+                            }
+       System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
+        break;
+                    }
+                    
                 case 0:
                 {
                     System.out.println("\nThese are the reports :");
