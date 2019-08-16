@@ -20,6 +20,7 @@ public class PaymentDetails {
 	protected double discountAmount;          //amount of discount give to member
 	protected double totalAmount;             //store the final total amount of payment that need to pay by customer
 	protected double roundingAdjustment;      //round up or down the total amount
+	protected String rounding;
 	protected double cashPay;                 //total cash pay by customer
 	protected double change;                  //change give back to customer
 	
@@ -53,15 +54,13 @@ public class PaymentDetails {
 		if(isMember == true)
 			discountAmount = (subTotal + sstAmount) * memberDiscount;
 		totalAmount = subTotal + sstAmount - discountAmount;
-		roundingAdjustment = ((int)totalAmount);
-		//error
-		roundingAdjustment = roundingAdjustment + ((int)((totalAmount-roundingAdjustment)*10)/10.0);
+		roundingAdjustment = Double.valueOf(String.format("%.1f", totalAmount));
 		change = cashPay - roundingAdjustment;
 		
 		this.paymentNo = updatePaymentNo;
 	}
 	
-	//constructor
+	//Payment Details List History constructor
 	public PaymentDetails(String paymentNo, boolean isMember, LocalDateTime paymentDateTime, double subTotal, double sstAmount, double discountAmount,
 			              double totalAmount, double roundingAdjustment, double cashPay, double change, ArrayList<OrderDetails> orderDetailsList) {
 		this.paymentNo = paymentNo;
@@ -75,6 +74,8 @@ public class PaymentDetails {
 		this.cashPay = cashPay;
 		this.change = change;
 		this.wholeOrderDetailsList = orderDetailsList;
+		
+		updatePaymentNo = "P" + (Integer.parseInt(updatePaymentNo.substring(1, updatePaymentNo.length()))+1);
 		count++;
 	}
 	
@@ -153,7 +154,7 @@ public class PaymentDetails {
 	
 	//Display Receipt Method
 	public void displayReceipt(ArrayList<PaymentDetails> paymentDetailsList, ArrayList<OrderDetails> orderDetailsList) {
-		System.out.print("\n\n");
+		System.out.print("\n");
 		System.out.println(" =================================================================================================== ");
 		System.out.println("|                                         F A R T . M A R T                                         |");
 		System.out.println("|                                                                                                   |");
