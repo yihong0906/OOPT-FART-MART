@@ -24,7 +24,6 @@ class product_details_module {
 (new Food_Related_Product("D792", "Pedigree Dog Food", 10.00, 27, 77.90 ,new Category("PD19", "Pets"),new Manufacturer("Pedigree", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format))),
 	(new Food_Related_Product("A809", "Snickers 12 x 20g", 240.00, 40, 13.99 ,new Category("GA12", "Grocery"),new Manufacturer("Snickers", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-12-2020", format)))));
 	
-    
 	static ArrayList <Product> product = new ArrayList <Product>(Arrays.asList(
 			(new Product("T171", "Colgate Toothbrush", 430.00, 50, 12.99,new Category("HB46", "Health & Beauty"),new Manufacturer("Colgate", LocalDate.parse("12-08-2019", format)))),
 			(new Product("P023", "Royal Gold Bathroom Tissue 240Sheetsx20Rolls",3.56, 30, 29.90,new Category("HH21", "Household"),new Manufacturer("Royal Gold", LocalDate.parse("12-08-2019", format)))),

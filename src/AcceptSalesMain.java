@@ -7,43 +7,44 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AcceptSalesMain {
-			static ArrayList<PaymentDetails> paymentDetailsList = new ArrayList<PaymentDetails>();
-		
+			
+	
+	        static DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 			//static ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<StaffDetails>();
 			static ArrayList<OrderDetails>orderDetailsList1 = new ArrayList<OrderDetails>(Arrays.asList(
 			(new OrderDetails("OD1900001", "E034", "BAO Yellow Noodle", 450.00, 1.10, 2, 2.20)),
 			(new OrderDetails("OD1900001", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10))));
 			
-			
-			paymentDetailsList.add(new PaymentDetails("P1900001", false, LocalDateTime.parse("09-03-2019 12:12:00", dateTimeFormat), 68.30, 6.83, 0.0, 75.13, 75.10, 75.10, 0.0, orderDetailsList1));
-			
-			
+
 			static ArrayList<OrderDetails> orderDetailsList2 = new ArrayList<OrderDetails>(Arrays.asList(
 			(new OrderDetails("OD1900002", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 3, 19.47))));		
 			
 			
-			paymentDetailsList.add(new PaymentDetails("P1900002", false, LocalDateTime.parse("04-05-2019 12:12:00", dateTimeFormat), 19.47, 1.95, 0.0, 21.42, 21.40, 21.50, 0.10, orderDetailsList2));
-			
 			static ArrayList<OrderDetails> orderDetailsList3 = new ArrayList<OrderDetails>(Arrays.asList(
 	     	(new OrderDetails("OD1900003", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
 			(new OrderDetails("OD1900003", "C201", "Nestl�� Chocolate Ice Cream", 850.00, 8.49, 2, 16.98))));
-			paymentDetailsList.add(new PaymentDetails("P1900003", false, LocalDateTime.parse("08-06-2019 12:12:00", dateTimeFormat), 23.47, 2.35, 0.0, 25.82, 25.80, 30.00, 4.20, orderDetailsList3));
 			
 			static ArrayList<OrderDetails> orderDetailsList4 = new ArrayList<OrderDetails>(Arrays.asList(
 			(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
 			(new OrderDetails("OD1900004", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10)),
 			(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49))));
-			paymentDetailsList.add(new PaymentDetails("P1900004", true, LocalDateTime.parse("20-06-2019 12:12:00", dateTimeFormat), 79.08, 7.91, 4.35, 82.64, 82.60, 85.00, 2.40, orderDetailsList4));
+			
+			
+			static ArrayList<PaymentDetails> paymentDetailsList = new ArrayList<PaymentDetails>(Arrays.asList(
+					(new PaymentDetails("P1900001", false, LocalDateTime.parse("09-03-2019 12:12:00", dateTimeFormat), 68.30, 6.83, 0.0, 75.13, 75.10, 75.10, 0.0, orderDetailsList1)),
+					(new PaymentDetails("P1900002", false, LocalDateTime.parse("04-05-2019 12:12:00", dateTimeFormat), 19.47, 1.95, 0.0, 21.42, 21.40, 21.50, 0.10, orderDetailsList2)),
+					(new PaymentDetails("P1900003", false, LocalDateTime.parse("08-06-2019 12:12:00", dateTimeFormat), 23.47, 2.35, 0.0, 25.82, 25.80, 30.00, 4.20, orderDetailsList3)),
+					(new PaymentDetails("P1900004", true, LocalDateTime.parse("20-06-2019 12:12:00", dateTimeFormat), 79.08, 7.91, 4.35, 82.64, 82.60, 85.00, 2.40, orderDetailsList4))));
 	public static void ACCEPT_SALES() {
 		Scanner acceptSalesUserInput = new Scanner(System.in);
 		
 		ArrayList<Food_Related_Product>foodproduct=product_details_module.food_product;
+		ArrayList<Product>products=product_details_module.product;
+		ArrayList<MemberDetails>memberDetail=MembershipMain.memberDetails;
 		ArrayList<StaffDetails>staff=Staff.staffs;
 		
 		PaymentDetails paymentDetails = new PaymentDetails();
 		OrderDetails orderDetails = new OrderDetails();
-		
-		DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 		
 		/*
 		ArrayList<PaymentDetails> paymentDetailsList = new ArrayList<>();
@@ -84,13 +85,17 @@ public class AcceptSalesMain {
 		String memberID;               //if customer is a member, get & store their member ID
 		int indexMemberID;             //store the member's ID
 		
-		int count = 0;   //help to calculate the index of arraylsit
+		int count = 4;   //help to calculate the index of ArrayLsit, start with four because got history record ^
 		
 		//get the arraylist's data from product
 		ArrayList<SalesProductList> salesProductList = new ArrayList<SalesProductList>();
-		for(countForLoop = 0; countForLoop < food_products.size(); countForLoop++) {
-			salesProductList.add(new SalesProductList(food_products.get(countForLoop).getProduct_code(), productDetails.get(countForLoop).getProduct_name(), productDetails.get(countForLoop).getProduct_weight(),
-								food_products.get(countForLoop).getPrice()));
+		for(countForLoop = 0; countForLoop < foodproduct.size(); countForLoop++) {
+			salesProductList.add(new SalesProductList(foodproduct.get(countForLoop).getProduct_code(), foodproduct.get(countForLoop).getProduct_name(), foodproduct.get(countForLoop).getProduct_weight(),
+								foodproduct.get(countForLoop).getPrice()));
+		}
+		for(countForLoop = 0; countForLoop < products.size(); countForLoop++) {
+			salesProductList.add(new SalesProductList(products.get(countForLoop).getProduct_code(), products.get(countForLoop).getProduct_name(), products.get(countForLoop).getProduct_weight(),
+								products.get(countForLoop).getPrice()));
 		}
 		
 		//get the arraylist's data from staff
@@ -98,6 +103,17 @@ public class AcceptSalesMain {
 		for(countForLoop = 0; countForLoop < staff.size(); countForLoop++) {
 			staffDetailsList.add(new StaffDetailsList(staff.get(countForLoop).getStaffID(), staff.get(countForLoop).getName(),
 					 		     staff.get(countForLoop).getUserName()));
+		}
+		
+		userName = ""; //change
+		staffID = "";
+		staffName = "";
+		
+		for(countForLoop = 0; countForLoop < staff.size(); countForLoop++) {
+			if(userName.equals(staffDetailsList.get(countForLoop).getUserName())) {
+				staffID = staffDetailsList.get(countForLoop).getStaffID();
+				staffName = staffDetailsList.get(countForLoop).getStaffName();
+			}
 		}
 		
 		do {
@@ -135,9 +151,9 @@ public class AcceptSalesMain {
 							memberID = acceptSalesUserInput.nextLine();
 							memberID = memberID.toUpperCase();
 							
-							for(countForLoop = 0; countForLoop < memberDetailsList.size(); countForLoop++) {
-								if(memberID.equals(memberDetailsList.get(countForLoop).getMemberID())) {
-									if( ( memberDetailsList.get(countForLoop).getDeadLine().isBefore(LocalDate.now()) ) ) {
+							for(countForLoop = 0; countForLoop < memberDetail.size(); countForLoop++) {
+								if(memberID.equals(memberDetail.get(countForLoop).getMemberID())) {
+									if( ( memberDetail.get(countForLoop).getDeadLine().isBefore(LocalDate.now()) ) ) {
 										System.out.println("\nThis Member ID is the dead line. Please renew your member card.");
 									}
 									else {
@@ -243,20 +259,22 @@ public class AcceptSalesMain {
 			
 			for(countForLoop = 0; countForLoop < salesProductList.size(); countForLoop++) {
 				if(salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode()))
-					productDetails.get(countForLoop).setQty(productDetails.get(countForLoop).getQty()-purchaseProductQuantity);
+					foodproduct.get(countForLoop).setQty(foodproduct.get(countForLoop).getQty()-purchaseProductQuantity);
+				else if(salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode()))
+					products.get(countForLoop).setQty(products.get(countForLoop).getQty()-purchaseProductQuantity);
 			}
 			
 			if(indexMemberID != -1) {
-				memberDetailsList.get(indexMemberID).setMemberPoint(paymentDetailsList.get(count).getRoundingAdjustment()/10.0);
+				memberDetail.get(indexMemberID).setMemberPoint((memberDetail.get(indexMemberID).getMemberPoint() + (paymentDetailsList.get(count).getRoundingAdjustment()/10)));
 				
-				if(memberDetailsList.get(indexMemberID).getMemberPoint() > 2000)
-					memberDetailsList.get(indexMemberID).setMembershipGrade("DIAMOND");
-				else if(memberDetailsList.get(indexMemberID).getMemberPoint() > 1500)
-					memberDetailsList.get(indexMemberID).setMembershipGrade("PLATINUM");
-				else if(memberDetailsList.get(indexMemberID).getMemberPoint() > 1000)
-					memberDetailsList.get(indexMemberID).setMembershipGrade("GOLD");
-				else if(memberDetailsList.get(indexMemberID).getMemberPoint() > 500)
-					memberDetailsList.get(indexMemberID).setMembershipGrade("SILVER");
+				if(memberDetail.get(indexMemberID).getMemberPoint() > 2000)
+					memberDetail.get(indexMemberID).setMembershipGrade("DIAMOND");
+				else if(memberDetail.get(indexMemberID).getMemberPoint() > 1500)
+					memberDetail.get(indexMemberID).setMembershipGrade("PLATINUM");
+				else if(memberDetail.get(indexMemberID).getMemberPoint() > 1000)
+					memberDetail.get(indexMemberID).setMembershipGrade("GOLD");
+				else if(memberDetail.get(indexMemberID).getMemberPoint() > 500)
+					memberDetail.get(indexMemberID).setMembershipGrade("SILVER");
 			}
 			
 			paymentDetails.setUpdateSubTotal(0.0);
@@ -277,14 +295,19 @@ public class AcceptSalesMain {
 		
 		System.out.println();
 		System.out.printf("%41s", "Product List\n");
-		System.out.println("+==================================================================+");
-		System.out.printf("|  %3s | %-30s | %14s |  %5s  |\n", "No.", "Product Name", "Product Weight", "Price");
-		System.out.println("+==================================================================+");
+		System.out.println("+======================================================================================+");
+		System.out.printf("|  %3s | %-50s | %14s |  %5s  |\n", "No.", "Product Name", "Product Weight", "Price");
+		System.out.println("+======================================================================================+");
 		for(countForLoop = 0; countForLoop < displaySalesProductList.size(); countForLoop++) {
 			System.out.print("|");
 			System.out.printf("%4d. ", countForLoop+1);
 			System.out.println(displaySalesProductList.get(countForLoop).toString());
-			System.out.println("+------------------------------------------------------------------+");
+			if(1+countForLoop == displaySalesProductList.size())
+			 {
+				 System.out.println("+======================================================================================+\n"); 
+			 }
+			 else
+				 System.out.println("+--------------------------------------------------------------------------------------+");
 		}
 		System.out.println();
 	}

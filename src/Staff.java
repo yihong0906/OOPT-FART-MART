@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class Staff{
 	 
 	static DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //date format
+	ArrayList<StaffDetails>staff=Staff.staffs;
 	public static ArrayList<StaffDetails>staffs = new ArrayList<StaffDetails>(Arrays.asList(
 	 (new FullTime("TEH YI HONG","18WMD06251","000906-10-1001","Male",new Address("A08","Taman Indah","Jalan ipoh 51200","Kuala Lumpur","Malaysia"),
 			 3500.00,"Manager",LocalDate.parse("06-09-2000",format),"0193248616","yihong","hxkiller03","fulltime",240,12)),

@@ -1,27 +1,29 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class MembershipMain {
 	
+	static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	
+	static ArrayList <MemberDetails> memberDetails = new ArrayList <MemberDetails>(Arrays.asList(
+	(new MemberDetails("M190001", "CHEONG SIONG HOU", "000229010123", "012-1112222", LocalDate.parse("01-01-2010", dateFormat), LocalDate.parse("31-12-2010", dateFormat), "DIAMOMD", 2330.00)),
+	(new MemberDetails("M190002", "TEH YI HONG", "000229014567", "012-3334444", LocalDate.parse("01-03-2015", dateFormat), LocalDate.parse("28-02-2016", dateFormat), "DIAMOMD", 2520.00)),
+	(new MemberDetails("M190003", "BENJAMIN CHEN XIA WEI", "000229018765", "012-5556666", LocalDate.parse("01-01-2019", dateFormat), LocalDate.parse("31-12-2019", dateFormat), "DIAMOMD", 2700.00)),
+	(new MemberDetails("M190004", "CHEE BAO CHI", "000229013210", "012-7778888", LocalDate.parse("01-02-2019", dateFormat), LocalDate.parse("31-01-2020", dateFormat), "DIAMOMD", 2810.00)),
+	(new MemberDetails("M190005", "YAP KIM CHUN", "000999010101", "012-0001111", LocalDate.parse("01-03-2019", dateFormat), LocalDate.parse("29-02-2020", dateFormat), "PLATINUM", 1850.00)),
+	(new MemberDetails("M190006", "LEE EN YI", "000888010202", "012-0002222", LocalDate.parse("10-04-2019", dateFormat), LocalDate.parse("09-04-2020", dateFormat), "GOLD", 1360.00)),
+	(new MemberDetails("M190007", "HONG SHAO WEI", "000777010303", "012-0003333", LocalDate.parse("11-04-2019", dateFormat), LocalDate.parse("10-04-2020", dateFormat), "GOLD", 1490.00)),
+	(new MemberDetails("M190008", "JING JI FAN", "000666010202", "012-0004444", LocalDate.parse("13-06-2019", dateFormat), LocalDate.parse("12-06-2020", dateFormat), "SILVER", 830.00)),
+	(new MemberDetails("M190009", "TAI GAO XING", "000555010001", "012-0005555", LocalDate.parse("01-07-2019", dateFormat), LocalDate.parse("30-06-2020", dateFormat), "SILVER", 540.00)),
+	(new MemberDetails("M190010", "YANG CONG WEI", "000333011001", "012-0006666", LocalDate.parse("12-08-2019", dateFormat), LocalDate.parse("11-08-2020", dateFormat), "BRONZE", 390.00))));
+			
+	
 	/***************************** MAIN MEMBERSHIP MODULE *****************************/
 	public static void MEMBERSHIP_MODULE(String position) {
 		Scanner membershipUserInput = new Scanner(System.in);
-		
-		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-	    
-		ArrayList<MemberDetails> memberDetails = new ArrayList<MemberDetails>();
-		memberDetails.add(new MemberDetails("M190001", "CHEONG SIONG HOU", "000229010123", "012-1112222", LocalDate.parse("01-01-2010", dateFormat), LocalDate.parse("31-12-2010", dateFormat), "DIAMOMD", 2330.00));
-		memberDetails.add(new MemberDetails("M190002", "TEH YI HONG", "000229014567", "012-3334444", LocalDate.parse("01-03-2015", dateFormat), LocalDate.parse("28-02-2016", dateFormat), "DIAMOMD", 2520.00));
-		memberDetails.add(new MemberDetails("M190003", "BENJAMIN CHEN XIA WEI", "000229018765", "012-5556666", LocalDate.parse("01-01-2019", dateFormat), LocalDate.parse("31-12-2019", dateFormat), "DIAMOMD", 2700.00));
-		memberDetails.add(new MemberDetails("M190004", "CHEE BAO CHI", "000229013210", "012-7778888", LocalDate.parse("01-02-2019", dateFormat), LocalDate.parse("31-01-2020", dateFormat), "DIAMOMD", 2810.00));
-		memberDetails.add(new MemberDetails("M190005", "YAP KIM CHUN", "000999010101", "012-0001111", LocalDate.parse("01-03-2019", dateFormat), LocalDate.parse("29-02-2020", dateFormat), "PLATINUM", 1850.00));
-		memberDetails.add(new MemberDetails("M190006", "LEE EN YI", "000888010202", "012-0002222", LocalDate.parse("10-04-2019", dateFormat), LocalDate.parse("09-04-2020", dateFormat), "GOLD", 1360.00));
-		memberDetails.add(new MemberDetails("M190007", "HONG SHAO WEI", "000777010303", "012-0003333", LocalDate.parse("11-04-2019", dateFormat), LocalDate.parse("10-04-2020", dateFormat), "GOLD", 1490.00));
-		memberDetails.add(new MemberDetails("M190008", "JING JI FAN", "000666010202", "012-0004444", LocalDate.parse("13-06-2019", dateFormat), LocalDate.parse("12-06-2020", dateFormat), "SILVER", 830.00));
-		memberDetails.add(new MemberDetails("M190009", "TAI GAO XING", "000555010001", "012-0005555", LocalDate.parse("01-07-2019", dateFormat), LocalDate.parse("30-06-2020", dateFormat), "SILVER", 540.00));
-		memberDetails.add(new MemberDetails("M190010", "YANG CONG WEI", "000333011001", "012-0006666", LocalDate.parse("12-08-2019", dateFormat), LocalDate.parse("11-08-2020", dateFormat), "BRONZE", 390.00));
 		
 		ArrayList<String> allowModifyList = new ArrayList<String>();
 		allowModifyList.add("Member Name");

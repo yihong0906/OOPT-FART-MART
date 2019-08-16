@@ -108,7 +108,7 @@ public class MemberDetails {
 
 	//toString Method
 	public String toString() {
-		return String.format("| %-8s| %-30s| %-13s| %-13s| %-13s| %-11s| %-13s| %-13s|", memberID, memberName, memberIC, memberPhoneNo,
+		return String.format("| %-8s| %-30s| %-13s| %-13s| %-13s| %-11s| %-13s| %-13.2f|", memberID, memberName, memberIC, memberPhoneNo,
 								dateSignUp.format(dateFormat), deadLine.format(dateFormat), membershipGrade, memberPoint);
 	}
 }

@@ -45,7 +45,7 @@ public class TotalSalesOfTheDay {
             totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
             totalA+=total;
            
-             System.out.printf("%d %s %d %.2f %.2f\n",t,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
+             System.out.printf("%d %s %d % .2f %.2f\n",t,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
         }
             /*for(OrderDetails p:orderDetailsList69){
                             total=p.getProductUnitPrice()*p.getPurcahseQuantity();
@@ -75,19 +75,14 @@ public class TotalSalesOfTheDay {
         System.out.println("No.     Product code    Quantity    Unit Price          Total price");
         System.out.println("---------------------------------------------------------------------------");
         
-        for( t=0;t<orderDetailsList69.size();t++) {
-        	total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
-                            totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
-                            totalA+=total;
-            System.out.printf("%d %s %d %.2f %.2f\n",i,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
-             }
-             
-       /* for(OrderDetails p:orderDetailsList69){
+
+        
+        for(OrderDetails p:orderDetailsList69){
                             total=p.getProductUnitPrice()*p.getPurcahseQuantity();
                             totalQty+=p.getPurcahseQuantity();
                             totalA+=total;
-                             System.out.printf("%d %s %d %lf %lf\n",i,p.getProductCode(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
-                         }*/
+                             System.out.printf("%d %s %d %.2f %.2f\n",i,p.getProductCode(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
+                         }
        System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
                        
         break;
@@ -109,14 +104,13 @@ public class TotalSalesOfTheDay {
         System.out.println("No.     Product code    Quantity    Unit Price          Total price");
         System.out.println("---------------------------------------------------------------------------");
        
-         for( t=0;t<orderDetailsList69.size();t++) {
-        	total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
-                            totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
+        for(OrderDetails p:orderDetailsList69){
+                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
+                            totalQty+=p.getPurcahseQuantity();
                             totalA+=total;
-            System.out.printf("%d %s %d %.2f %.2f\n",i,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
-             }
-             
-             
+                            
+                             System.out.printf("%d %s %d %lf %lf\n",i,p.getProductCode(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
+                         }
        System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
         break;
                     }

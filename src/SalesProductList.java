@@ -37,6 +37,6 @@ public class SalesProductList {
 
 	//toString Method
 	public String toString() {
-		return String.format("| %-30s | %14.2f | %7.2f |", productName, productWeight, productUnitPrice);
+		return String.format("| %-50s | %12.2f g | %7.2f |", productName, productWeight, productUnitPrice);
 	}
 }
