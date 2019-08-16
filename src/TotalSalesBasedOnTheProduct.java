@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class TotalSalesBasedOnTheProduct {
     public static void r2(){
     Scanner input = new Scanner (System.in);
+        ArrayList<OrderDetails> orderDetailsList69 = AcceptSalesMain.orderDetailsList1;
+        
         
         System.out.println("\nProducts in Fart Mart :");
         System.out.println("------------------------------------");
@@ -39,14 +41,22 @@ public class TotalSalesBasedOnTheProduct {
         System.out.println("Product code    Description             Quantity    Unit Price          Total price");
         System.out.println("------------------------------------------------------------------------------------");
         
-        for(OrderDetails p:orderDetailsList1){
-                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
-                            totalQty+=p.getPurcahseQuantity();
+        for(int t=0;t<orderDetailsList69.size();t++) {
+        	total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
+ 	
+            totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
+            totalA+=total;
+            System.out.printf("%d %s %d %.2f %.2f\n",t,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice());
+             }
+             
+        for(OrderDetails p:orderDetailsList69){
+                            total=p.get.getProductUnitPrice()*p.get.getPurcahseQuantity();
+                            totalQty+=p.get.getPurcahseQuantity();
                             totalA+=total;
                             String str1 = "E001";
-                            int x = str1.compareTo(p.getProductCode());
+                            int x = str1.compareTo(p.get.getProductCode());
                             if(x == 0){
-                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProductCode(),p.getCategory_desc(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
+                             System.out.printf("%-10s %-25s %-8d %-16.2f %.2f\n",p.get.getProductCode(),p.get.getCategory_desc(),p.get.getPurcahseQuantity(),p.get.getProductUnitPrice(),total);
         }
                          }
        System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
