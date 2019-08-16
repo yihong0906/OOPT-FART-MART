@@ -38,7 +38,7 @@ public class FART_MART {
 		    System.out.println("\n                                        +===============================================+");
 			System.out.println("                                        |           	WELCOME TO FART MART!           |");
 			System.out.println("                                        +===============================================+");
-			System.out.println("                                        |1. Make Transaction                            |");
+			System.out.println("                                        |1. Accept Sales                                |");
 			System.out.println("                                        |2. Products Module                             |");
 			System.out.println("                                        |3. Staff Details                               |");
 			System.out.println("                                        |4. Membership Module                           |");
