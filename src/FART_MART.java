@@ -8,7 +8,8 @@ public class FART_MART {
     public static void main(String[] args) {
     	//create object so can call other module
     	
-    	//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   		ArrayList<StaffDetails> staffDetails = Staff.staffs; //check user position
+   		 
         product_details_module prod_details = new product_details_module();
         MembershipMain membership = new MembershipMain();
         Staff staff_info = new Staff();
@@ -18,12 +19,12 @@ public class FART_MART {
     	int choice, logoutChoice;
     	
     	Login login1 = new Login();
-    	String position;
+    	int position;
     	
     	
     	do {
     		position=login1.login();
-    		if(position.equals("0")) {
+    		if(position=-1) {
     			return;
     		}
 	    	do {
@@ -47,7 +48,7 @@ public class FART_MART {
 			choice = input.nextInt();
 	    	
 	    	
-	    		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	    		
 	    	  	if(choice == 1){
 	    			accept_sales.ACCEPT_SALES();
 	    			// make transaction
@@ -57,25 +58,24 @@ public class FART_MART {
 	    			prod_details.PRODUCT_DETAILS_MODULE(position); 
 	    				
 	    		} else if (choice ==3) {
-	    			if (position.equals("Manager") ){
+	    			if(staffDetails.get(position).getPosition().equals("Manager")){
 	    				staff_info.STAFF_DETAILS_MODULE();
-	    			} else if (position.equals("Staff")){
+	    			}	else if (staffDetails.get(position).getPosition().equals("Staff")){
 	    				System.out.println("Oops! You are now allowed to enter this module!");
+	    	
 	    			}
-	    			
 	
 	    		} else if (choice ==4) {
 	    			membership.MEMBERSHIP_MODULE(position);
 		    			
 	
 	    		} else if(choice ==5){
-	    			
-	    				if (position.equals("Manager") ){
-	    					reports.REPORT_MODULE();
-		    				//reports menu
-		    			} else if (position.equals("Staff")){
-		    				System.out.println("Oops! You are now allowed to enter this module!");
-		    			}
+	    				if(staffDetails.get(position).getPosition().equals("Manager")){
+	    				reports.REPORT_MODULE();
+	    			}	else if (staffDetails.get(position).getPosition().equals("Staff")){
+	    				System.out.println("Oops! You are now allowed to enter this module!");
+	    	
+	    			}
 						
 	    		}else if (choice ==6) {
 	    			System.out.println("\t\tLogged out!");
@@ -88,7 +88,7 @@ public class FART_MART {
 	    	}while (choice !=6);  
     		
 
-    	}while(!position.equals("0"));
+    	}while(position!=999);
     	
     }
     
