@@ -124,7 +124,7 @@ public class AcceptSalesMain {
 			System.out.println("===============================================");
 			System.out.println("| >> UNDER <<                                 |");
 			System.out.println("|---------------------------------------------|");
-			System.out.printf("| Staff ID   : %-15s %16s\n", staffID, "|");  //staffDetails.getStaffID, StaffDetails staffDetails = new StaffDetails(); 18wmd06251
+			System.out.printf("| Staff ID   : %-15s %16s\n", staffID, "|");
 			System.out.printf("| Staff Name : %-20s %11s\n", staffName, "|");
 			System.out.println("===============================================");
 			
@@ -186,7 +186,7 @@ public class AcceptSalesMain {
 				
 				do {
 					try {
-					System.out.print("Enter Product No. : ");   //get product that user need to buy, enter the number for each product
+					System.out.print("Enter Product No. (1 - " + salesProductList.size() + ") : ");   //get product that user need to buy, enter the number for each product
 					choiceProduct = acceptSalesUserInput.nextInt();
 					
 					if(choiceProduct < 1 || choiceProduct > salesProductList.size())
