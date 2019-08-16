@@ -17,7 +17,7 @@ public class Category {
 	
 	
 	public void setCategory_id(String category_id){this.category_id = category_id;}
-	public void setCategory_desc(String cat_desc){this.category_desc = category_desc;}
+	public void setCategory_desc(String cat_desc){this.category_desc = cat_desc;}
 	
 	
 	

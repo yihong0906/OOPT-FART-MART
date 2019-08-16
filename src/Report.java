@@ -5,6 +5,7 @@ import java.util.*;
 public class Report {
 
     public static void REPORT_MODULE() {
+    	//ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
         Scanner input = new Scanner (System.in);
     
         System.out.println("These are the reports :");
@@ -23,14 +24,14 @@ public class Report {
                 case 1:
                     {
                         TotalSalesOfTheDay totalSalesOfTheDay = new TotalSalesOfTheDay();
-                        TotalSalesOfTheDay.r1();
+                        totalSalesOfTheDay.r1();
                         
                         break;
                     }
                 case 2:
                     {
                         TotalSalesBasedOnTheProduct totalSalesBasedOnTheProduct = new TotalSalesBasedOnTheProduct();
-                        TotalSalesBasedOnTheProduct.r2();
+                        totalSalesBasedOnTheProduct.r2();
                         
                         break;
                     }

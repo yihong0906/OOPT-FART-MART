@@ -50,7 +50,7 @@ public class FART_MART {
 	    		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	    	  	if(choice == 1){
 	    			accept_sales.ACCEPT_SALES();
-	    			// make transaction - siong hou
+	    			// make transaction
 	
 	    		} else if (choice ==2){
 	    			
@@ -72,7 +72,7 @@ public class FART_MART {
 	    			
 	    				if (position.equals("Manager") ){
 	    					reports.REPORT_MODULE();
-		    				//reports menu - bao qi
+		    				//reports menu
 		    			} else if (position.equals("Staff")){
 		    				System.out.println("Oops! You are now allowed to enter this module!");
 		    			}

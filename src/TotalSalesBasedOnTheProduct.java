@@ -1,5 +1,5 @@
 
-package report;
+//package report;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -28,6 +28,8 @@ public class TotalSalesBasedOnTheProduct {
                         int totalQty=0;
                         double totalA=0;
                         ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
+                        
+                        
        
         System.out.println("\nTotal Sales based on the product");
         System.out.println("[FART MART]");
@@ -38,13 +40,13 @@ public class TotalSalesBasedOnTheProduct {
         System.out.println("------------------------------------------------------------------------------------");
         
         for(OrderDetails p:orderDetailsList1){
-                            total=p.getPrice()*p.getQty();
-                            totalQty+=p.getQty();
+                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
+                            totalQty+=p.getPurcahseQuantity();
                             totalA+=total;
                             String str1 = "E001";
-                            int x = str1.compareTo(p.getProduct_code);
+                            int x = str1.compareTo(p.getProductCode());
                             if(x == 0){
-                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProduct_code(),p.getCatDescription(),p.getQty(),p.getPrice(),total);
+                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProductCode(),p.getCategory_desc(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
         }
                          }
        System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
@@ -67,13 +69,13 @@ public class TotalSalesBasedOnTheProduct {
         System.out.println("------------------------------------------------------------------------------------");
         
         for(OrderDetails p:orderDetailsList1){
-                            total=p.getPrice()*p.getQty();
-                            totalQty+=p.getQty();
+                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
+                            totalQty+=p.getPurcahseQuantity();
                             totalA+=total;
                             String str1 = "E034";
-                            int x = str1.compareTo(p.getProduct_code);
+                            int x = str1.compareTo(p.getProductCode());
                             if(x == 0){
-                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProduct_code(),p.getCatDescription(),p.getQty(),p.getPrice(),total);
+                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProductCode(),p.getCategory_desc(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
                             }
                             }
        System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
@@ -96,13 +98,13 @@ public class TotalSalesBasedOnTheProduct {
         System.out.println("------------------------------------------------------------------------------------");
         
         for(OrderDetails p:orderDetailsList1){
-                            total=p.getPrice()*p.getQty();
-                            totalQty+=p.getQty();
+                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
+                            totalQty+=p.getPurcahseQuantity();
                             totalA+=total;
                             String str1 = "B009";
-                            int x = str1.compareTo(p.getProduct_code);
+                            int x = str1.compareTo(p.getProductCode());
                             if(x == 0){
-                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProduct_code(),p.getCatDescription(),p.getQty(),p.getPrice(),total);
+                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProductCode(),p.getCategory_desc(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
                             }
                             }
        System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
@@ -124,13 +126,13 @@ public class TotalSalesBasedOnTheProduct {
         System.out.println("------------------------------------------------------------------------------------");
         
         for(OrderDetails p:orderDetailsList1){
-                            total=p.getPrice()*p.getQty();
-                            totalQty+=p.getQty();
+                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
+                            totalQty+=p.getPurcahseQuantity();
                             totalA+=total;
                             String str1 = "D792";
-                            int x = str1.compareTo(p.getProduct_code);
+                            int x = str1.compareTo(p.getProductCode());
                             if(x == 0){
-                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProduct_code(),p.getCatDescription(),p.getQty(),p.getPrice(),total);
+                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProductCode(),p.getCategory_desc(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
                             }
                             }
        System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
@@ -152,13 +154,13 @@ public class TotalSalesBasedOnTheProduct {
         System.out.println("------------------------------------------------------------------------------------");
         
         for(OrderDetails p:orderDetailsList1){
-                            total=p.getPrice()*p.getQty();
-                            totalQty+=p.getQty();
+                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
+                            totalQty+=p.getPurcahseQuantity();
                             totalA+=total;
                             String str1 = "F201";
-                            int x = str1.compareTo(p.getProduct_code);
+                            int x = str1.compareTo(p.getProductCode());
                             if(x == 0){
-                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProduct_code(),p.getCatDescription(),p.getQty(),p.getPrice(),total);
+                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProductCode(),p.getCategory_desc(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
                             }
                             }
        System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);

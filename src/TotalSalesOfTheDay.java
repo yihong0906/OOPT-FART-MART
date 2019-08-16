@@ -1,10 +1,11 @@
-package report;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TotalSalesOfTheDay {
     public static void r1(){
+    	
         Scanner input = new Scanner (System.in);
         
         System.out.println("\nDate for the total sales of the day report :");
@@ -25,7 +26,9 @@ public class TotalSalesOfTheDay {
                         int totalQty=0;
                         double totalA=0;
                         int i=0;
-                       ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
+                       //ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
+                       ArrayList<OrderDetails> orderDetailsList69 = AcceptSalesMain.orderDetailsList1;
+                       
                        
                         
         System.out.println("\nTotal Sales of the day");
@@ -35,24 +38,34 @@ public class TotalSalesOfTheDay {
         System.out.println("No.     Product code    Quantity    Unit Price          Total price");
         System.out.println("---------------------------------------------------------------------------");
         
-        
-            for(OrderDetails p:orderDetailsList1){
-                            total=p.getPrice()*p.getQty();
-                            totalQty+=p.getQty();
+        	
+        for(int t=0;t<orderDetailsList69.size();t++) {
+        	total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
+ 	
+            totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
+            totalA+=total;
+            System.out.printf("%d %s %d %.2f\n",t,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice());
+             //System.out.printf("%d %s %d %lf %lf\n",t,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
+        }
+            /*for(OrderDetails p:orderDetailsList69){
+                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
+                            totalQty+=p.getPurcahseQuantity();
                             totalA+=total;
-                             System.out.printf("%d %s %d %lf %lf\n",i,p.getProduct_code(),p.getQty(),p.getPrice(),total);
+                             System.out.printf("%d %s %d %lf %lf\n",i,p.getProductCode(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
                          }
+                         */
        System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
         
                         break;
                     }
+                    /*
                 case 2:
                     {
                         double total=0;
                         int totalQty=0;
                         double totalA=0;
                         int i=0;
-                        ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
+                        //ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
         
         System.out.println("\nTotal Sales of the day");
         System.out.println("[FART MART]");
@@ -61,11 +74,11 @@ public class TotalSalesOfTheDay {
         System.out.println("No.     Product code    Quantity    Unit Price          Total price");
         System.out.println("---------------------------------------------------------------------------");
         
-        for(OrderDetails p:orderDetailsList1){
-                            total=p.getPrice()*p.getQty();
-                            totalQty+=p.getQty();
+        for(OrderDetails p:orderDetailsList69){
+                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
+                            totalQty+=p.getPurcahseQuantity();
                             totalA+=total;
-                             System.out.printf("%d %s %d %lf %lf\n",i,p.getProduct_code(),p.getQty(),p.getPrice(),total);
+                             System.out.printf("%d %s %d %lf %lf\n",i,p.getProductCode(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
                          }
        System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
                        
@@ -78,7 +91,7 @@ public class TotalSalesOfTheDay {
                         int totalQty=0;
                         double totalA=0;
                         int i=0;
-                        ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
+                        //ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
         
         
         System.out.println("\nTotal Sales of the day");
@@ -88,12 +101,12 @@ public class TotalSalesOfTheDay {
         System.out.println("No.     Product code    Quantity    Unit Price          Total price");
         System.out.println("---------------------------------------------------------------------------");
        
-        for(OrderDetails p:orderDetailsList1){
-                            total=p.getPrice()*p.getQty();
-                            totalQty+=p.getQty();
+        for(OrderDetails p:orderDetailsList69){
+                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
+                            totalQty+=p.getPurcahseQuantity();
                             totalA+=total;
                             
-                             System.out.printf("%d %s %d %lf %lf\n",i,p.getProduct_code(),p.getQty(),p.getPrice(),total);
+                             System.out.printf("%d %s %d %lf %lf\n",i,p.getProductCode(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
                          }
        System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
         break;
@@ -114,7 +127,9 @@ public class TotalSalesOfTheDay {
                     System.out.print("\nInvalid input. Please enter a number between 1-4.");
                     System.out.println("");
                     }
-            }
+          }*/
         }
     }
 }
+}
+
