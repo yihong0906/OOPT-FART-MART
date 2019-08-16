@@ -53,7 +53,7 @@ public class FART_MART {
 	    	
 	    		
 	    	  	if(choice == 1){
-	    			accept_sales.ACCEPT_SALES();
+	    			accept_sales.ACCEPT_SALES(position);
 	    			// make transaction
 	
 	    		} else if (choice ==2){

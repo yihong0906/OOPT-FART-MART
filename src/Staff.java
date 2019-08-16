@@ -89,6 +89,7 @@ public class Staff{
 		
 		do {
 			
+		System.out.println("-----------ADDING STAFF-----------");
 		//entering staff name
 		 System.out.print("\nEnter a new employee name :");
 		 do {
