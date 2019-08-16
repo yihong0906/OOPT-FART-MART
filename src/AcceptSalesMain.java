@@ -58,22 +58,9 @@ public class AcceptSalesMain {
 		productDetails.add(new ProductDetails("B009", "Anmum Milk Powder", 650.00, 15, 66.10, "BM20", "Baby", "Anmum", LocalDate.parse("2019-08-12", dateFormat), LocalDate.parse("2029-08-31", dateFormat)));
 		productDetails.add(new ProductDetails("C201", "Nestl¨¦ Chocolate Ice Cream", 850.00, 25, 8.49, "CF90", "Frozen", "Nestl¨¦", LocalDate.parse("2019-08-12", dateFormat), LocalDate.parse("2029-08-31", dateFormat)));
 		
-		ArrayList<StaffDetails> staffs = new ArrayList<StaffDetails>(Arrays.asList(
-				 (new StaffDetails("TEH YI HONG","18WMD06251","000906-10-1001","Male",new Address("A08","Taman Indah","Jalan ipoh 51200","Kuala Lumpur","Malaysia"),
-						 6000.00,"Manager",LocalDate.parse("06-09-2000",format),"0193248616","yihong")),
-				 (new StaffDetails("SERENE YEE","18WMD06252","001218-11-1001","Female",new Address("A15/19","Taman Mewah","Jalan Koklian 52300","Kuala Lumpur","Malaysia"),
-						 2500.00,"Staff",LocalDate.parse("18-12-1999",format),"0123456789","serene")),
-				 (new StaffDetails("BENJAMIN CHEN","18WMD06253","000906-10-1001","Male",new Address("B9/11","Taman UJ","Jalan putang 54000","Kuala Lumpur","Malaysia"),
-						 2600.00,"Staff",LocalDate.parse("15-02-1998",format),"0184428901","benjamin") ),
-				 (new StaffDetails("CHEONG SIONG HOU","18WMD06254","000906-10-1001","Male",new Address("C3/30","Taman Murni","J6alan Inamo 61000","Selangor","Malaysia"),
-						 2700.00,"Staff",LocalDate.parse("12-11-1997",format),"0151230915","sionghou") ),
-				 (new StaffDetails("CHEE BAO QI","18WMD06255","000906-10-1001","Female",new Address("L13/22","Taman Bangkok","Jalan Batu 64000","Selangor","Malaysia"),
-						 2800.00,"Staff",LocalDate.parse("18-06-1996",format),"0136091423","baoqi") ),
-				 (new StaffDetails("YAP KIM CHUN","18WMD06256","000906-10-1001","Male",new Address("Z01/25","Taman Bangsar","Jalan Pahang 56000","Kuala Lumpur","Malaysia"),
-						 2900.00,"Manager",LocalDate.parse("25-10-1996",format),"0181120909","kimchun") )));
 		//here
 		
-		int countForLoop;   //count in For Loop
+		int countForLoop;//count in For Loop
 		
 		ArrayList<SalesProductList> salesProductList = new ArrayList<SalesProductList>();
 		for(countForLoop = 0; countForLoop < productDetails.size(); countForLoop++) {
