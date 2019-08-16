@@ -33,7 +33,7 @@ public class AcceptSalesMain {
 					(new PaymentDetails("P1900003", false, LocalDateTime.parse("08-06-2019 12:12:00", dateTimeFormat), 23.47, 2.35, 0.0, 25.82, 25.80, 30.00, 4.20, orderDetailsList3)),
 					(new PaymentDetails("P1900004", true, LocalDateTime.parse("20-06-2019 12:12:00", dateTimeFormat), 79.08, 7.91, 4.35, 82.64, 82.60, 85.00, 2.40, orderDetailsList4))));
 	
-	public static void ACCEPT_SALES() {
+	public static void ACCEPT_SALES(int position) {
 		Scanner acceptSalesUserInput = new Scanner(System.in);
 		
 		ArrayList<Food_Related_Product> foodproduct = product_details_module.food_product;
@@ -79,9 +79,9 @@ public class AcceptSalesMain {
 					 		     staff.get(countForLoop).getUserName()));
 		}
 		
-		userName = ""; //change
 		staffID = "";
 		staffName = "";
+		userName = staff.get(position).getUserName();
 		
 		//get the staff's ID & staff's Name for the login user
 		for(countForLoop = 0; countForLoop < staff.size(); countForLoop++) {
