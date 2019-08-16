@@ -27,6 +27,7 @@ public class MembershipMain {
 		
 		Scanner membershipUserInput = new Scanner(System.in);
 		
+		//the list of field that allow to modify
 		ArrayList<String> allowModifyList = new ArrayList<String>();
 		allowModifyList.add("Member Name");
 		allowModifyList.add("Member IC");
@@ -37,6 +38,13 @@ public class MembershipMain {
 		int userChoice;        //went file not empty, user choose for process
 		
 		do {
+			System.out.println("\n");
+			System.out.println("                                          __  __ ___ __  __ ___ ___ ___  ___ _  _ ___ ___ \r\n" + 
+					"                                         |  \\/  | __|  \\/  | _ ) __| _ \\/ __| || |_ _| _ \\\r\n" + 
+					"                                         | |\\/| | _|| |\\/| | _ \\ _||   /\\__ \\ __ || ||  _/\r\n" + 
+					"                                         |_|  |_|___|_|  |_|___/___|_|_\\|___/_||_|___|_|  ");
+			System.out.println();
+			
 			emptyUserChoice = 2;
 			userChoice = 5;
 			
@@ -48,13 +56,13 @@ public class MembershipMain {
 					do {
 						try {
 							//method processing list
-							System.out.println("MEMBERSHIP FILE");
-							System.out.println("===============");
-							System.out.println("1. New Membership Record.");
-							System.out.println("2. Exit.\n");
+							System.out.println("                                        MEMBERSHIP FILE");
+							System.out.println("                                        ===============");
+							System.out.println("                                        1. New Membership Record.");
+							System.out.println("                                        2. Exit.\n");
 							
 							//get user choice
-							System.out.print("Choice Processing (1 or 2) : ");
+							System.out.print("                                        Choice Processing (1 or 2) : ");
 							emptyUserChoice = membershipUserInput.nextInt();
 						}
 						catch(Exception emptyUserChoiceError) {
@@ -78,16 +86,16 @@ public class MembershipMain {
 					do {
 						try {
 							//method processing list
-							System.out.println("MEMBERSHIP FILE");
-							System.out.println("===============");
-							System.out.println("1. Display Membership Record.");
-							System.out.println("2. New Membership Record.");
-							System.out.println("3. Modify Membership Record.");
-							System.out.println("4. Delete Membership Record.");
-							System.out.println("5. Exit.\n");
+							System.out.println("                                        MEMBERSHIP FILE");
+							System.out.println("                                        ===============");
+							System.out.println("                                        1. Display Membership Record.");
+							System.out.println("                                        2. New Membership Record.");
+							System.out.println("                                        3. Modify Membership Record.");
+							System.out.println("                                        4. Delete Membership Record.");
+							System.out.println("                                        5. Exit.\n");
 							
 							//get user choice
-							System.out.print("Choice Processing (1 - 5) : ");
+							System.out.print("                                        Choice Processing (1 - 5) : ");
 							userChoice = membershipUserInput.nextInt();
 						}
 						catch(Exception userChoiceError){
