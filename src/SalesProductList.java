@@ -34,21 +34,7 @@ public class SalesProductList {
 	public double getProductUnitPrice() {
 		return productUnitPrice;
 	}
-	
-//	//Mutators or Setter
-//	public void setProductCode(String productCode) {
-//		this.productCode = productCode;
-//	}
-//	public void setProductName(String productName) {
-//		this.productName = productName;
-//	}
-//	public void setProductWeight(double productWeight) {
-//		this.productWeight = productWeight;
-//	}
-//	public void setProductUnitPrice(double productUnitPrice) {
-//		this.productUnitPrice = productUnitPrice;
-//	}
-//	
+
 	//toString Method
 	public String toString() {
 		return String.format("| %-30s | %14.2f | %7.2f |", productName, productWeight, productUnitPrice);
