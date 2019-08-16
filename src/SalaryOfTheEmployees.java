@@ -17,11 +17,13 @@ public class SalaryOfTheEmployees {
         System.out.println("---------------------------------------------------------------------------");
         
         for(StaffDetails e:staffDetails){
-                             System.out.printf("\n%-10s %-25s %-25s %.2f\n",e.getStaffID(),e.getName(),e.getIcNumber(),e.calculateSalary());
+                             System.out.printf(""    %-15s %-25s %-21s %.2f\n"",e.getStaffID(),e.getName(),e.getIcNumber(),e.calculateSalary());
                              total+=e.calculateSalary();
                              
                          }
-        System.out.println("Total : "+total);
+                         
+                         
+        System.out.println("																Total : "+total);
         //return;
     }
 }
