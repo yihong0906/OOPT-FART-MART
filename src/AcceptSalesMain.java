@@ -3,31 +3,28 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
 import java.util.Arrays;
 
 public class AcceptSalesMain {
-			
-	
 	        static DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-			//static ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<StaffDetails>();
+			
 			static ArrayList<OrderDetails>orderDetailsList1 = new ArrayList<OrderDetails>(Arrays.asList(
-			(new OrderDetails("OD1900001", "E034", "BAO Yellow Noodle", 450.00, 1.10, 2, 2.20)),
-			(new OrderDetails("OD1900001", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10))));
+					(new OrderDetails("OD1900001", "E034", "BAO Yellow Noodle", 450.00, 1.10, 2, 2.20)),
+					(new OrderDetails("OD1900001", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10))));
 			
 
 			static ArrayList<OrderDetails> orderDetailsList2 = new ArrayList<OrderDetails>(Arrays.asList(
-			(new OrderDetails("OD1900002", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 3, 19.47))));		
+					(new OrderDetails("OD1900002", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 3, 19.47))));		
 			
 			
 			static ArrayList<OrderDetails> orderDetailsList3 = new ArrayList<OrderDetails>(Arrays.asList(
-	     	(new OrderDetails("OD1900003", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
-			(new OrderDetails("OD1900003", "C201", "Nestl�� Chocolate Ice Cream", 850.00, 8.49, 2, 16.98))));
+					(new OrderDetails("OD1900003", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
+					(new OrderDetails("OD1900003", "C201", "Nestle Chocolate Ice Cream", 850.00, 8.49, 2, 16.98))));
 			
 			static ArrayList<OrderDetails> orderDetailsList4 = new ArrayList<OrderDetails>(Arrays.asList(
-			(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
-			(new OrderDetails("OD1900004", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10)),
-			(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49))));
+					(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
+					(new OrderDetails("OD1900004", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10)),
+					(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49))));
 			
 			
 			static ArrayList<PaymentDetails> paymentDetailsList = new ArrayList<PaymentDetails>(Arrays.asList(
@@ -39,37 +36,13 @@ public class AcceptSalesMain {
 	public static void ACCEPT_SALES() {
 		Scanner acceptSalesUserInput = new Scanner(System.in);
 		
-		ArrayList<Food_Related_Product>foodproduct=product_details_module.food_product;
-		ArrayList<Product>products=product_details_module.product;
-		ArrayList<MemberDetails>memberDetail=MembershipMain.memberDetails;
-		ArrayList<StaffDetails>staff=Staff.staffs;
+		ArrayList<Food_Related_Product> foodproduct = product_details_module.food_product;
+		ArrayList<Product> products = product_details_module.product;
+		ArrayList<MemberDetails> memberDetail = MembershipMain.memberDetails;
+		ArrayList<StaffDetails> staff = Staff.staffs;
 		
 		PaymentDetails paymentDetails = new PaymentDetails();
 		OrderDetails orderDetails = new OrderDetails();
-		
-		/*
-		ArrayList<PaymentDetails> paymentDetailsList = new ArrayList<>();
-		
-		ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
-		orderDetailsList1.add(new OrderDetails("OD1900001", "E034", "BAO Yellow Noodle", 450.00, 1.10, 2, 2.20));
-		orderDetailsList1.add(new OrderDetails("OD1900001", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10));
-		paymentDetailsList.add(new PaymentDetails("P1900001", false, LocalDateTime.parse("09-03-2019 12:12:00", dateTimeFormat), 68.30, 6.83, 0.0, 75.13, 75.10, 75.10, 0.0, orderDetailsList1));
-		
-		ArrayList<OrderDetails> orderDetailsList2 = new ArrayList<>();
-		orderDetailsList2.add(new OrderDetails("OD1900002", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 3, 19.47));		
-		paymentDetailsList.add(new PaymentDetails("P1900002", false, LocalDateTime.parse("04-05-2019 12:12:00", dateTimeFormat), 19.47, 1.95, 0.0, 21.42, 21.40, 21.50, 0.10, orderDetailsList2));
-		
-		ArrayList<OrderDetails> orderDetailsList3 = new ArrayList<>();
-		orderDetailsList3.add(new OrderDetails("OD1900003", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49));
-		orderDetailsList3.add(new OrderDetails("OD1900003", "C201", "Nestl�� Chocolate Ice Cream", 850.00, 8.49, 2, 16.98));
-		paymentDetailsList.add(new PaymentDetails("P1900003", false, LocalDateTime.parse("08-06-2019 12:12:00", dateTimeFormat), 23.47, 2.35, 0.0, 25.82, 25.80, 30.00, 4.20, orderDetailsList3));
-		
-		ArrayList<OrderDetails> orderDetailsList4 = new ArrayList<>();
-		orderDetailsList4.add(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49));
-		orderDetailsList4.add(new OrderDetails("OD1900004", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10));
-		orderDetailsList4.add(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49));
-		paymentDetailsList.add(new PaymentDetails("P1900004", true, LocalDateTime.parse("20-06-2019 12:12:00", dateTimeFormat), 79.08, 7.91, 4.35, 82.64, 82.60, 85.00, 2.40, orderDetailsList4));
-		*/
 		
 		paymentDetails.setUpdateSubTotal(0.0);
 			
@@ -110,6 +83,7 @@ public class AcceptSalesMain {
 		staffID = "";
 		staffName = "";
 		
+		//get the staff's ID & staff's Name for the login user
 		for(countForLoop = 0; countForLoop < staff.size(); countForLoop++) {
 			if(userName.equals(staffDetailsList.get(countForLoop).getUserName())) {
 				staffID = staffDetailsList.get(countForLoop).getStaffID();
@@ -118,15 +92,23 @@ public class AcceptSalesMain {
 		}
 		
 		do {
+			System.out.println("\n");
+			System.out.println("                                            _   ___ ___ ___ ___ _____   ___   _   _    ___ ___ \r\n" + 
+					"                                           /_\\ / __/ __| __| _ \\_   _| / __| /_\\ | |  | __/ __|\r\n" + 
+					"                                          / _ \\ (_| (__| _||  _/ | |   \\__ \\/ _ \\| |__| _|\\__ \\\r\n" + 
+					"                                         /_/ \\_\\___\\___|___|_|   |_|   |___/_/ \\_\\____|___|___/");
+			System.out.println();
+			
 			typeOfCustomer = 0;
 			
+			//display this sales is under which staff
 			ArrayList<OrderDetails> orderDetailsList = new ArrayList<OrderDetails>();
-			System.out.println("===============================================");
-			System.out.println("| >> UNDER <<                                 |");
-			System.out.println("|---------------------------------------------|");
-			System.out.printf("| Staff ID   : %-15s %16s\n", staffID, "|");
-			System.out.printf("| Staff Name : %-20s %11s\n", staffName, "|");
-			System.out.println("===============================================");
+			System.out.println("                                        ===============================================");
+			System.out.println("                                        | >> UNDER <<                                 |");
+			System.out.println("                                        |---------------------------------------------|");
+			System.out.printf("                                        | Staff ID   : %-15s %16s\n", staffID, "|");
+			System.out.printf("                                        | Staff Name : %-20s %11s\n", staffName, "|");
+			System.out.println("                                        ===============================================");
 			
 			do {
 				indexMemberID = -1;
@@ -136,7 +118,7 @@ public class AcceptSalesMain {
 					System.out.println("1. CUSTOMER");
 					System.out.println("2. MEMBER");
 					
-					System.out.printf("\nCUSTOMER or MEMBER ? (1 or 2) : ");
+					System.out.printf("\nCUSTOMER or MEMBER ? (1 or 2) : ");   //get the customer is member or not
 					typeOfCustomer = acceptSalesUserInput.nextInt();
 					acceptSalesUserInput.nextLine();
 					
@@ -148,10 +130,12 @@ public class AcceptSalesMain {
 						do {
 							System.out.println("\nYou can Enter \"X\" to Exit");
 							
-							System.out.print("Please Enter Member ID : ");
+							System.out.print("Please Enter Member ID : ");   //if the customer is a member, this will get the customer's member ID
 							memberID = acceptSalesUserInput.nextLine();
 							memberID = memberID.toUpperCase();
 							
+							//check the member ID that key in is inside the member list or not
+							//validate the member ID is passing dead line or not
 							for(countForLoop = 0; countForLoop < memberDetail.size(); countForLoop++) {
 								if(memberID.equals(memberDetail.get(countForLoop).getMemberID())) {
 									if( ( memberDetail.get(countForLoop).getDeadLine().isBefore(LocalDate.now()) ) ) {
@@ -183,7 +167,7 @@ public class AcceptSalesMain {
 				
 				System.out.println("Accept Sales");
 				System.out.println("------------");
-				
+				//start to accept sales
 				do {
 					try {
 					System.out.print("Enter Product No. (1 - " + salesProductList.size() + ") : ");   //get product that user need to buy, enter the number for each product
@@ -207,9 +191,11 @@ public class AcceptSalesMain {
 						System.out.print("Quantity Need : ");
 						purchaseProductQuantity = acceptSalesUserInput.nextInt();
 						
+						//check the input for 'purchaseProductQuantity' is valid or not, can not enter "0 & under 0"
 						if(purchaseProductQuantity < 1)
 							System.out.println("Invalid Input For Quantity. Please Enter Again.");
 						
+						//check the quantity in the stock is enough or not
 						for(countForLoop = 0; countForLoop < foodproduct.size(); countForLoop++) {
 							if(foodproduct.get(choiceProduct-1).getProduct_code() == foodproduct.get(countForLoop).getProduct_code()) {
 								if(purchaseProductQuantity > foodproduct.get(countForLoop).getQty()) {
@@ -236,12 +222,12 @@ public class AcceptSalesMain {
 				}while(purchaseProductQuantity < 1);
 				
 				acceptSalesUserInput.nextLine();
-				
+				//store the order details
 				orderDetailsList.add(new OrderDetails(salesProductList.get(choiceProduct-1).getProductCode(), salesProductList.get(choiceProduct-1).getProductName(),
 												      salesProductList.get(choiceProduct-1).getProductWeight(),
 												      salesProductList.get(choiceProduct-1).getProductUnitPrice(), purchaseProductQuantity));
 				
-				System.out.print("\nHaving Another Order ? (Y or N) : ");
+				System.out.print("\nHaving Another Order ? (Y or N) : ");   //same customer need to purchase other product or not
 				nextOrder = acceptSalesUserInput.next().charAt(0);
 				nextOrder = Character.toUpperCase(nextOrder);
 				acceptSalesUserInput.nextLine();
@@ -252,6 +238,8 @@ public class AcceptSalesMain {
 			if(indexMemberID == -1)
 				paymentRecord = new PaymentDetails(false, orderDetailsList, 0.0);
 			
+			//display the total amount that need to pay by the customer
+			//check the money give by customer is enough or not
 			do {
 				amountPayByCustomer = 0.0;
 				try {
@@ -270,13 +258,17 @@ public class AcceptSalesMain {
 			}while(Double.compare(amountPayByCustomer, paymentRecord.getRoundingAdjustment()) < 0);
 			System.out.println();
 			
+			//is the customer is not a member pass 'if statement'
+			//else pass 'else statement'
 			if(typeOfCustomer == 1)
 				paymentDetailsList.add(new PaymentDetails(false, orderDetailsList, amountPayByCustomer));
 			else
 				paymentDetailsList.add(new PaymentDetails(true, orderDetailsList, amountPayByCustomer));
 			
+			//display the receipt
 			paymentDetails.displayReceipt(paymentDetailsList, orderDetailsList);
 			
+			//update the quantity of product in product details after a customer purchase product
 			for(countForLoop = 0; countForLoop < salesProductList.size(); countForLoop++) {
 				if(salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode()))
 					foodproduct.get(countForLoop).setQty(foodproduct.get(countForLoop).getQty()-purchaseProductQuantity);
@@ -284,6 +276,7 @@ public class AcceptSalesMain {
 					products.get(countForLoop).setQty(products.get(countForLoop).getQty()-purchaseProductQuantity);
 			}
 			
+			//if the customer is a member then update their member point & member grade
 			if(indexMemberID != -1) {
 				memberDetail.get(indexMemberID).setMemberPoint((memberDetail.get(indexMemberID).getMemberPoint() + (paymentDetailsList.get(count).getRoundingAdjustment()/10)));
 				
@@ -302,7 +295,7 @@ public class AcceptSalesMain {
 			paymentDetails.setPaymentNo();
 			count++;
 			
-			System.out.print("\nHaving Next Customer Order ? (Y or N) : ");
+			System.out.print("\nHaving Next Customer Order ? (Y or N) : ");   //having next customer need to purchase product or not
 			nextCustomer = acceptSalesUserInput.next().charAt(0);
 			nextCustomer = Character.toUpperCase(nextCustomer);
 			acceptSalesUserInput.nextLine();
@@ -315,7 +308,7 @@ public class AcceptSalesMain {
 		int indexNotAvaibel;
 		
 		System.out.println();
-		System.out.printf("%41s", "Product List\n");
+		System.out.printf("%51s", "Product List\n");
 		System.out.println("+======================================================================================+");
 		System.out.printf("|  %3s | %-50s | %14s |  %5s  |\n", "No.", "Product Name", "Product Weight", "Price");
 		System.out.println("+======================================================================================+");

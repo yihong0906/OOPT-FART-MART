@@ -1,5 +1,3 @@
-
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,12 +6,13 @@ public class TotalSalesOfTheDay {
     	
         Scanner input = new Scanner (System.in);
         
-        System.out.println("\nDate for the total sales of the day report :");
-        System.out.println("------------------------------------");
-        System.out.println("1. 1 August 2019");
-        System.out.println("2. 2 August 2019");
-        System.out.println("3. 3 August 2019");
-        System.out.println("------------------------------------");
+        System.out.println("\n+==============================================+");
+        System.out.println("|Date for the total sales of the day report :  |");
+        System.out.println("+==============================================+");
+        System.out.println("|1. 1 August 2019							   |");
+        System.out.println("|2. 2 August 2019							   |");
+        System.out.println("|3. 3 August 2019							   |");
+        System.out.println("+==============================================+");
         
         while(true){
             System.out.print("\nEnter the number of the date (exit = 0) : ");
@@ -45,7 +44,7 @@ public class TotalSalesOfTheDay {
             totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
             totalA+=total;
            
-             System.out.printf("%d %s %d % .2f %.2f\n",t,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
+             System.out.printf("%-10d %-15s %-10d %-20.2f %.2f\n",t,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
         }
             /*for(OrderDetails p:orderDetailsList69){
                             total=p.getProductUnitPrice()*p.getPurcahseQuantity();
@@ -54,7 +53,7 @@ public class TotalSalesOfTheDay {
                              System.out.printf("%d %s %d %lf %lf\n",i,p.getProductCode(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
                          }
                          */
-       System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
+       System.out.println("					Total quantity : "+totalQty+"			Total amount : "+totalA);
         
                         break;
                     }
@@ -79,7 +78,7 @@ public class TotalSalesOfTheDay {
         	 total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
              totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
              totalA+=total;
-              System.out.printf("%d %s %d %.2f %.2f\n",t,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
+              System.out.printf("%-10d %-15s %-10d %-20.2f %.2f\n",t,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
         }
         /*
         for(OrderDetails p:orderDetailsList69){
@@ -88,7 +87,7 @@ public class TotalSalesOfTheDay {
                             totalA+=total;
                              System.out.printf("%d %s %d %.2f %.2f\n",i,p.getProductCode(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
                          }*/
-       System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
+       System.out.println("					Total quantity : "+totalQty+"			Total amount : "+totalA);
                        
         break;
                     }
@@ -114,7 +113,7 @@ public class TotalSalesOfTheDay {
              totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
              totalA+=total;
              
-              System.out.printf("%d %s %d %lf %lf\n",t,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
+              System.out.printf("%-10d %-15s %-10d %-20.2f %.2f\n",t,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
            }
         /*
         for(OrderDetails p:orderDetailsList69){
@@ -125,7 +124,7 @@ public class TotalSalesOfTheDay {
                              System.out.printf("%d %s %d %lf %lf\n",i,p.getProductCode(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
                          }*/
         
-       System.out.println("Total quantity : "+totalQty+"Total amount : "+totalA);
+       System.out.println("					Total quantity : "+totalQty+"			Total amount : "+totalA);
         break;
                     }
                 case 0:
@@ -148,5 +147,3 @@ public class TotalSalesOfTheDay {
         }
     }
 }
-
-
