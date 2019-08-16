@@ -131,7 +131,7 @@ class product_details_module {
     //*************************************VIEW PRODUCT************************************************
     public static void viewProduct(ArrayList<Product> product, ArrayList<Food_Related_Product> food_product){
 
-    	System.out.println("+============================================================================DISPLAY PRODUCTS========================================================================+");
+    	System.out.println("\n+============================================================================DISPLAY PRODUCTS========================================================================+");
     	System.out.printf("| %s |%-5s |              %-35s|%5s |%5s |%6s   | %10s | %10s | %15s   | %15s       |\n", "No" , "Code" ,"        Name" ," Weight ", "Qty", "Price", "Category ID",
     	 "Cat Description", "Manufacturer", "Manu Date      " );
     	 System.out.printf("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");

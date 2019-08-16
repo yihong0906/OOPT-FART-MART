@@ -103,6 +103,10 @@ public class MembershipMain {
 					else if(userChoice == 3)
 						modifyMemberDetails(memberDetails, allowModifyList);
 					else if(userChoice == 4)
+						if(position.equals("Manager")){ //check whether manager or staff
+		    				deleteMemberDetails(memberDetails);
+		    			}else
+    						System.out.println("Oops! You have no access to this function!");
 						deleteMemberDetails(memberDetails);
 					else if(userChoice == 5)
 						System.out.println("\nExit Membership.");
