@@ -28,7 +28,8 @@ class product_details_module {
 			(new Product("T171", "Colgate Toothbrush", 430.00, 50, 12.99,new Category("HB46", "Health & Beauty"),new Manufacturer("Colgate", LocalDate.parse("12-08-2019", format)))),
 			(new Product("P023", "Royal Gold Bathroom Tissue 240Sheetsx20Rolls",3.56, 30, 29.90,new Category("HH21", "Household"),new Manufacturer("Royal Gold", LocalDate.parse("12-08-2019", format)))),
 			(new Product("F201", "Febreze Fabric Refresher 200ml", 200.00, 20, 8.50,new Category("HC12", "Household"),new Manufacturer("Febreze", LocalDate.parse("01-01-2019", format))))));
-    public  void PRODUCT_DETAILS_MODULE(String position){
+    
+	public  void PRODUCT_DETAILS_MODULE(String position){
     	
     	//variables declartions
     	String username;
