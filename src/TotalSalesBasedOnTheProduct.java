@@ -48,7 +48,7 @@ public class TotalSalesBasedOnTheProduct {
                             	totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
                                 totalA+=total;
                             	total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
-                            	System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);  
+                            	System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);  
                             }
         }
         for(int t=0;t<orderDetailsList70.size();t++) {
@@ -58,7 +58,7 @@ public class TotalSalesBasedOnTheProduct {
                             	total=orderDetailsList70.get(t).getProductUnitPrice()*orderDetailsList70.get(t).getPurcahseQuantity();
                                 totalQty+=orderDetailsList70.get(t).getPurcahseQuantity();
                                 totalA+=total;
-                            	System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList70.get(t).getProductCode(),orderDetailsList70.get(t).getPurcahseQuantity(),orderDetailsList70.get(t).getProductUnitPrice(),total);  
+                            	System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList70.get(t).getProductCode(),orderDetailsList70.get(t).getPurcahseQuantity(),orderDetailsList70.get(t).getProductUnitPrice(),total);  
                             }
         }
         for(int t=0;t<orderDetailsList71.size();t++) {
@@ -68,7 +68,7 @@ public class TotalSalesBasedOnTheProduct {
                             	total=orderDetailsList71.get(t).getProductUnitPrice()*orderDetailsList71.get(t).getPurcahseQuantity();
                                 totalQty+=orderDetailsList71.get(t).getPurcahseQuantity();
                                 totalA+=total;
-                            	System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList71.get(t).getProductCode(),orderDetailsList71.get(t).getPurcahseQuantity(),orderDetailsList71.get(t).getProductUnitPrice(),total);  
+                            	System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList71.get(t).getProductCode(),orderDetailsList71.get(t).getPurcahseQuantity(),orderDetailsList71.get(t).getProductUnitPrice(),total);  
                             }
         }
         for(int t=0;t<orderDetailsList72.size();t++) {
@@ -78,27 +78,11 @@ public class TotalSalesBasedOnTheProduct {
                             	total=orderDetailsList72.get(t).getProductUnitPrice()*orderDetailsList72.get(t).getPurcahseQuantity();
                                 totalQty+=orderDetailsList72.get(t).getPurcahseQuantity();
                                 totalA+=total;
-                            	System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList72.get(t).getProductCode(), orderDetailsList72.get(t).getPurcahseQuantity(),orderDetailsList72.get(t).getProductUnitPrice(),total);  
+                            	System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList72.get(t).getProductCode(), orderDetailsList72.get(t).getPurcahseQuantity(),orderDetailsList72.get(t).getProductUnitPrice(),total);  
                             }
         }
         
-        
-        
-        
-        
-                  ///}//orderDetailsList69.get(t).getCategory_desc(),
-       
-        /*for(OrderDetails p:orderDetailsList69){
-                            total=p.get.getProductUnitPrice()*p.get.getPurcahseQuantity();
-                            totalQty+=p.get.getPurcahseQuantity();
-                            totalA+=total;
-                            String str1 = "E001";
-                            int x = str1.compareTo(p.get.getProductCode());
-                            if(x == 0){
-                             System.out.printf("%-10s %-25s %-8d %-16.2f %.2f\n",p.get.getProductCode(),p.get.getCategory_desc(),p.get.getPurcahseQuantity(),p.get.getProductUnitPrice(),total);
-        }*/
-                         
-       System.out.printf("\nTotal quantity : %-20d 	\n\t\t\t\t\t Total amount : RM%.2f",totalQty,totalA);
+       System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d\n" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);
 
         break;
                     }
@@ -123,7 +107,7 @@ public class TotalSalesBasedOnTheProduct {
                             	total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
                                 totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
                                 totalA+=total;
-                             System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
+                             System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
                           } 
         }
             for(int t=0; t<orderDetailsList70.size();t++) {
@@ -132,7 +116,7 @@ public class TotalSalesBasedOnTheProduct {
 		                	total=orderDetailsList70.get(t).getProductUnitPrice()*orderDetailsList70.get(t).getPurcahseQuantity();
 		                    totalQty+=orderDetailsList70.get(t).getPurcahseQuantity();
 		                    totalA+=total;
-		                    System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList70.get(t).getProductCode(),orderDetailsList70.get(t).getPurcahseQuantity(),orderDetailsList70.get(t).getProductUnitPrice(),total);
+		                    System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList70.get(t).getProductCode(),orderDetailsList70.get(t).getPurcahseQuantity(),orderDetailsList70.get(t).getProductUnitPrice(),total);
                               }
             }
         	
@@ -142,7 +126,7 @@ public class TotalSalesBasedOnTheProduct {
                 	total=orderDetailsList71.get(t).getProductUnitPrice()*orderDetailsList71.get(t).getPurcahseQuantity();
                     totalQty+=orderDetailsList71.get(t).getPurcahseQuantity();
                     totalA+=total;
-                                 System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList71.get(t).getProductCode(),orderDetailsList71.get(t).getPurcahseQuantity(),orderDetailsList71.get(t).getProductUnitPrice(),total);
+                                 System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList71.get(t).getProductCode(),orderDetailsList71.get(t).getPurcahseQuantity(),orderDetailsList71.get(t).getProductUnitPrice(),total);
                               }
             }
 	        for(int t=0; t<orderDetailsList72.size();t++) {
@@ -151,21 +135,11 @@ public class TotalSalesBasedOnTheProduct {
                 	total=orderDetailsList72.get(t).getProductUnitPrice()*orderDetailsList72.get(t).getPurcahseQuantity();
                     totalQty+=orderDetailsList72.get(t).getPurcahseQuantity();
                     totalA+=total;
-	                             System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList72.get(t).getProductCode(),orderDetailsList72.get(t).getPurcahseQuantity(),orderDetailsList72.get(t).getProductUnitPrice(),total);
+	                             System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList72.get(t).getProductCode(),orderDetailsList72.get(t).getPurcahseQuantity(),orderDetailsList72.get(t).getProductUnitPrice(),total);
 	                          }
 	        }
-              /*     
-        for(OrderDetails p:orderDetailsList1){
-                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
-                            totalQty+=p.getPurcahseQuantity();
-                            totalA+=total;
-                            String str1 = "E034";
-                            int x = str1.compareTo(p.getProductCode());
-                            if(x == 0){
-                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProductCode(),p.getCategory_desc(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
-                            }*/
                             
-        System.out.printf("\nTotal quantity : %-20d 	\t\t\t Total amount : %.2f",totalQty,totalA);}
+	        System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d\n" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);}
         break;
                     
                         
@@ -191,7 +165,7 @@ public class TotalSalesBasedOnTheProduct {
 			            	total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
 			                totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
 			                totalA+=total;
-                             System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
+                             System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
                           }
         			}
         		for(int t=0; t<orderDetailsList70.size();t++) {
@@ -200,7 +174,7 @@ public class TotalSalesBasedOnTheProduct {
 		            	total=orderDetailsList70.get(t).getProductUnitPrice()*orderDetailsList70.get(t).getPurcahseQuantity();
 		                totalQty+=orderDetailsList70.get(t).getPurcahseQuantity();
 		                totalA+=total;
-                         System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList70.get(t).getProductCode(),orderDetailsList70.get(t).getPurcahseQuantity(),orderDetailsList70.get(t).getProductUnitPrice(),total);
+                         System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList70.get(t).getProductCode(),orderDetailsList70.get(t).getPurcahseQuantity(),orderDetailsList70.get(t).getProductUnitPrice(),total);
                       }
     			}
         		for(int t=0; t<orderDetailsList71.size();t++) {
@@ -209,7 +183,7 @@ public class TotalSalesBasedOnTheProduct {
 		            	total=orderDetailsList71.get(t).getProductUnitPrice()*orderDetailsList71.get(t).getPurcahseQuantity();
 		                totalQty+=orderDetailsList71.get(t).getPurcahseQuantity();
 		                totalA+=total;
-                         System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList71.get(t).getProductCode(),orderDetailsList71.get(t).getPurcahseQuantity(),orderDetailsList71.get(t).getProductUnitPrice(),total);
+                         System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList71.get(t).getProductCode(),orderDetailsList71.get(t).getPurcahseQuantity(),orderDetailsList71.get(t).getProductUnitPrice(),total);
                       }
     			}
         		for(int t=0; t<orderDetailsList72.size();t++) {
@@ -218,20 +192,11 @@ public class TotalSalesBasedOnTheProduct {
 		            	total=orderDetailsList72.get(t).getProductUnitPrice()*orderDetailsList72.get(t).getPurcahseQuantity();
 		                totalQty+=orderDetailsList72.get(t).getPurcahseQuantity();
 		                totalA+=total;
-                         System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList72.get(t).getProductCode(),orderDetailsList72.get(t).getPurcahseQuantity(),orderDetailsList72.get(t).getProductUnitPrice(),total);
+                         System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList72.get(t).getProductCode(),orderDetailsList72.get(t).getPurcahseQuantity(),orderDetailsList72.get(t).getProductUnitPrice(),total);
                       }
     			}
-        /*for(OrderDetails p:orderDetailsList1){
-                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
-                            totalQty+=p.getPurcahseQuantity();
-                            totalA+=total;
-                            String str1 = "B009";
-                            int x = str1.compareTo(p.getProductCode());
-                            if(x == 0){
-                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProductCode(),p.getCategory_desc(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
-                            }*/
                     
-                    System.out.printf("\nTotal quantity : %-20d 	\t\t\t Total amount : %.2f",totalQty,totalA);}
+        		System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d\n" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);}
         break;
                     
                     case 4:
@@ -255,7 +220,7 @@ public class TotalSalesBasedOnTheProduct {
             		            	total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
             		                totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
             		                totalA+=total;
-            		                System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
+            		                System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
                                   }
          }
                  for(int t=0; t<orderDetailsList70.size();t++) {
@@ -264,7 +229,7 @@ public class TotalSalesBasedOnTheProduct {
  		            	total=orderDetailsList70.get(t).getProductUnitPrice()*orderDetailsList70.get(t).getPurcahseQuantity();
  		                totalQty+=orderDetailsList70.get(t).getPurcahseQuantity();
  		                totalA+=total;
-                          System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList70.get(t).getProductCode(),orderDetailsList70.get(t).getPurcahseQuantity(),orderDetailsList70.get(t).getProductUnitPrice(),total);
+                          System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList70.get(t).getProductCode(),orderDetailsList70.get(t).getPurcahseQuantity(),orderDetailsList70.get(t).getProductUnitPrice(),total);
                        }
      	}
                  for(int t=0; t<orderDetailsList71.size();t++) {
@@ -273,7 +238,7 @@ public class TotalSalesBasedOnTheProduct {
  		            	total=orderDetailsList71.get(t).getProductUnitPrice()*orderDetailsList71.get(t).getPurcahseQuantity();
  		                totalQty+=orderDetailsList71.get(t).getPurcahseQuantity();
  		                totalA+=total;
-                          System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList71.get(t).getProductCode(),orderDetailsList71.get(t).getPurcahseQuantity(),orderDetailsList71.get(t).getProductUnitPrice(),total);
+                          System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList71.get(t).getProductCode(),orderDetailsList71.get(t).getPurcahseQuantity(),orderDetailsList71.get(t).getProductUnitPrice(),total);
                        }
      	}
                  for(int t=0; t<orderDetailsList72.size();t++) {
@@ -282,21 +247,11 @@ public class TotalSalesBasedOnTheProduct {
  		            	total=orderDetailsList72.get(t).getProductUnitPrice()*orderDetailsList72.get(t).getPurcahseQuantity();
  		                totalQty+=orderDetailsList72.get(t).getPurcahseQuantity();
  		                totalA+=total;
-                          System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList72.get(t).getProductCode(),orderDetailsList72.get(t).getPurcahseQuantity(),orderDetailsList72.get(t).getProductUnitPrice(),total);
+                          System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList72.get(t).getProductCode(),orderDetailsList72.get(t).getPurcahseQuantity(),orderDetailsList72.get(t).getProductUnitPrice(),total);
                        }
      	}
-                               	
-        /*for(OrderDetails p:orderDetailsList1){
-                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
-                            totalQty+=p.getPurcahseQuantity();
-                            totalA+=total;
-                            String str1 = "D792";
-                            int x = str1.compareTo(p.getProductCode());
-                            if(x == 0){
-                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProductCode(),p.getCategory_desc(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
-                            }*/
                            
-                 System.out.printf("\nTotal quantity : %-20d 	\t\t\t Total amount : %.2f",totalQty,totalA);}
+                 System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d\n" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);}
         break;
                     
                     case 5:
@@ -320,7 +275,7 @@ public class TotalSalesBasedOnTheProduct {
 	            	total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
 	                totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
 	                totalA+=total;
-                  System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
+                  System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
                }
         }
         
@@ -330,7 +285,7 @@ public class TotalSalesBasedOnTheProduct {
             	total=orderDetailsList70.get(t).getProductUnitPrice()*orderDetailsList70.get(t).getPurcahseQuantity();
                 totalQty+=orderDetailsList70.get(t).getPurcahseQuantity();
                 totalA+=total;
-                  System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList70.get(t).getProductCode(),orderDetailsList70.get(t).getPurcahseQuantity(),orderDetailsList70.get(t).getProductUnitPrice(),total);
+                  System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList70.get(t).getProductCode(),orderDetailsList70.get(t).getPurcahseQuantity(),orderDetailsList70.get(t).getProductUnitPrice(),total);
                }
         }
         for(int t=0; t<orderDetailsList71.size();t++) {
@@ -339,7 +294,7 @@ public class TotalSalesBasedOnTheProduct {
             	total=orderDetailsList71.get(t).getProductUnitPrice()*orderDetailsList71.get(t).getPurcahseQuantity();
                 totalQty+=orderDetailsList71.get(t).getPurcahseQuantity();
                 totalA+=total;
-                  System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList71.get(t).getProductCode(),orderDetailsList71.get(t).getPurcahseQuantity(),orderDetailsList71.get(t).getProductUnitPrice(),total);
+                  System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList71.get(t).getProductCode(),orderDetailsList71.get(t).getPurcahseQuantity(),orderDetailsList71.get(t).getProductUnitPrice(),total);
                }
         }
         for(int t=0; t<orderDetailsList72.size();t++) {
@@ -348,21 +303,11 @@ public class TotalSalesBasedOnTheProduct {
             	total=orderDetailsList72.get(t).getProductUnitPrice()*orderDetailsList72.get(t).getPurcahseQuantity();
                 totalQty+=orderDetailsList72.get(t).getPurcahseQuantity();
                 totalA+=total;
-                  System.out.printf("   %-15s %-14d %-20.2f %-5.2f\n",orderDetailsList72.get(t).getProductCode(),orderDetailsList72.get(t).getPurcahseQuantity(),orderDetailsList72.get(t).getProductUnitPrice(),total);
+                  System.out.printf("%-17s%8d       %10.2f          %11.2f\n",orderDetailsList72.get(t).getProductCode(),orderDetailsList72.get(t).getPurcahseQuantity(),orderDetailsList72.get(t).getProductUnitPrice(),total);
                }
         }
-                /*            
-        for(OrderDetails p:orderDetailsList1){
-                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
-                            totalQty+=p.getPurcahseQuantity();
-                            totalA+=total;
-                            String str1 = "F201";
-                            int x = str1.compareTo(p.getProductCode());
-                            if(x == 0){
-                             System.out.printf("%-10s %-25s %-8d %-16lf %lf\n",p.getProductCode(),p.getCategory_desc(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
-                            }*/
                             
-        System.out.printf("\nTotal quantity : %-20d 	\t\t\t Total amount : %.2f",totalQty,totalA);}
+        System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d\n" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);}
         break; 
                 case 0:
                 {
@@ -388,6 +333,3 @@ public class TotalSalesBasedOnTheProduct {
         }}
         }
     }
-
-            
-            
