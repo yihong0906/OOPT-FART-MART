@@ -7,6 +7,33 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AcceptSalesMain {
+			static ArrayList<PaymentDetails> paymentDetailsList = new ArrayList<PaymentDetails>();
+		
+			//static ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<StaffDetails>();
+			static ArrayList<OrderDetails>orderDetailsList1 = new ArrayList<OrderDetails>(Arrays.asList(
+			(new OrderDetails("OD1900001", "E034", "BAO Yellow Noodle", 450.00, 1.10, 2, 2.20)),
+			(new OrderDetails("OD1900001", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10))));
+			
+			
+			paymentDetailsList.add(new PaymentDetails("P1900001", false, LocalDateTime.parse("09-03-2019 12:12:00", dateTimeFormat), 68.30, 6.83, 0.0, 75.13, 75.10, 75.10, 0.0, orderDetailsList1));
+			
+			
+			static ArrayList<OrderDetails> orderDetailsList2 = new ArrayList<OrderDetails>(Arrays.asList(
+			(new OrderDetails("OD1900002", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 3, 19.47))));		
+			
+			
+			paymentDetailsList.add(new PaymentDetails("P1900002", false, LocalDateTime.parse("04-05-2019 12:12:00", dateTimeFormat), 19.47, 1.95, 0.0, 21.42, 21.40, 21.50, 0.10, orderDetailsList2));
+			
+			static ArrayList<OrderDetails> orderDetailsList3 = new ArrayList<OrderDetails>(Arrays.asList(
+	     	(new OrderDetails("OD1900003", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
+			(new OrderDetails("OD1900003", "C201", "Nestlï¿½ï¿½ Chocolate Ice Cream", 850.00, 8.49, 2, 16.98))));
+			paymentDetailsList.add(new PaymentDetails("P1900003", false, LocalDateTime.parse("08-06-2019 12:12:00", dateTimeFormat), 23.47, 2.35, 0.0, 25.82, 25.80, 30.00, 4.20, orderDetailsList3));
+			
+			static ArrayList<OrderDetails> orderDetailsList4 = new ArrayList<OrderDetails>(Arrays.asList(
+			(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
+			(new OrderDetails("OD1900004", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10)),
+			(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49))));
+			paymentDetailsList.add(new PaymentDetails("P1900004", true, LocalDateTime.parse("20-06-2019 12:12:00", dateTimeFormat), 79.08, 7.91, 4.35, 82.64, 82.60, 85.00, 2.40, orderDetailsList4));
 	public static void ACCEPT_SALES() {
 		Scanner acceptSalesUserInput = new Scanner(System.in);
 		
@@ -18,6 +45,7 @@ public class AcceptSalesMain {
 		
 		DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 		
+		/*
 		ArrayList<PaymentDetails> paymentDetailsList = new ArrayList<>();
 		
 		ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
@@ -31,7 +59,7 @@ public class AcceptSalesMain {
 		
 		ArrayList<OrderDetails> orderDetailsList3 = new ArrayList<>();
 		orderDetailsList3.add(new OrderDetails("OD1900003", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49));
-		orderDetailsList3.add(new OrderDetails("OD1900003", "C201", "Nestl¨¦ Chocolate Ice Cream", 850.00, 8.49, 2, 16.98));
+		orderDetailsList3.add(new OrderDetails("OD1900003", "C201", "Nestlï¿½ï¿½ Chocolate Ice Cream", 850.00, 8.49, 2, 16.98));
 		paymentDetailsList.add(new PaymentDetails("P1900003", false, LocalDateTime.parse("08-06-2019 12:12:00", dateTimeFormat), 23.47, 2.35, 0.0, 25.82, 25.80, 30.00, 4.20, orderDetailsList3));
 		
 		ArrayList<OrderDetails> orderDetailsList4 = new ArrayList<>();
@@ -39,6 +67,7 @@ public class AcceptSalesMain {
 		orderDetailsList4.add(new OrderDetails("OD1900004", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10));
 		orderDetailsList4.add(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49));
 		paymentDetailsList.add(new PaymentDetails("P1900004", true, LocalDateTime.parse("20-06-2019 12:12:00", dateTimeFormat), 79.08, 7.91, 4.35, 82.64, 82.60, 85.00, 2.40, orderDetailsList4));
+		*/
 		
 		paymentDetails.setUpdateSubTotal(0.0);
 			
