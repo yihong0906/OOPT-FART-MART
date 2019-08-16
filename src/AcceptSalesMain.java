@@ -32,7 +32,7 @@ public class AcceptSalesMain {
 		
 		ArrayList<OrderDetails> orderDetailsList3 = new ArrayList<>();
 		orderDetailsList3.add(new OrderDetails("OD1900003", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49));
-		orderDetailsList3.add(new OrderDetails("OD1900003", "C201", "Nestl¨¦ Chocolate Ice Cream", 850.00, 8.49, 2, 16.98));
+		orderDetailsList3.add(new OrderDetails("OD1900003", "C201", "Nestlï¿½ï¿½ Chocolate Ice Cream", 850.00, 8.49, 2, 16.98));
 		paymentDetailsList.add(new PaymentDetails("P1900003", false, LocalDateTime.parse("08-06-2019 12:12:00", dateTimeFormat), 23.47, 2.35, 0.0, 25.82, 25.80, 30.00, 4.20, orderDetailsList3));
 		orderDetails.setOrderNo();
 		paymentDetails.setPaymentNo();
@@ -55,7 +55,7 @@ public class AcceptSalesMain {
 		productDetails.add(new ProductDetails("E001", "ABC Fresh Egg 15pcs", 49.60, 21, 6.49, "FF05", "Fresh Foods", "ABC", LocalDate.parse("2019-08-12", dateFormat), LocalDate.parse("2019-08-31", dateFormat)));
 		productDetails.add(new ProductDetails("E034", "BAO Yellow Noodle", 450.00, 50, 1.10, "FF81", "Fresh Foods", "BAO", LocalDate.parse("2019-08-12", dateFormat), LocalDate.parse("2019-08-31", dateFormat)));
 		productDetails.add(new ProductDetails("B009", "Anmum Milk Powder", 650.00, 15, 66.10, "BM20", "Baby", "Anmum", LocalDate.parse("2019-08-12", dateFormat), LocalDate.parse("2029-08-31", dateFormat)));
-		productDetails.add(new ProductDetails("C201", "Nestl¨¦ Chocolate Ice Cream", 850.00, 25, 8.49, "CF90", "Frozen", "Nestl¨¦", LocalDate.parse("2019-08-12", dateFormat), LocalDate.parse("2029-08-31", dateFormat)));
+		productDetails.add(new ProductDetails("C201", "Nestlï¿½ï¿½ Chocolate Ice Cream", 850.00, 25, 8.49, "CF90", "Frozen", "Nestlï¿½ï¿½", LocalDate.parse("2019-08-12", dateFormat), LocalDate.parse("2029-08-31", dateFormat)));
 		
 		ArrayList<StaffDetails> staffs = new ArrayList<StaffDetails>(Arrays.asList(
 				 (new StaffDetails("TEH YI HONG","18WMD06251","000906-10-1001","Male",new Address("A08","Taman Indah","Jalan ipoh 51200","Kuala Lumpur","Malaysia"),
@@ -72,16 +72,7 @@ public class AcceptSalesMain {
 						 2900.00,"Manager",LocalDate.parse("25-10-1996",format),"0181120909","kimchun") )));
 		//here
 		
-		int countForLoop;              //count in For Loop
-		String userName;               //get the user's name from login
-		String staffID;                //store the staff's ID if the user name match
-		String staffName;              //store the staff's Name if the user name match
-		int typeOfCustomer;            //know the customer is member or not
-		int choiceProduct;             //get the product that customer went to purchase   
-		int purchaseProductQuantity;   //store purchase quantity for product
-		char nextOrder;                //a customer need to purchase another product or not
-		char nextCustomer;             //have next customer need to purchase product or not
-		double amountPayByCustomer;    //store the amount that pay by customer
+		int countForLoop;   //count in For Loop
 		
 		//get the arraylist's data from product
 		ArrayList<SalesProductList> salesProductList = new ArrayList<SalesProductList>();

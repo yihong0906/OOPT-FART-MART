@@ -14,6 +14,7 @@ public class StaffDetails{
 	 protected LocalDate 	dateOfBirth;
 	 protected String handphone;
 	 protected String userName;
+	 protected String password;
 	 protected static String generateID="18WMD06257";
      
 	 
