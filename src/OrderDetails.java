@@ -9,9 +9,6 @@ public class OrderDetails extends PaymentDetails{
 	private int purcahseQuantity;
 	private double subtotalPerItem;
 	
-//	private String updateReceiptNo = "RCPT00001";
-//	private String receiptNo;
-	
 	//default constructor
 	public OrderDetails() {
 		orderNo = updateOrderNo;
