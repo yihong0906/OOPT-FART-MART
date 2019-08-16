@@ -21,7 +21,7 @@ public class Staff{
 	 (new FullTime("YAP KIM CHUN","18WMD06256","000906-10-1001","Male",new Address("Z01/25","Taman Bangsar","Jalan Pahang 56000","Kuala Lumpur","Malaysia"),
 			 2900.00,"Manager",LocalDate.parse("25-10-1996",format),"0181120909","kimchun","hxkiller08","fulltime",240,15) )));
 
-	 public static void STAFF_DETAILS_MODULE
+	 public static void STAFF_DETAILS_MODULE()
 	 {   Scanner s=new Scanner(System.in);
 		 int selection;
 		  

@@ -45,7 +45,7 @@ public class Login {
 				usernameIndex=checking;
 				}
 		}
-		for(checking=0;checking<password.length;checking++)
+		for(checking=0;checking<staff.size();checking++)
 		{
 			if(pass.equals(staff.get(checking).getPassword()))
 				{

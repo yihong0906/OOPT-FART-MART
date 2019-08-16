@@ -58,7 +58,7 @@ public class FART_MART {
 	    				
 	    		} else if (choice ==3) {
 	    			if (position.equals("Manager") ){
-	    				staff_info.STAFF_DETAILS();
+	    				staff_info.STAFF_DETAILS_MODULE();
 	    			} else if (position.equals("Staff")){
 	    				System.out.println("Oops! You are now allowed to enter this module!");
 	    			}

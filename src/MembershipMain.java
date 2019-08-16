@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 public class MembershipMain {
 	
 	/***************************** MAIN MEMBERSHIP MODULE *****************************/
-	public static void main(String[] args) {
+	public static void MEMBERSHIP_MODULE(String position) {
 		Scanner membershipUserInput = new Scanner(System.in);
 		
 		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
