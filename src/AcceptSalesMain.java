@@ -209,6 +209,25 @@ public class AcceptSalesMain {
 						
 						if(purchaseProductQuantity < 1)
 							System.out.println("Invalid Input For Quantity. Please Enter Again.");
+						
+						for(countForLoop = 0; countForLoop < foodproduct.size(); countForLoop++) {
+							if(foodproduct.get(choiceProduct-1).getProduct_code() == foodproduct.get(countForLoop).getProduct_code()) {
+								if(purchaseProductQuantity > foodproduct.get(countForLoop).getQty()) {
+									purchaseProductQuantity = 0;
+									System.out.println("\nAvailable Quantity : " + foodproduct.get(countForLoop).getQty());
+									System.out.println("Not Enough Stock. Please Enter Again.\n");
+								}
+							}
+						}
+						for(countForLoop = 0; countForLoop < products.size(); countForLoop++) {
+							if(products.get(choiceProduct-1).getProduct_code() == products.get(countForLoop).getProduct_code()) {
+								if(purchaseProductQuantity > products.get(countForLoop).getQty()) {
+									purchaseProductQuantity = 0;
+									System.out.println("\nAvailable Quantity : " + products.get(countForLoop).getQty());
+									System.out.println("Not Enough Stock. Please Enter Again.\n");
+								}
+							}
+						}
 					}
 					catch(Exception purchaseProductQuantityError) {
 						acceptSalesUserInput.next();
@@ -293,6 +312,7 @@ public class AcceptSalesMain {
 	/****************************** DISPLAY SALES PRODUCT LIST METHOD ******************************/
 	public static void displaySalesProductList(ArrayList<SalesProductList> displaySalesProductList) {
 		int countForLoop;
+		int indexNotAvaibel;
 		
 		System.out.println();
 		System.out.printf("%41s", "Product List\n");

@@ -7,8 +7,8 @@ public class SalaryOfTheEmployees {
     public static void r3(){
         int total=0;
         
-    ArrayList<StaffDetails> staffDetails = new ArrayList<StaffDetails>();
-       
+    
+    ArrayList<StaffDetails> staffDetails = Staff.staffs;
         System.out.println("\nSalary of the employees");
         System.out.println("[FART MART]");
         System.out.println("Month : July 2019");
