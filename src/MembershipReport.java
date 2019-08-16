@@ -7,8 +7,7 @@ public class MembershipReport {
         int total=0;
         int i=1;
         
-   
-    ArrayList<MemberDetails> memberDetails = MembershipMain.memberDetails;
+    ArrayList<MemberDetails> memberDetails = new ArrayList<MemberDetails>();
        
         System.out.println("\nMembership report");
         System.out.println("[FART MART]");

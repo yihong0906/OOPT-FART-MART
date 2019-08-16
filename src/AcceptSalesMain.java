@@ -7,61 +7,72 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AcceptSalesMain {
+			
 	
-	static ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>(Arrays.asList(
-	(new OrderDetails("OD1900001", "E034", "BAO Yellow Noodle", 450.00, 1.10, 2, 2.20)),
-	(new OrderDetails("OD1900001", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10))));
-	
+	        static DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+			//static ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<StaffDetails>();
+			static ArrayList<OrderDetails>orderDetailsList1 = new ArrayList<OrderDetails>(Arrays.asList(
+			(new OrderDetails("OD1900001", "E034", "BAO Yellow Noodle", 450.00, 1.10, 2, 2.20)),
+			(new OrderDetails("OD1900001", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10))));
+			
+
+			static ArrayList<OrderDetails> orderDetailsList2 = new ArrayList<OrderDetails>(Arrays.asList(
+			(new OrderDetails("OD1900002", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 3, 19.47))));		
+			
+			
+			static ArrayList<OrderDetails> orderDetailsList3 = new ArrayList<OrderDetails>(Arrays.asList(
+	     	(new OrderDetails("OD1900003", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
+			(new OrderDetails("OD1900003", "C201", "Nestlï¿½ï¿½ Chocolate Ice Cream", 850.00, 8.49, 2, 16.98))));
+			
+			static ArrayList<OrderDetails> orderDetailsList4 = new ArrayList<OrderDetails>(Arrays.asList(
+			(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
+			(new OrderDetails("OD1900004", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10)),
+			(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49))));
+			
+			
+			static ArrayList<PaymentDetails> paymentDetailsList = new ArrayList<PaymentDetails>(Arrays.asList(
+					(new PaymentDetails("P1900001", false, LocalDateTime.parse("09-03-2019 12:12:00", dateTimeFormat), 68.30, 6.83, 0.0, 75.13, 75.10, 75.10, 0.0, orderDetailsList1)),
+					(new PaymentDetails("P1900002", false, LocalDateTime.parse("04-05-2019 12:12:00", dateTimeFormat), 19.47, 1.95, 0.0, 21.42, 21.40, 21.50, 0.10, orderDetailsList2)),
+					(new PaymentDetails("P1900003", false, LocalDateTime.parse("08-06-2019 12:12:00", dateTimeFormat), 23.47, 2.35, 0.0, 25.82, 25.80, 30.00, 4.20, orderDetailsList3)),
+					(new PaymentDetails("P1900004", true, LocalDateTime.parse("20-06-2019 12:12:00", dateTimeFormat), 79.08, 7.91, 4.35, 82.64, 82.60, 85.00, 2.40, orderDetailsList4))));
 	
 	public static void ACCEPT_SALES() {
 		Scanner acceptSalesUserInput = new Scanner(System.in);
 		
+		ArrayList<Food_Related_Product>foodproduct=product_details_module.food_product;
+		ArrayList<Product>products=product_details_module.product;
+		ArrayList<MemberDetails>memberDetail=MembershipMain.memberDetails;
+		ArrayList<StaffDetails>staff=Staff.staffs;
+		
 		PaymentDetails paymentDetails = new PaymentDetails();
 		OrderDetails orderDetails = new OrderDetails();
 		
-		DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-		
+		/*
 		ArrayList<PaymentDetails> paymentDetailsList = new ArrayList<>();
 		
-		//paymentDetailsList.add(new PaymentDetails("P1900001", false, LocalDateTime.parse("09-03-2019 12:12:00", dateTimeFormat), 68.30, 6.83, 0.0, 75.13, 75.10, 75.10, 0.0, orderDetailsList1));
-		//orderDetails.setOrderNo();
-		//paymentDetails.setPaymentNo();
+		ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
+		orderDetailsList1.add(new OrderDetails("OD1900001", "E034", "BAO Yellow Noodle", 450.00, 1.10, 2, 2.20));
+		orderDetailsList1.add(new OrderDetails("OD1900001", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10));
+		paymentDetailsList.add(new PaymentDetails("P1900001", false, LocalDateTime.parse("09-03-2019 12:12:00", dateTimeFormat), 68.30, 6.83, 0.0, 75.13, 75.10, 75.10, 0.0, orderDetailsList1));
 		
 		ArrayList<OrderDetails> orderDetailsList2 = new ArrayList<>();
 		orderDetailsList2.add(new OrderDetails("OD1900002", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 3, 19.47));		
 		paymentDetailsList.add(new PaymentDetails("P1900002", false, LocalDateTime.parse("04-05-2019 12:12:00", dateTimeFormat), 19.47, 1.95, 0.0, 21.42, 21.40, 21.50, 0.10, orderDetailsList2));
-		orderDetails.setOrderNo();
-		paymentDetails.setPaymentNo();
 		
 		ArrayList<OrderDetails> orderDetailsList3 = new ArrayList<>();
 		orderDetailsList3.add(new OrderDetails("OD1900003", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49));
-		orderDetailsList3.add(new OrderDetails("OD1900003", "C201", "Nestl¨¦ Chocolate Ice Cream", 850.00, 8.49, 2, 16.98));
+		orderDetailsList3.add(new OrderDetails("OD1900003", "C201", "Nestlï¿½ï¿½ Chocolate Ice Cream", 850.00, 8.49, 2, 16.98));
 		paymentDetailsList.add(new PaymentDetails("P1900003", false, LocalDateTime.parse("08-06-2019 12:12:00", dateTimeFormat), 23.47, 2.35, 0.0, 25.82, 25.80, 30.00, 4.20, orderDetailsList3));
-		orderDetails.setOrderNo();
-		paymentDetails.setPaymentNo();
 		
 		ArrayList<OrderDetails> orderDetailsList4 = new ArrayList<>();
 		orderDetailsList4.add(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49));
 		orderDetailsList4.add(new OrderDetails("OD1900004", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10));
 		orderDetailsList4.add(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49));
 		paymentDetailsList.add(new PaymentDetails("P1900004", true, LocalDateTime.parse("20-06-2019 12:12:00", dateTimeFormat), 79.08, 7.91, 4.35, 82.64, 82.60, 85.00, 2.40, orderDetailsList4));
-		orderDetails.setOrderNo();
-		paymentDetails.setPaymentNo();
+		*/
 		
 		paymentDetails.setUpdateSubTotal(0.0);
-		
-		//delete
-		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		
-		ArrayList<Food_Related_Product> productDetails = new ArrayList<Food_Related_Product>();
-		productDetails.add(new Food_Related_Product("E001", "ABC Fresh Egg 15pcs", 49.60, 21, 6.49,new Category("FF05", "Fresh Foods"),new Manufacturer("ABC", LocalDate.parse("12-08-2019", format)),LocalDate.parse("31-08-2019", format)));
-		productDetails.add(new Food_Related_Product("E034", "BAO Yellow Noodle", 450.00, 50, 1.10,new Category("FF81", "Fresh Foods"),new Manufacturer("BAO", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2019", format)));
-		productDetails.add(new Food_Related_Product("B009", "Anmum Milk Powder", 650.00, 15, 66.10,new Category("BM20", "Baby"),new Manufacturer("Anmum", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format)));
-		productDetails.add(new Food_Related_Product("C201", "Nestlé Chocolate Ice Cream", 850.00, 25, 8.49,new Category("CF90", "Frozen"),new Manufacturer("Nestlé", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format)));
-		
-		//here
-		
+			
 		int countForLoop;              //count in For Loop
 		String userName;               //get the user's name from login
 		String staffID;                //store the staff's ID if the user name match
@@ -72,38 +83,44 @@ public class AcceptSalesMain {
 		char nextOrder;                //a customer need to purchase another product or not
 		char nextCustomer;             //have next customer need to purchase product or not
 		double amountPayByCustomer;    //store the amount that pay by customer
+		String memberID;               //if customer is a member, get & store their member ID
+		int indexMemberID;             //store the member's ID
+		
+		int count = 4;   //help to calculate the index of ArrayLsit, start with four because got history record ^
 		
 		//get the arraylist's data from product
 		ArrayList<SalesProductList> salesProductList = new ArrayList<SalesProductList>();
-		for(countForLoop = 0; countForLoop < productDetails.size(); countForLoop++) {
-			salesProductList.add(new SalesProductList(productDetails.get(countForLoop).getProduct_code(), productDetails.get(countForLoop).getProduct_name(), productDetails.get(countForLoop).getProduct_weight(),
-					                                  productDetails.get(countForLoop).getPrice()));
+		for(countForLoop = 0; countForLoop < foodproduct.size(); countForLoop++) {
+			salesProductList.add(new SalesProductList(foodproduct.get(countForLoop).getProduct_code(), foodproduct.get(countForLoop).getProduct_name(), foodproduct.get(countForLoop).getProduct_weight(),
+								foodproduct.get(countForLoop).getPrice()));
+		}
+		for(countForLoop = 0; countForLoop < products.size(); countForLoop++) {
+			salesProductList.add(new SalesProductList(products.get(countForLoop).getProduct_code(), products.get(countForLoop).getProduct_name(), products.get(countForLoop).getProduct_weight(),
+								products.get(countForLoop).getPrice()));
 		}
 		
 		//get the arraylist's data from staff
 		ArrayList<StaffDetailsList> staffDetailsList = new ArrayList<StaffDetailsList>();
-		for(countForLoop = 0; countForLoop < productDetails.size(); countForLoop++) {
-			staffDetailsList.add(new StaffDetailsList(staffs.get(countForLoop).getStaffID(), staffs.get(countForLoop).getName(),
-					 		     staffs.get(countForLoop).getUserName()));
+		for(countForLoop = 0; countForLoop < staff.size(); countForLoop++) {
+			staffDetailsList.add(new StaffDetailsList(staff.get(countForLoop).getStaffID(), staff.get(countForLoop).getName(),
+					 		     staff.get(countForLoop).getUserName()));
 		}
 		
-		//change
-		userName = "sionghou";
+		userName = ""; //change
 		staffID = "";
 		staffName = "";
-		for(countForLoop = 0; countForLoop < staffs.size(); countForLoop++) {
-			if(userName == staffs.get(countForLoop).getUserName()) {
-				staffID = staffs.get(countForLoop).getStaffID();
-				staffName = staffs.get(countForLoop).getName();
+		
+		for(countForLoop = 0; countForLoop < staff.size(); countForLoop++) {
+			if(userName.equals(staffDetailsList.get(countForLoop).getUserName())) {
+				staffID = staffDetailsList.get(countForLoop).getStaffID();
+				staffName = staffDetailsList.get(countForLoop).getStaffName();
 			}
 		}
-		
 		
 		do {
 			typeOfCustomer = 0;
 			
 			ArrayList<OrderDetails> orderDetailsList = new ArrayList<OrderDetails>();
-			
 			System.out.println("===============================================");
 			System.out.println("| >> UNDER <<                                 |");
 			System.out.println("|---------------------------------------------|");
@@ -112,7 +129,8 @@ public class AcceptSalesMain {
 			System.out.println("===============================================");
 			
 			do {
-				try {
+				indexMemberID = -1;
+				try {				
 					System.out.println("\nNext Customer : ");
 					System.out.println("================");
 					System.out.println("1. CUSTOMER");
@@ -120,11 +138,35 @@ public class AcceptSalesMain {
 					
 					System.out.printf("\nCUSTOMER or MEMBER ? (1 or 2) : ");
 					typeOfCustomer = acceptSalesUserInput.nextInt();
+					acceptSalesUserInput.nextLine();
 					
-					if(typeOfCustomer == 1)
+					if(typeOfCustomer == 1) {
 						System.out.println("\nNormal Customer Purchasing.");
-					else if(typeOfCustomer == 2)
+					}
+					else if(typeOfCustomer == 2) {
 						System.out.println("\nMember Customer Purchasing.");
+						do {
+							System.out.println("\nYou can Enter \"X\" to Exit");
+							
+							System.out.print("Please Enter Member ID : ");
+							memberID = acceptSalesUserInput.nextLine();
+							memberID = memberID.toUpperCase();
+							
+							for(countForLoop = 0; countForLoop < memberDetail.size(); countForLoop++) {
+								if(memberID.equals(memberDetail.get(countForLoop).getMemberID())) {
+									if( ( memberDetail.get(countForLoop).getDeadLine().isBefore(LocalDate.now()) ) ) {
+										System.out.println("\nThis Member ID is the dead line. Please renew your member card.");
+									}
+									else {
+										indexMemberID = countForLoop;
+										System.out.println("Valid Member ID. Proceed to next Process.\n");
+									}
+								}
+							}
+							if(indexMemberID == -1 && memberID.equals("X") == false)
+								System.out.println("Invalid Member ID. Please Enter Again.\n");
+						}while(indexMemberID == -1 && memberID.equals("X") == false);
+					}
 				}
 				catch(Exception typeOfCustomerError) {
 					acceptSalesUserInput.next();
@@ -186,7 +228,10 @@ public class AcceptSalesMain {
 				acceptSalesUserInput.nextLine();
 			}while(nextOrder == 'Y');
 			
-			PaymentDetails paymentRecord = new PaymentDetails(false, orderDetailsList, 0.0);
+			PaymentDetails paymentRecord = new PaymentDetails(true, orderDetailsList, 0.0);
+			
+			if(indexMemberID == -1)
+				paymentRecord = new PaymentDetails(false, orderDetailsList, 0.0);
 			
 			do {
 				amountPayByCustomer = 0.0;
@@ -195,7 +240,7 @@ public class AcceptSalesMain {
 					System.out.println(String.format("%.2f", paymentRecord.getRoundingAdjustment()));
 					
 					System.out.print("Amount Pay By Customer : RM ");
-					amountPayByCustomer = acceptSalesUserInput.nextFloat();
+					amountPayByCustomer = acceptSalesUserInput.nextDouble();
 					
 					if(amountPayByCustomer < paymentRecord.getRoundingAdjustment())
 						System.out.println("Not Enough Amount Paying !!!");
@@ -203,7 +248,7 @@ public class AcceptSalesMain {
 				catch(Exception amountPayByCustomerError) {
 					System.out.println("Invalid Input For Amount Paying. Please Enter Again.");
 				}
-			}while(amountPayByCustomer < paymentRecord.getRoundingAdjustment());
+			}while(Double.compare(amountPayByCustomer, paymentRecord.getRoundingAdjustment()) < 0);
 			System.out.println();
 			
 			if(typeOfCustomer == 1)
@@ -213,12 +258,30 @@ public class AcceptSalesMain {
 			
 			paymentDetails.displayReceipt(paymentDetailsList, orderDetailsList);
 			
+			for(countForLoop = 0; countForLoop < salesProductList.size(); countForLoop++) {
+				if(salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode()))
+					foodproduct.get(countForLoop).setQty(foodproduct.get(countForLoop).getQty()-purchaseProductQuantity);
+				else if(salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode()))
+					products.get(countForLoop).setQty(products.get(countForLoop).getQty()-purchaseProductQuantity);
+			}
+			
+			if(indexMemberID != -1) {
+				memberDetail.get(indexMemberID).setMemberPoint((memberDetail.get(indexMemberID).getMemberPoint() + (paymentDetailsList.get(count).getRoundingAdjustment()/10)));
+				
+				if(memberDetail.get(indexMemberID).getMemberPoint() > 2000)
+					memberDetail.get(indexMemberID).setMembershipGrade("DIAMOND");
+				else if(memberDetail.get(indexMemberID).getMemberPoint() > 1500)
+					memberDetail.get(indexMemberID).setMembershipGrade("PLATINUM");
+				else if(memberDetail.get(indexMemberID).getMemberPoint() > 1000)
+					memberDetail.get(indexMemberID).setMembershipGrade("GOLD");
+				else if(memberDetail.get(indexMemberID).getMemberPoint() > 500)
+					memberDetail.get(indexMemberID).setMembershipGrade("SILVER");
+			}
+			
 			paymentDetails.setUpdateSubTotal(0.0);
 			orderDetails.setOrderNo();
 			paymentDetails.setPaymentNo();
-			
-			//System.out.println(paymentDetails.getPaymentNo());
-			System.out.println(paymentDetailsList);
+			count++;
 			
 			System.out.print("\nHaving Next Customer Order ? (Y or N) : ");
 			nextCustomer = acceptSalesUserInput.next().charAt(0);
@@ -233,14 +296,19 @@ public class AcceptSalesMain {
 		
 		System.out.println();
 		System.out.printf("%41s", "Product List\n");
-		System.out.println("+==================================================================+");
-		System.out.printf("|  %3s | %-30s | %14s |  %5s  |\n", "No.", "Product Name", "Product Weight", "Price");
-		System.out.println("+==================================================================+");
+		System.out.println("+======================================================================================+");
+		System.out.printf("|  %3s | %-50s | %14s |  %5s  |\n", "No.", "Product Name", "Product Weight", "Price");
+		System.out.println("+======================================================================================+");
 		for(countForLoop = 0; countForLoop < displaySalesProductList.size(); countForLoop++) {
 			System.out.print("|");
 			System.out.printf("%4d. ", countForLoop+1);
 			System.out.println(displaySalesProductList.get(countForLoop).toString());
-			System.out.println("+------------------------------------------------------------------+");
+			if(1+countForLoop == displaySalesProductList.size())
+			 {
+				 System.out.println("+======================================================================================+\n"); 
+			 }
+			 else
+				 System.out.println("+--------------------------------------------------------------------------------------+");
 		}
 		System.out.println();
 	}
