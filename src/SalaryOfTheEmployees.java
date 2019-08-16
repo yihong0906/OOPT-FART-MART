@@ -1,4 +1,3 @@
-//package report;
 
 import java.util.*;
 
@@ -9,7 +8,7 @@ public class SalaryOfTheEmployees {
     
     ArrayList<StaffDetails> staffDetails = Staff.staffs;
     
-        System.out.println("\nSalary of the employees");
+        System.out.println("\n\tSalary of the employees");
         System.out.println("[FART MART]");
         System.out.println("Month : July 2019");
         System.out.println("---------------------------------------------------------------------------");
@@ -17,13 +16,11 @@ public class SalaryOfTheEmployees {
         System.out.println("---------------------------------------------------------------------------");
         
         for(StaffDetails e:staffDetails){
-                             System.out.printf(""    %-15s %-25s %-21s %.2f\n"",e.getStaffID(),e.getName(),e.getIcNumber(),e.calculateSalary());
+                             System.out.printf("\n%-10s %-25s %-25s %.2f\n",e.getStaffID(),e.getName(),e.getIcNumber(),e.calculateSalary());
                              total+=e.calculateSalary();
                              
                          }
-                         
-                         
-        System.out.println("																Total : "+total);
+        System.out.println("Total : "+total);
         //return;
     }
 }
