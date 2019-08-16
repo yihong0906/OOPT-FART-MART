@@ -7,7 +7,8 @@ import java.util.Arrays;
 public class Staff{
 	 
 	public static DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //date format
-	public ArrayList<StaffDetails>staff=Staff.staffs;
+	public ArrayList<StaffDetails>staff=Staff.staffs;//declare array
+	//store data into array list
 	public static ArrayList<StaffDetails>staffs = new ArrayList<StaffDetails>(Arrays.asList(
 	 (new FullTime("TEH YI HONG","18WMD06251","000906-10-1001","Male",new Address("A08","Taman Indah","Jalan ipoh 51200","Kuala Lumpur","Malaysia"),
 			 3500.00,"Manager",LocalDate.parse("06-09-2000",format),"0193248616","yihong","hxkiller03","fulltime",240,12)),
@@ -24,20 +25,31 @@ public class Staff{
 
 	 public static void STAFF_DETAILS_MODULE()
 	 {   Scanner s=new Scanner(System.in);
-		 int selection;
+		 int selection=8;
 		  
-		
+		do {
 		try {	
 			do{
-		 System.out.println("Staff Module");
-		 System.out.println("---------------------");
-		 System.out.println("1.Add Staff");
-		 System.out.println("2.View Staff");
-		 System.out.println("3.Modify Staff");
-		 System.out.println("4.Delete Staff");
-	     System.out.println("5.Back");
-	     System.out.println("---------------------");
-		 System.out.print("Please enter index no: ");
+		 System.out.println("");
+		 System.out.println("\t\t\t\t\t\t\t  ___ _____ _   ___ ___   ___  ___ _____ _   ___ _    ___ \r\n" + 
+		 					"\t\t\t\t\t\t\t / __|_   _/_\\ | __| __| |   \\| __|_   _/_\\ |_ _| |  / __|\r\n" + 
+		 					"\t\t\t\t\t\t\t \\__ \\ | |/ _ \\| _|| _|  | |) | _|  | |/ _ \\ | || |__\\__ \\\r\n" + 
+		 					"\t\t\t\t\t\t\t |___/ |_/_/ \\_\\_| |_|   |___/|___| |_/_/ \\_\\___|____|___/\r\n" + 
+		 					"\t\t\t\t\t\t\t                                                       ");
+		 
+		 
+		 
+		    System.out.println("\n                                        +===============================================+");
+			System.out.println("                                        |              	  PRODUCTS MODULE               |");
+			System.out.println("                                        +===============================================+");
+			System.out.println("                                        |1. Add Staff                                   |");
+			System.out.println("                                        |2. View Staff                                  |");
+			System.out.println("                                        |3. Modify Staff                                |");
+			System.out.println("                                        |4. Delete Staff record                         |");
+			System.out.println("                                        |5. Back                                        |");
+			System.out.println("                                        +===============================================+");
+			System.out.print("                                         Please enter index no : ");
+		 
 		 selection=s.nextInt();
 		
 		 if(selection==1)
@@ -53,12 +65,14 @@ public class Staff{
 		 else if(selection==4)
 		     deleteStaff(staffs);
 		 else
-			 System.out.println("Invalid Options...");
+			 {System.out.println("                                         Invalid Options...");
+			 }
 		}while(selection !=5);
 		}
 		catch(Exception selectionError) {
-			System.out.println("Error");
+			System.out.println("Invalid Input!!!");
 		}
+		}while(selection!=5);
 		System.out.println("Exiting Staff details module...");
 	 }
 	 
@@ -104,21 +118,22 @@ public class Staff{
 		 System.out.println("----------------");
 		 System.out.print(": ");
 		 do { decision=input.nextInt();
-		 if(decision==1)
+		 if(decision==1)//decision1 =male
 		 {			 gender="Male";
 		 }
-		 else if(decision==2)
+		 else if(decision==2)//decision2 =female
 		 {
 			 gender="Female";
 		 }
 		 else
-			 {System.out.println("Invalid Option!");
+			 {System.out.println("Invalid Input!!!");
 			 System.out.print("Please enter again: ");
 			 }
 		}while(decision !=1 && decision !=2);
 		}catch(Exception decisionError) {
 			input.next();
-			System.out.println("Error");
+			System.out.println("Invalid Input!!!");
+			System.out.println("Please enter again:");
 		}
 		}while(decision!=1&& decision !=2);
 		 
@@ -143,14 +158,15 @@ public class Staff{
 		 }
 		 else
 		 	{
-			 System.out.println("Invalid Option!");
-			 System.out.print("Please enter again: ");
+			 System.out.println("Invalid Input!!!");
+			 System.out.println("Please enter again: ");
 		    } 
 		 }while(selected !=1 && selected !=2);
 		}
 		catch(Exception selectedError){
 			input.next();
-			System.out.println("Error");
+			System.out.println("Invalid Input!!!");
+			System.out.println("Please enter again: ");
 		}
 		}while(selected!=1 && selected!=2);
 		 
@@ -174,13 +190,17 @@ public class Staff{
 			 position="Staff";
 		 }
 		 else
-			 System.out.println("Invalid Options");
+		 {
+			 System.out.println("Invalid Input!!!");
+			 System.out.print("Please enter again: ");
+		 }
 		 }while(selection!=1 && selection!=2);
 		}
 		catch(Exception selectionError)
 		{
 			input.next();
-			System.out.println("Error");
+			System.out.println("Invalid Input!!!");
+			System.out.println("Please enter again: ");
 		}
 		}while(selection!=1 && selection !=2);
 		 
@@ -193,7 +213,8 @@ public class Staff{
 			 }
 			 catch(Exception salaryError)
 			 {   input.next();
-				 System.out.println("Error");
+				 System.out.println("Invalid Input!!!");
+
 			 }
 		 }
 		 else
@@ -208,7 +229,7 @@ public class Staff{
 			}
 			catch(Exception workingHoursError)
 			{
-				System.out.println("Error");
+				System.out.println("Invalid Input!!!");
 			}
 		 }
 		 else
@@ -265,7 +286,7 @@ public class Staff{
 		 System.out.println("+=================================================================================================================================================================================================+");
 		 System.out.printf("|%-20s |%-12s |%-6s |%-8s|%-13d|%-9d|%-10.2f |%-8s |%-13s |%-12s |%-62s|\n",name,icNumber,gender,status,workingHours,overtimeHours,salary,position,DOB,handphone,streetName+","+rArea+","+postCode+","+state+","+country);
 		 System.out.println("+=================================================================================================================================================================================================+");
-		 System.out.println("Confirm to add these data?(Y/N)");
+		 System.out.print("Confirm to add these data?(Y/N) :");
 		 confirm=input.next().charAt(0);
 		 confirm=Character.toLowerCase(confirm);
 	     if(confirm=='y')
@@ -281,13 +302,14 @@ public class Staff{
 		 System.out.println("Staff details added successfully!");
 	     }
 	     else
-	    	 System.out.println("Cancelled...");
+	    	 System.out.println("Add staff is Cancelled...");
 		
 		 System.out.print("Do you want to add another staff?(y/n) :");
 		 choice=input.next().charAt(0);
 		 choice=Character.toLowerCase(choice);
 		 input.nextLine();
 		 }while(choice!='n');
+		System.out.println("Savings changes...");
 	
 	 }
 	 public static void viewStaff(ArrayList<StaffDetails> staff)
@@ -342,20 +364,19 @@ public class Staff{
 		do { 
 		 try {
 		
-		 System.out.println("\nWhich Details you wish to change? :");
+		 System.out.println("\nStaff name:"+staff.get(y).getName());
+		 System.out.println("Which Details you wish to change? :");
 		 System.out.println("1.Staff Salary");
 		 System.out.println("2.Position");
 		 System.out.println("3.Phone number");
 		 System.out.println("4.Home Address");
+		 System.out.println("5.back");
 		 System.out.println("-----------------------------------");
 		 System.out.print("Enter the index number :");
 		 choice=m.nextInt();
 
-		 if(choice!=1 &&choice!=2 &&choice!=3 &&choice!=4)
-		 {
-			 System.out.println("Invalid Options entered");
-		 }
-		 else if(choice==1)
+
+		 if(choice==1)
 		 {
 			 System.out.println("Current Salary :"+staff.get(y).getBasicSalary());
 			 System.out.print("Enter a new salary :");
@@ -385,7 +406,7 @@ public class Staff{
 			 
 			 if(selection!=1 && selection !=2)
 			 {
-				 System.out.println("Invalid Option");
+				 System.out.println("Invalid Input!!!");
 			 }
 			 else if(selection==1)
 			 {
@@ -452,7 +473,7 @@ public class Staff{
 				 System.out.println("Update cancelled\n");
 			 
 		 }
-		 else
+		 else if(choice==4)
 		 {   m.nextLine();
 			 System.out.println("\nCurrent Home Address :"+staff.get(y).getAddress());
 			 System.out.println("Enter a new address :");
@@ -477,12 +498,17 @@ public class Staff{
 			 }
 			 else
 				 System.out.println("Update cancelled");
+			 
 		 }
+		 else if(choice==5)
+		     System.out.println("Savings changes..");
+		 else
+		     System.out.println("Invalid Input!!!");
 		 }catch(Exception choiceError)
 		 {   m.next();
-			 System.out.println("Error");
+			 System.out.println("Invalid Input!!!");
 		 }
-		}while(choice!=1 &&choice!=2 &&choice!=3 &&choice!=4);
+		}while(choice!=5);
 		 		 
 	}
 	
@@ -490,12 +516,16 @@ public class Staff{
 	 {
       Scanner delete=new Scanner(System.in);
 	  viewStaff(staff);
+	  int choice;
 	  System.out.print("Please enter the row that want to delete :");
-	  int choice=delete.nextInt();
-	  if(choice>staff.size())
+	  do {
+	  choice=delete.nextInt();
+	  if(choice>staff.size()|| choice<1)
 	  {
-		  System.out.println("Invalid Options...");
+		  System.out.println("Invalid Input...");
+		  System.out.print("Please enter again :");
 	  }
+	  }while(choice>staff.size()||choice<1);
 	  System.out.println("Displaying Staff Details :\n");
 		 System.out.println("+========================================================================================================================================================================================================+");
 		 System.out.printf("|%3s|%-16s |%-10s |%-15s |%-5s|%-6s|%-9s|%-9s|%-10s |%-8s |%-13s |%-12s |%-62s|\n",
