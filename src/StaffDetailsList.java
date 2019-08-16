@@ -12,7 +12,7 @@ public class StaffDetailsList {
 	}
 	
 	//constructor
-	public StaffDetailsList(String name, String staffID, String userName) {
+	public StaffDetailsList(String staffName, String staffID, String userName) {
 		this.staffName = staffName;
 		this.staffID = staffID;
 		this.userName = userName;

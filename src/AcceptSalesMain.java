@@ -32,7 +32,7 @@ public class AcceptSalesMain {
 		
 		ArrayList<OrderDetails> orderDetailsList3 = new ArrayList<>();
 		orderDetailsList3.add(new OrderDetails("OD1900003", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49));
-		orderDetailsList3.add(new OrderDetails("OD1900003", "C201", "Nestl¨¦ Chocolate Ice Cream", 850.00, 8.49, 2, 16.98));
+		orderDetailsList3.add(new OrderDetails("OD1900003", "C201", "Nestlï¿½ï¿½ Chocolate Ice Cream", 850.00, 8.49, 2, 16.98));
 		paymentDetailsList.add(new PaymentDetails("P1900003", false, LocalDateTime.parse("08-06-2019 12:12:00", dateTimeFormat), 23.47, 2.35, 0.0, 25.82, 25.80, 30.00, 4.20, orderDetailsList3));
 		orderDetails.setOrderNo();
 		paymentDetails.setPaymentNo();
@@ -45,8 +45,7 @@ public class AcceptSalesMain {
 		orderDetails.setOrderNo();
 		paymentDetails.setPaymentNo();
 		
-		paymentDetails.setSubTotal();
-		paymentDetails.setUpdateSubTotal();
+		paymentDetails.setUpdateSubTotal(0.0);
 		
 		//delete
 		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -56,37 +55,28 @@ public class AcceptSalesMain {
 		productDetails.add(new ProductDetails("E001", "ABC Fresh Egg 15pcs", 49.60, 21, 6.49, "FF05", "Fresh Foods", "ABC", LocalDate.parse("2019-08-12", dateFormat), LocalDate.parse("2019-08-31", dateFormat)));
 		productDetails.add(new ProductDetails("E034", "BAO Yellow Noodle", 450.00, 50, 1.10, "FF81", "Fresh Foods", "BAO", LocalDate.parse("2019-08-12", dateFormat), LocalDate.parse("2019-08-31", dateFormat)));
 		productDetails.add(new ProductDetails("B009", "Anmum Milk Powder", 650.00, 15, 66.10, "BM20", "Baby", "Anmum", LocalDate.parse("2019-08-12", dateFormat), LocalDate.parse("2029-08-31", dateFormat)));
-		productDetails.add(new ProductDetails("C201", "Nestl¨¦ Chocolate Ice Cream", 850.00, 25, 8.49, "CF90", "Frozen", "Nestl¨¦", LocalDate.parse("2019-08-12", dateFormat), LocalDate.parse("2029-08-31", dateFormat)));
+		productDetails.add(new ProductDetails("C201", "Nestlï¿½ï¿½ Chocolate Ice Cream", 850.00, 25, 8.49, "CF90", "Frozen", "Nestlï¿½ï¿½", LocalDate.parse("2019-08-12", dateFormat), LocalDate.parse("2029-08-31", dateFormat)));
 		
 		//here
 		
 		int countForLoop;//count in For Loop
 		
+		//get the arraylist's data from product
 		ArrayList<SalesProductList> salesProductList = new ArrayList<SalesProductList>();
 		for(countForLoop = 0; countForLoop < productDetails.size(); countForLoop++) {
 			salesProductList.add(new SalesProductList(productDetails.get(countForLoop).getProduct_code(), productDetails.get(countForLoop).getProduct_name(), productDetails.get(countForLoop).getProduct_weight(),
 					                                  productDetails.get(countForLoop).getPrice()));
 		}
 		
+		//get the arraylist's data from staff
 		ArrayList<StaffDetailsList> staffDetailsList = new ArrayList<StaffDetailsList>();
 		for(countForLoop = 0; countForLoop < productDetails.size(); countForLoop++) {
 			staffDetailsList.add(new StaffDetailsList(staffs.get(countForLoop).getStaffID(), staffs.get(countForLoop).getName(),
 					 		     staffs.get(countForLoop).getUserName()));
 		}
 		
-		//variable
-		String userName;               //get the user's name from login
-		String staffID;                //store the staff's ID if the user name match
-		String staffName;              //store the staff's Name if the user name match
-		int typeOfCustomer;            //know the customer is member or not
-		int choiceProduct;             //get the product that customer went to purchase   
-		int purchaseProductQuantity;   //store purchase quantity for product
-		char nextOrder;                //a customer need to purchase another product or not
-		char nextCustomer;             //have next customer need to purchase product or not
-		
-		
 		//change
-		userName = "yihong";
+		userName = "sionghou";
 		staffID = "";
 		staffName = "";
 		for(countForLoop = 0; countForLoop < staffs.size(); countForLoop++) {
@@ -96,7 +86,10 @@ public class AcceptSalesMain {
 			}
 		}
 		
+		
 		do {
+			typeOfCustomer = 0;
+			
 			ArrayList<OrderDetails> orderDetailsList = new ArrayList<OrderDetails>();
 			
 			System.out.println("===============================================");
@@ -106,64 +99,111 @@ public class AcceptSalesMain {
 			System.out.printf("| Staff Name : %-20s %11s\n", staffName, "|");
 			System.out.println("===============================================");
 			
-			//***can add enter is normal customer or member
-			System.out.println("\nNext Customer : ");
-			System.out.println("================");
-			System.out.println("1. CUSTOMER");
-			System.out.println("2. MEMBER");
-			
-			System.out.printf("\nCUSTOMER or MEMBER ? (1 or 2) : ");
-			typeOfCustomer = acceptSalesUserInput.nextInt();
-			
-			if(typeOfCustomer == 1) {
-				System.out.println("Member Customer Purchasing.");
-				paymentDetails.setIsMember();
-			}
-			else if(typeOfCustomer == 2)
-				System.out.println("Normal Customer Purchasing.");
-			else
-				System.out.println("Invalid Input.");
+			do {
+				try {
+					System.out.println("\nNext Customer : ");
+					System.out.println("================");
+					System.out.println("1. CUSTOMER");
+					System.out.println("2. MEMBER");
+					
+					System.out.printf("\nCUSTOMER or MEMBER ? (1 or 2) : ");
+					typeOfCustomer = acceptSalesUserInput.nextInt();
+					
+					if(typeOfCustomer == 1)
+						System.out.println("\nNormal Customer Purchasing.");
+					else if(typeOfCustomer == 2)
+						System.out.println("\nMember Customer Purchasing.");
+				}
+				catch(Exception typeOfCustomerError) {
+					acceptSalesUserInput.next();
+					System.out.println("Invalid Input. Please Enter Again.");
+				}
+			}while(typeOfCustomer != 1 && typeOfCustomer != 2);
 			
 			System.out.println("\n>> Order No. : " + orderDetails.getOrderNo());
 			do{
+				choiceProduct = 0;
+				purchaseProductQuantity = 0;
+				
 				displaySalesProductList(salesProductList);
 				
 				System.out.println("Accept Sales");
 				System.out.println("------------");
-				System.out.print("Enter Product No. : ");   //get product that user need to buy, enter the number for each product
-				choiceProduct = acceptSalesUserInput.nextInt();
 				
-				System.out.println("\nItem Selected : " + salesProductList.get(choiceProduct-1).getProductName() +
-						           " (" + salesProductList.get(choiceProduct-1).getProductWeight() + "g)");
-				System.out.print("Quantity Need : ");
-				purchaseProductQuantity = acceptSalesUserInput.nextInt();
+				do {
+					try {
+					System.out.print("Enter Product No. : ");   //get product that user need to buy, enter the number for each product
+					choiceProduct = acceptSalesUserInput.nextInt();
+					
+					if(choiceProduct < 1 || choiceProduct > salesProductList.size())
+						System.out.println("Invalid Input. Please Enter Again.");
+					else {
+						System.out.println("\nItem Selected : " + salesProductList.get(choiceProduct-1).getProductName() +
+								           " (" + salesProductList.get(choiceProduct-1).getProductWeight() + "g)");
+						}
+					}
+					catch(Exception choiceProductError) {
+						acceptSalesUserInput.next();
+						System.out.println("Invalid Input For Choice of Product. Please Enter Again.");
+					}
+				}while(choiceProduct < 1 || choiceProduct > salesProductList.size());
+				
+				do {
+					try {
+						System.out.print("Quantity Need : ");
+						purchaseProductQuantity = acceptSalesUserInput.nextInt();
+						
+						if(purchaseProductQuantity < 1)
+							System.out.println("Invalid Input For Quantity. Please Enter Again.");
+					}
+					catch(Exception purchaseProductQuantityError) {
+						acceptSalesUserInput.next();
+						System.out.println("Invalid Input. Please Enter Again.");
+					}
+				}while(purchaseProductQuantity < 1);
+				
 				acceptSalesUserInput.nextLine();
-		        
+				
 				orderDetailsList.add(new OrderDetails(salesProductList.get(choiceProduct-1).getProductCode(), salesProductList.get(choiceProduct-1).getProductName(),
 												      salesProductList.get(choiceProduct-1).getProductWeight(),
-												      salesProductList.get(choiceProduct-1).getProductUnitPrice(), purchaseProductQuantity,
-												      (salesProductList.get(choiceProduct-1).getProductUnitPrice() * purchaseProductQuantity)));
+												      salesProductList.get(choiceProduct-1).getProductUnitPrice(), purchaseProductQuantity));
 				
 				System.out.print("\nHaving Another Order ? (Y or N) : ");
 				nextOrder = acceptSalesUserInput.next().charAt(0);
 				nextOrder = Character.toUpperCase(nextOrder);
 				acceptSalesUserInput.nextLine();
-				
-				System.out.println(paymentDetails.getSubTotal());
 			}while(nextOrder == 'Y');
 			
-			paymentDetails.setSstAmount(paymentDetails.getSubTotal());
-			if(paymentDetails.getIsMember() == true) {
-				paymentDetails.setDiscountAmount(paymentDetails.getSubTotal(), paymentDetails.getSstAmount());
-			}
-			paymentDetails.setTotalAmount(paymentDetails.getSubTotal(), paymentDetails.getSstAmount(), paymentDetails.getDiscountAmount());
-			paymentDetailsList.add(new PaymentDetails(orderDetailsList));
+			PaymentDetails paymentRecord = new PaymentDetails(false, orderDetailsList, 0.0);
+			
+			do {
+				amountPayByCustomer = 0.0;
+				try {
+					System.out.printf("%28s", "Total : RM ");
+					System.out.println(String.format("%.2f", paymentRecord.getRoundingAdjustment()));
+					
+					System.out.print("Amount Pay By Customer : RM ");
+					amountPayByCustomer = acceptSalesUserInput.nextFloat();
+					
+					if(amountPayByCustomer < paymentRecord.getRoundingAdjustment())
+						System.out.println("Not Enough Amount Paying !!!");
+				}//Enough
+				catch(Exception amountPayByCustomerError) {
+					System.out.println("Invalid Input For Amount Paying. Please Enter Again.");
+				}
+			}while(amountPayByCustomer < paymentRecord.getRoundingAdjustment());
+			System.out.println();
+			
+			if(typeOfCustomer == 1)
+				paymentDetailsList.add(new PaymentDetails(false, orderDetailsList, amountPayByCustomer));
+			else
+				paymentDetailsList.add(new PaymentDetails(true, orderDetailsList, amountPayByCustomer));
 			
 			paymentDetails.displayReceipt(paymentDetailsList, orderDetailsList);
 			
-//			paymentDetails.setUpdateSubTotal();
-//			orderDetails.setOrderNo();
-//			paymentDetails.setPaymentNo();
+			paymentDetails.setUpdateSubTotal(0.0);
+			orderDetails.setOrderNo();
+			paymentDetails.setPaymentNo();
 			
 			//System.out.println(paymentDetails.getPaymentNo());
 			System.out.println(paymentDetailsList);

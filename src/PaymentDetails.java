@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -8,7 +9,7 @@ public class PaymentDetails {
 	
 	protected static String updatePaymentNo = "P1900001";     //payment number that will update after one payment done
 	protected String paymentNo;                               //payment number represent each payment
-	protected boolean isMember = false;                       //customer is a member or not
+	protected boolean isMember;                       //customer is a member or not
 	protected LocalDateTime paymentDateTime;                  //payment date & time
 	ArrayList<OrderDetails> wholeOrderDetailsList;            //store the whole order details of a customer
 	
@@ -40,10 +41,22 @@ public class PaymentDetails {
 	}
 	
 	//constructor
-	public PaymentDetails(ArrayList<OrderDetails> orderDetailsList) {
+	public PaymentDetails(boolean isMember, ArrayList<OrderDetails> orderDetailsList, double cashPay) {
+		this.isMember = isMember;
 		wholeOrderDetailsList = orderDetailsList;
+		this.cashPay = cashPay;
 		
-		this.paymentDateTime = LocalDateTime.now();
+		isMember = getIsMember();
+		paymentDateTime = LocalDateTime.now();
+		subTotal = updateSubTotal;
+		sstAmount = subTotal * SST;
+		if(isMember == true)
+			discountAmount = (subTotal + sstAmount) * memberDiscount;
+		totalAmount = subTotal + sstAmount - discountAmount;
+		roundingAdjustment = ((int)totalAmount);
+		//error
+		roundingAdjustment = roundingAdjustment + ((int)((totalAmount-roundingAdjustment)*10)/10.0);
+		change = cashPay - roundingAdjustment;
 		
 		this.paymentNo = updatePaymentNo;
 	}
@@ -102,54 +115,50 @@ public class PaymentDetails {
 		updatePaymentNo = "P" + (Integer.parseInt(updatePaymentNo.substring(1, updatePaymentNo.length()))+1);
 		paymentNo = updatePaymentNo;
 	}
-	public void setIsMember() {
-		isMember = true;
+	public void setIsMember(boolean isMember) {
+		this.isMember = isMember;
 	}
 	public void setPaymentDateTime(LocalDateTime paymentDateTime) {
 		this.paymentDateTime = paymentDateTime;
 	}
-	public void setSubTotal() {
-		subTotal = updateSubTotal;
+	public void setSubTotal(double subTotal) {
+		this.subTotal = subTotal;
 	}
-	public void setUpdateSubTotal() {
-		updateSubTotal = 0.0;
+	public void setUpdateSubTotal(double updateSubTotal) {
+		PaymentDetails.updateSubTotal = updateSubTotal;
 	}
-	public void setSstAmount(double subTotal) {
-		sstAmount = (subTotal * SST);
+	public void setSstAmount(double sstAmount) {
+		this.sstAmount = sstAmount;
 	}
-	public void setDiscountAmount(double subTotal, double sstAmount) {
-		discountAmount = ((subTotal + sstAmount) * memberDiscount);
+	public void setDiscountAmount(double discountAmount) {
+		this.discountAmount = discountAmount;
 	}
-	public void setTotalAmount(double subTotal, double sstAmount, double discountAmount) {
-		totalAmount = subTotal + sstAmount - discountAmount;
+	public void setTotalAmount(double totalAmount) {
+		this.totalAmount = totalAmount;
 	}
-	public void setRoundingAdjustment(double totalAmount) {
-		this.roundingAdjustment = totalAmount;
+	public void setRoundingAdjustment(double roundingAdjustment) {
+		this.roundingAdjustment = roundingAdjustment;
 	}
 	public void setCashPay(double cashPay) {
 		this.cashPay = cashPay;
 	}
-	public void setChange(double roundingAdjustment, double cashPay) {
-		change = (cashPay - roundingAdjustment);
+	public void setChange(double change) {
+		this.change = change;
 	}
 	
 	//Calculate SubTotal Pay By Customer Method
-	public void calculateSubTotal(double subtotalPerItem) {
+	public static void calculateSubTotal(double subtotalPerItem) {
 		updateSubTotal += subtotalPerItem;
-		setSubTotal();
 	}
 	
 	//Display Receipt Method
 	public void displayReceipt(ArrayList<PaymentDetails> paymentDetailsList, ArrayList<OrderDetails> orderDetailsList) {
-		int change;   //how much customer pay
-		
 		System.out.print("\n\n");
 		System.out.println(" =================================================================================================== ");
 		System.out.println("|                                         F A R T . M A R T                                         |");
 		System.out.println("|                                                                                                   |");
 		System.out.println("|                                           FART SETAPAK                                            |");
 		System.out.println("|===================================================================================================|");
-		System.out.println("|                                                                                                   |");
 		System.out.println("|Purcahse No : " + String.format("%-85s", getPaymentNo()) + "|");
 		
 		System.out.println("|Date        : " + String.format("%-85s", paymentDetailsList.get(count).paymentDateTime.format(dateTimeFormat)) + "|");
@@ -164,27 +173,30 @@ public class PaymentDetails {
 							  String.format("%8d", orderDetailsList.get(countForLoop).getPurcahseQuantity()) + " | " + 
 							  String.format("%30.2f", orderDetailsList.get(countForLoop).getSubtotalPerItem()) + " |");
 		}
+		System.out.println("|---------------------------------------------------------------------------------------------------|");
+		System.out.println("|                                                                                                   |");
+		System.out.println("|___________________________________________________________________________________________________|");
+		System.out.println(String.format("%-65s", "|") +  "(SST : RM " + String.format("%5.2f", paymentDetailsList.get(count).getSstAmount()) + ") " + String.format("%-11s", "SUBTOTAL") + 
+				           String.format("%6.2f", (paymentDetailsList.get(count).getSubTotal()+paymentDetailsList.get(count).getSstAmount())) + " |");
+		System.out.println(String.format("%-82s", "|") + String.format("%-11s", "DISCOUNT") + String.format("%6.2f", paymentDetailsList.get(count).getDiscountAmount()) + " |");
+		System.out.println("|___________________________________________________________________________________________________|");
+		System.out.println(String.format("%-85s", "|") + String.format("%-8s", "TOTAL") + String.format("%6.2f", paymentDetailsList.get(count).getTotalAmount()) + " |");
+		System.out.println(String.format("%-71s", "|") + String.format("%-22s", "ROUNDING ADJUSTMENT") + String.format("%6.2f", paymentDetailsList.get(count).getRoundingAdjustment()) + " |");
 		System.out.println("|===================================================================================================|");
-		System.out.println(String.format("%-80s", "|") + String.format("%-13s", "SUBTOTAL") + 
-				           String.format("%6.2f", paymentDetailsList.get(count).getSubTotal()) + " |");
-		System.out.println(String.format("%-80s", "|") + String.format("%-13s", "SST") + String.format("%6.2f", getSstAmount()) + " |");
-		System.out.println("|===================================================================================================|");
-		System.out.println(String.format("%-80s", "|") + String.format("%-13s", "TOTAL") + String.format("%6.2f", getTotalAmount()) + " |");
+		System.out.println(String.format("%-82s", "|") + String.format("%-11s", "CASH PAY") + String.format("%6.2f", paymentDetailsList.get(count).getCashPay()) + " |");
+		System.out.println(String.format("%-84s", "|") + String.format("%-9s", "CHANGE") + String.format("%6.2f", paymentDetailsList.get(count).getChange()) + " |");
 		System.out.println("|===================================================================================================|");
 		System.out.println("\n*************************************** " + paymentDetailsList.get(count).paymentDateTime.format(dateTimeFormat) + " *****************************************");
 		
 		count++;
 	}
 	
-//	//toString Method
-//	public String toString() {
-//		return String.format(paymentNo + " *** " + isMember + " *** " + paymentDateTime + " *** " + wholeOrderDetailsList.toString() +
-//				             " *** " + subTotal + " *** " + sstTotal + " *** " + totalAmount);
-//	}
-	
 	//toString Method
 	public String toString() {
-		return String.format(paymentNo + " *** " + isMember + " *** " + paymentDateTime + " *** " + subTotal + " *** " + sstAmount + " *** " + totalAmount + wholeOrderDetailsList.toString() + "\n");
+		return String.format("Payment No : "+ paymentNo + "Is Member : " + isMember + "Payment Date & Time : " + paymentDateTime +
+				             wholeOrderDetailsList.toString() + "Subtotal : RM " + subTotal + "Amount for SST : RM " + sstAmount + "Discount Given : RM " + discountAmount +
+				             "Total Amount : RM " + totalAmount + "Rounding Adjustment : RM " + roundingAdjustment + "Cash Pay By Customer : RM " + cashPay +
+				             "Change Given Back : RM " + change);
 	}
 }
 
