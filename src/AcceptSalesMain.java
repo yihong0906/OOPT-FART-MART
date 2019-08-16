@@ -10,6 +10,9 @@ public class AcceptSalesMain {
 	public static void ACCEPT_SALES() {
 		Scanner acceptSalesUserInput = new Scanner(System.in);
 		
+		ArrayList<Food_Related_Product>foodproduct=product_details_module.food_product;
+		ArrayList<StaffDetails>staff=Staff.staffs;
+		
 		PaymentDetails paymentDetails = new PaymentDetails();
 		OrderDetails orderDetails = new OrderDetails();
 		
@@ -38,44 +41,7 @@ public class AcceptSalesMain {
 		paymentDetailsList.add(new PaymentDetails("P1900004", true, LocalDateTime.parse("20-06-2019 12:12:00", dateTimeFormat), 79.08, 7.91, 4.35, 82.64, 82.60, 85.00, 2.40, orderDetailsList4));
 		
 		paymentDetails.setUpdateSubTotal(0.0);
-		
-		//delete
-		DateTimeFormatter dateFormat1 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		
-		ArrayList<ProductDetails> productDetails = new ArrayList<ProductDetails>();
-		productDetails.add(new ProductDetails("E001", "ABC Fresh Egg 15pcs", 49.60, 21, 6.49, "FF05", "Fresh Foods", "ABC", LocalDate.parse("2019-08-12", dateFormat1), LocalDate.parse("2019-08-31", dateFormat1)));
-		productDetails.add(new ProductDetails("E034", "BAO Yellow Noodle", 450.00, 50, 1.10, "FF81", "Fresh Foods", "BAO", LocalDate.parse("2019-08-12", dateFormat1), LocalDate.parse("2019-08-31", dateFormat1)));
-		productDetails.add(new ProductDetails("B009", "Anmum Milk Powder", 650.00, 15, 66.10, "BM20", "Baby", "Anmum", LocalDate.parse("2019-08-12", dateFormat1), LocalDate.parse("2029-08-31", dateFormat1)));
-		productDetails.add(new ProductDetails("C201", "Nestl¨¦ Chocolate Ice Cream", 850.00, 25, 8.49, "CF90", "Frozen", "Nestl¨¦", LocalDate.parse("2019-08-12", dateFormat1), LocalDate.parse("2029-08-31", dateFormat1)));
-		
-		ArrayList<StaffDetails> staffs = new ArrayList<StaffDetails>(Arrays.asList(
-				 (new StaffDetails("TEH YI HONG","18WMD06251","000906-10-1001","Male",new Address("A08","Taman Indah","Jalan ipoh 51200","Kuala Lumpur","Malaysia"),
-						 6000.00,"Manager",LocalDate.parse("06-09-2000",format),"0193248616","yihong")),
-				 (new StaffDetails("SERENE YEE","18WMD06252","001218-11-1001","Female",new Address("A15/19","Taman Mewah","Jalan Koklian 52300","Kuala Lumpur","Malaysia"),
-						 2500.00,"Staff",LocalDate.parse("18-12-1999",format),"0123456789","serene")),
-				 (new StaffDetails("BENJAMIN CHEN","18WMD06253","000906-10-1001","Male",new Address("B9/11","Taman UJ","Jalan putang 54000","Kuala Lumpur","Malaysia"),
-						 2600.00,"Staff",LocalDate.parse("15-02-1998",format),"0184428901","benjamin") ),
-				 (new StaffDetails("CHEONG SIONG HOU","18WMD06254","000906-10-1001","Male",new Address("C3/30","Taman Murni","J6alan Inamo 61000","Selangor","Malaysia"),
-						 2700.00,"Staff",LocalDate.parse("12-11-1997",format),"0151230915","sionghou") ),
-				 (new StaffDetails("CHEE BAO QI","18WMD06255","000906-10-1001","Female",new Address("L13/22","Taman Bangkok","Jalan Batu 64000","Selangor","Malaysia"),
-						 2800.00,"Staff",LocalDate.parse("18-06-1996",format),"0136091423","baoqi") ),
-				 (new StaffDetails("YAP KIM CHUN","18WMD06256","000906-10-1001","Male",new Address("Z01/25","Taman Bangsar","Jalan Pahang 56000","Kuala Lumpur","Malaysia"),
-						 2900.00,"Manager",LocalDate.parse("25-10-1996",format),"0181120909","kimchun") )));
-		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		ArrayList<MemberDetails> memberDetailsList = new ArrayList<MemberDetails>();
-		memberDetailsList.add(new MemberDetails("M190001", "CHEONG SIONG HOU", "000229010123", "012-1112222", LocalDate.parse("01-01-2010", dateFormat), LocalDate.parse("31-12-2010", dateFormat), "DIAMOMD", 2330.00));
-		memberDetailsList.add(new MemberDetails("M190002", "TEH YI HONG", "000229014567", "012-3334444", LocalDate.parse("01-03-2015", dateFormat), LocalDate.parse("28-02-2016", dateFormat), "DIAMOMD", 2520.00));
-		memberDetailsList.add(new MemberDetails("M190003", "BENJAMIN CHEN XIA WEI", "000229018765", "012-5556666", LocalDate.parse("01-01-2019", dateFormat), LocalDate.parse("31-12-2019", dateFormat), "DIAMOMD", 2700.00));
-		memberDetailsList.add(new MemberDetails("M190004", "CHEE BAO CHI", "000229013210", "012-7778888", LocalDate.parse("01-02-2019", dateFormat), LocalDate.parse("31-01-2020", dateFormat), "DIAMOMD", 2810.00));
-		memberDetailsList.add(new MemberDetails("M190005", "YAP KIM CHUN", "000999010101", "012-0001111", LocalDate.parse("01-03-2019", dateFormat), LocalDate.parse("29-02-2020", dateFormat), "PLATINUM", 1850.00));
-		memberDetailsList.add(new MemberDetails("M190006", "LEE EN YI", "000888010202", "012-0002222", LocalDate.parse("10-04-2019", dateFormat), LocalDate.parse("09-04-2020", dateFormat), "GOLD", 1360.00));
-		memberDetailsList.add(new MemberDetails("M190007", "HONG SHAO WEI", "000777010303", "012-0003333", LocalDate.parse("11-04-2019", dateFormat), LocalDate.parse("10-04-2020", dateFormat), "GOLD", 1490.00));
-		memberDetailsList.add(new MemberDetails("M190008", "JING JI FAN", "000666010202", "012-0004444", LocalDate.parse("13-06-2019", dateFormat), LocalDate.parse("12-06-2020", dateFormat), "SILVER", 830.00));
-		memberDetailsList.add(new MemberDetails("M190009", "TAI GAO XING", "000555010001", "012-0005555", LocalDate.parse("01-07-2019", dateFormat), LocalDate.parse("30-06-2020", dateFormat), "SILVER", 540.00));
-		memberDetailsList.add(new MemberDetails("M190010", "YANG CONG WEI", "000333011001", "012-0006666", LocalDate.parse("12-08-2019", dateFormat), LocalDate.parse("11-08-2020", dateFormat), "BRONZE", 390.00));
-		//herememberDetailsList
-		
+			
 		int countForLoop;              //count in For Loop
 		String userName;               //get the user's name from login
 		String staffID;                //store the staff's ID if the user name match
@@ -93,33 +59,17 @@ public class AcceptSalesMain {
 		
 		//get the arraylist's data from product
 		ArrayList<SalesProductList> salesProductList = new ArrayList<SalesProductList>();
-		for(countForLoop = 0; countForLoop < productDetails.size(); countForLoop++) {
-			salesProductList.add(new SalesProductList(productDetails.get(countForLoop).getProduct_code(), productDetails.get(countForLoop).getProduct_name(), productDetails.get(countForLoop).getProduct_weight(),
-					                                  productDetails.get(countForLoop).getPrice()));
+		for(countForLoop = 0; countForLoop < food_products.size(); countForLoop++) {
+			salesProductList.add(new SalesProductList(food_products.get(countForLoop).getProduct_code(), productDetails.get(countForLoop).getProduct_name(), productDetails.get(countForLoop).getProduct_weight(),
+								food_products.get(countForLoop).getPrice()));
 		}
 		
 		//get the arraylist's data from staff
 		ArrayList<StaffDetailsList> staffDetailsList = new ArrayList<StaffDetailsList>();
-		for(countForLoop = 0; countForLoop < staffs.size(); countForLoop++) {
-			staffDetailsList.add(new StaffDetailsList(staffs.get(countForLoop).getStaffID(), staffs.get(countForLoop).getName(),
-					 		     staffs.get(countForLoop).getUserName()));
+		for(countForLoop = 0; countForLoop < staff.size(); countForLoop++) {
+			staffDetailsList.add(new StaffDetailsList(staff.get(countForLoop).getStaffID(), staff.get(countForLoop).getName(),
+					 		     staff.get(countForLoop).getUserName()));
 		}
-		
-		//get the arraylist's data from member
-		//ArrayList<MemberDetails> memberDetailsList = new ArrayList<MemberDetails>();
-		
-		
-		//change
-		userName = "sionghou";
-		staffID = "";
-		staffName = "";
-		for(countForLoop = 0; countForLoop < staffs.size(); countForLoop++) {
-			if(userName == staffs.get(countForLoop).getUserName()) {
-				staffID = staffs.get(countForLoop).getStaffID();
-				staffName = staffs.get(countForLoop).getName();
-			}
-		}
-		
 		
 		do {
 			typeOfCustomer = 0;
