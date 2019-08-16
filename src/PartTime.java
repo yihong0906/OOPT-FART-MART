@@ -62,6 +62,6 @@ public class PartTime extends StaffDetails{
 	}
 	public String toString()
 	{
-			return String.format("|%-16s |%-10s |%-15s |%-5d|%-6s|%-9s|%-12d|%-10.2f |%-8s |%-13s |%-12s |%-62s|",name,staffID,icNumber,getAge(),gender,status,workingHours,calculateSalary(),position,dateOfBirth,handphone,address);
+			return String.format("|%-16s |%-10s |%-15s |%-5d|%-6s|%-9s|%-12d|%-10.2f |%-8s |%-13s |%-12s |%-46s|",name,staffID,icNumber,getAge(),gender,status,workingHours,calculateSalary(),position,dateOfBirth,handphone,address);
 	}
 }

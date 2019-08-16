@@ -10,17 +10,17 @@ public class Staff{
 	public ArrayList<StaffDetails>staff=Staff.staffs;//declare array
 	//store data into array list
 	public static ArrayList<StaffDetails>staffs = new ArrayList<StaffDetails>(Arrays.asList(
-	 (new FullTime("TEH YI HONG","18WMD06251","000906-10-1001","Male",new Address("A08","Taman Indah","Jalan ipoh 51200","Kuala Lumpur","Malaysia"),
+	 (new FullTime("TEH YI HONG","18WMD06251","000906101001","Male",new Address("A08","Taman Indah","51200","Kuala Lumpur","Malaysia"),
 			 3500.00,"Manager",LocalDate.parse("06-09-2000",format),"0193248616","yihong","hxkiller03","fulltime",240,12)),
-	 (new FullTime("SERENE YEE","18WMD06252","001218-11-1001","Female",new Address("A15/19","Taman Mewah","Jalan Koklian 52300","Kuala Lumpur","Malaysia"),
+	 (new FullTime("SERENE YEE","18WMD06252","991218111001","Female",new Address("A15/19","Taman Mewah","52300","Kuala Lumpur","Malaysia"),
 			 3000.00,"Staff",LocalDate.parse("18-12-1999",format),"0123456789","serene","hxkiller04","fulltime",240,5)),
-	 (new PartTime("BENJAMIN CHEN","18WMD06253","000906-10-1001","Male",new Address("B9/11","Taman UJ","Jalan putang 54000","Kuala Lumpur","Malaysia"),
+	 (new PartTime("BENJAMIN CHEN","18WMD06253","980906141005","Male",new Address("B9/11","Taman UJ","54000","Kuala Lumpur","Malaysia"),
 			 0,"Staff",LocalDate.parse("15-02-1998",format),"0184428901","benjamin","hxkiller05","parttime",220,0)),
-	 (new FullTime("CHEONG SIONG HOU","18WMD06254","000906-10-1001","Male",new Address("C3/30","Taman Murni","J6alan Inamo 61000","Selangor","Malaysia"),
+	 (new FullTime("CHEONG SIONG HOU","18WMD06254","971120092405","Male",new Address("C3/30","Taman Murni","61000","Selangor","Malaysia"),
 			 2700.00,"Staff",LocalDate.parse("12-11-1997",format),"0151230915","sionghou","hxkiller06","fulltime",240,8) ),
-	 (new PartTime("CHEE BAO QI","18WMD06255","000906-10-1001","Female",new Address("L13/22","Taman Bangkok","Jalan Batu 64000","Selangor","Malaysia"),
+	 (new PartTime("CHEE BAO QI","18WMD06255","960701069123","Female",new Address("L13/22","Taman Bangkok","64000","Selangor","Malaysia"),
 			 2800.00,"Staff",LocalDate.parse("18-06-1996",format),"0136091423","baoqi","hxkiller07","parttime",190,0) ),
-	 (new FullTime("YAP KIM CHUN","18WMD06256","000906-10-1001","Male",new Address("Z01/25","Taman Bangsar","Jalan Pahang 56000","Kuala Lumpur","Malaysia"),
+	 (new FullTime("YAP KIM CHUN","18WMD06256","961004046286","Male",new Address("Z01/25","Taman Bangsar","56000","Selangor","Malaysia"),
 			 2900.00,"Manager",LocalDate.parse("25-10-1996",format),"0181120909","kimchun","hxkiller08","fulltime",240,15) )));
 
 	 public static void STAFF_DETAILS_MODULE()
@@ -31,11 +31,11 @@ public class Staff{
 		try {	
 			do{
 		 System.out.println("");
-		 System.out.println("\t\t\t\t\t\t\t  ___ _____ _   ___ ___   ___  ___ _____ _   ___ _    ___ \r\n" + 
-		 					"\t\t\t\t\t\t\t / __|_   _/_\\ | __| __| |   \\| __|_   _/_\\ |_ _| |  / __|\r\n" + 
-		 					"\t\t\t\t\t\t\t \\__ \\ | |/ _ \\| _|| _|  | |) | _|  | |/ _ \\ | || |__\\__ \\\r\n" + 
-		 					"\t\t\t\t\t\t\t |___/ |_/_/ \\_\\_| |_|   |___/|___| |_/_/ \\_\\___|____|___/\r\n" + 
-		 					"\t\t\t\t\t\t\t                                                       ");
+		 System.out.println("\t\t\t\t\t\t\t\t\t\t  ___ _____ _   ___ ___   ___  ___ _____ _   ___ _    ___ \r\n" + 
+		 					"\t\t\t\t\t\t\t\t\t\t / __|_   _/_\\ | __| __| |   \\| __|_   _/_\\ |_ _| |  / __|\r\n" + 
+		 					"\t\t\t\t\t\t\t\t\t\t \\__ \\ | |/ _ \\| _|| _|  | |) | _|  | |/ _ \\ | || |__\\__ \\\r\n" + 
+		 					"\t\t\t\t\t\t\t\t\t\t |___/ |_/_/ \\_\\_| |_|   |___/|___| |_/_/ \\_\\___|____|___/\r\n" + 
+		 					"\t\t\t\t\t\t\t\t\t\t                                                       ");
 		 
 		 
 		 
@@ -78,8 +78,8 @@ public class Staff{
 	 
 	 public static void AddStaff(ArrayList<StaffDetails> staff)
 	 {
-		int selection=8,decision=0,valid=8,check=8,overtimeHours, selected=0,workingHours=0;
-		String position="",gender="",handphone, name="",status="";
+		int selection=8,decision=0,valid=8,valid1=8,check=8,overtimeHours, selected=0,workingHours=0;
+		String position="",gender="",handphone, name="",status="",userName="";
 		char choice,confirm;
 		double salary=0;
 		Scanner input=new Scanner(System.in);
@@ -105,6 +105,24 @@ public class Staff{
 		 }
 		 }while(valid==0);
 		 
+		 //entering user name
+		 System.out.print("Enter an user name for employee :");
+		 do {
+		 userName=input.nextLine();
+		 userName=userName.toLowerCase();
+		 for(int count=0;count<staff.size();count++)
+		 {
+		   if(userName.equals(staff.get(count).getUserName()))
+		   {
+			   valid1=0;
+			   System.out.println("This User name has already been registered.");
+			   System.out.print("Please enter again :");
+		   }
+		 }
+		 }while(valid1==0);
+		 
+		 System.out.println("Enter a password for future login :");
+		 String password=input.nextLine();
 		 
 		 //Entering ic number
 		 System.out.print("Enter a IC number :");
@@ -279,13 +297,13 @@ public class Staff{
 		 String country=input.nextLine();
 		 
 		 //display the data entered by user just now
-		 System.out.println("+=================================================================================================================================================================================================+");
-		 System.out.printf("|%-20s |%-12s |%-6s |%-8s|%-13s|%-9s|%-10s |%-8s |%-13s |%-12s |%-62s|\n",
-				 "Staff Name","Staff IC","Gender","Status","Working Hours","Overtime","Salary(RM)","Position","Date of birth",
+		 System.out.println("+========================================================================================================================================================================================+");
+		 System.out.printf("|%-17s |%-9s|%-12s |%-6s |%-8s|%-13s|%-9s|%-10s |%-8s |%-13s |%-12s |%-46s|\n",
+				 "Staff Name","User name","Staff IC","Gender","Status","Working Hours","Overtime","Salary(RM)","Position","Date of birth",
 				 "Phone Number","Home Address");
-		 System.out.println("+=================================================================================================================================================================================================+");
-		 System.out.printf("|%-20s |%-12s |%-6s |%-8s|%-13d|%-9d|%-10.2f |%-8s |%-13s |%-12s |%-62s|\n",name,icNumber,gender,status,workingHours,overtimeHours,salary,position,DOB,handphone,streetName+","+rArea+","+postCode+","+state+","+country);
-		 System.out.println("+=================================================================================================================================================================================================+");
+		 System.out.println("+========================================================================================================================================================================================+");
+		 System.out.printf("|%-17s |%-9s|%-12s |%-6s |%-8s|%-13d|%-9d|%-10.2f |%-8s |%-13s |%-12s |%-46s|\n",name,userName,icNumber,gender,status,workingHours,overtimeHours,salary,position,DOB,handphone,streetName+","+rArea+","+postCode+","+state+","+country);
+		 System.out.println("+========================================================================================================================================================================================+");
 		 System.out.print("Confirm to add these data?(Y/N) :");
 		 confirm=input.next().charAt(0);
 		 confirm=Character.toLowerCase(confirm);
@@ -315,20 +333,20 @@ public class Staff{
 	 public static void viewStaff(ArrayList<StaffDetails> staff)
 	 {
 		 System.out.println("\nDisplaying Staff Details :");
-		 System.out.println("+========================================================================================================================================================================================================+");
-		 System.out.printf("|%3s|%-16s |%-10s |%-15s |%-5s|%-6s|%-9s|%-9s|%-10s |%-8s |%-13s |%-12s |%-62s|\n",
+		 System.out.println("+========================================================================================================================================================================================+");
+		 System.out.printf("|%3s|%-16s |%-10s |%-15s |%-5s|%-6s|%-9s|%-9s|%-10s |%-8s |%-13s |%-12s |%-46s|\n",
 				 "No.","Staff Name","Staff ID","Staff IC","Age","Gender","Status","WorkingHours","Salary(RM)","Position","Date of birth","Phone Number","Home Address");
-		 System.out.println("+========================================================================================================================================================================================================+");
+		 System.out.println("+========================================================================================================================================================================================+");
 		 for (int i=0; i<staff.size(); i++) 
 	     {
 		 System.out.printf("|%3s",1+i);
 		 System.out.print(staff.get(i).toString()+"\n");
 		 if(1+i==staff.size())
 		 {
-			 System.out.println("+========================================================================================================================================================================================================+\n"); 
+			 System.out.println("+========================================================================================================================================================================================+\n"); 
 		 }
 		 else
-			 System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+");
+			 System.out.println("+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+");
      }
 	
 
