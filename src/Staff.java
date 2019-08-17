@@ -400,7 +400,7 @@ public class Staff{
 	 
 	 public static void modifyStaff(ArrayList<StaffDetails>staff)
 	 {   Scanner m=new Scanner(System.in);
-	     int y=0,validation=8,selection,valid=8,choice=0;
+	     int y=0,validation=8,selection=8,valid=8,choice=0;
 	     String tempPosition = "",tempPhoneNumber="";
 	     char confirm;
 		 viewStaff(staff);//display before modify
@@ -439,10 +439,26 @@ public class Staff{
 
 
 		 if(choice==1)
-		 {
+		 {   double tempSalary=1;
 			 System.out.println("Current Salary :"+staff.get(y).getBasicSalary());
-			 System.out.print("Enter a new salary :");
-			 double tempSalary=m.nextDouble();
+			
+			 
+		     System.out.print("Enter a new salary :");
+			
+		     do{try {
+			  tempSalary=m.nextDouble();
+			  if(tempSalary<0)
+			  { System.out.println("Must be positive!!");
+				 System.out.println("Please enter again: ");
+				  
+			  }
+			 }catch(Exception tempSalaryError)
+			 {
+				 m.next();
+				 tempSalary=-999;
+				 System.out.println("Must only digit!!");
+				 System.out.println("Please enter again: ");
+			 }}while(tempSalary<0);
 			 System.out.print("Confirm to modify?(Y/N) :");
 			 confirm=m.next().charAt(0);
 			 confirm=Character.toLowerCase(confirm);
@@ -462,8 +478,8 @@ public class Staff{
 			 System.out.println("2.Staff");
 			 System.out.println("------------------");
 			 System.out.print(": ");
-			 do {
-				 do {
+		do {
+		   do {try {
 			 selection=m.nextInt();
 			 
 			 if(selection!=1 && selection !=2)
@@ -482,8 +498,7 @@ public class Staff{
 					valid=0;
 					tempPosition="Manager";
 					}
-				
-			 }
+			  }
 			else
 			 {
 				if("Staff".equals(staff.get(y).getPosition()))
@@ -496,8 +511,13 @@ public class Staff{
 					tempPosition="Staff";
 					}
 			 }
-				 }while(valid!=0);
-			 }while(selection!=1 && selection !=2);
+		   }catch(Exception tempPositionError)
+		   {     m.next();
+			     System.out.println("Must only digit!!");
+				 System.out.println("Please enter again: ");
+		   }
+				}while(valid!=0);
+			}while(selection!=1 && selection !=2);
 			 System.out.print("Confirm to modify?(Y/N) :");
 			 confirm=m.next().charAt(0);
 			 confirm=Character.toLowerCase(confirm);
@@ -517,12 +537,12 @@ public class Staff{
 			 System.out.print("Enter a new phone number :");
 			 do {
 				 tempPhoneNumber=m.nextLine();
-				 if(tempPhoneNumber.equals(staff.get(y).getHandphone()) || tempPhoneNumber.length()!=10)
+				 if(tempPhoneNumber.equals(staff.get(y).getHandphone()) || !tempPhoneNumber.matches("[0-9]{12}"))
 				 {
 					 System.out.println("Invalid Phone Number!");
 					 System.out.print("Please Key in again :");
 				 }
-			 }while(tempPhoneNumber.equals(staff.get(y).getHandphone()) || tempPhoneNumber.length()!=10);
+			 }while(tempPhoneNumber.equals(staff.get(y).getHandphone()) || !tempPhoneNumber.matches("[0-9]{12}"));
 			 System.out.print("Confirm to modify?(Y/N) :");
 			 confirm=m.next().charAt(0);
 			 confirm=Character.toLowerCase(confirm);
