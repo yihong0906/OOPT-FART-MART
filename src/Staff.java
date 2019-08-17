@@ -70,6 +70,7 @@ public class Staff{
 		}while(selection !=5);
 		}
 		catch(Exception selectionError) {
+			s.next();
 			System.out.println("Invalid Input!!!");
 		}
 		}while(selection!=5);
@@ -128,17 +129,18 @@ public class Staff{
 		 }
 		 }while(valid==0);
 		 
-		 System.out.println("Enter a password for future login :");
+		 System.out.print("Enter a password for future login :");
 		 String password=input.nextLine();
 		 
 		 //Entering ic number
 		 System.out.print("Enter a IC number :");
 		do {icNumber=input.nextLine();
-		 if(icNumber.matches("[0-9]+") == false||icNumber.length()!=12 )
+		 if(!icNumber.matches("[0-9]{12}"))
 		 {
-			 System.out.println("Invalid input!!!");
+			 System.out.println("Ic number must be only 12 digit");
+			 System.out.println("Please enter again :");
 		 }
-		}while(icNumber.matches("[0-9]+") == false||icNumber.length()!=12 );
+		}while(!icNumber.matches("[0-9]{12}") );
 		 
 		 //Entering gender
 		do{try { 
@@ -156,13 +158,13 @@ public class Staff{
 			 gender="Female";
 		 }
 		 else
-			 {System.out.println("Invalid Input!!!");
+			 {System.out.println("Must be only 1 or 2!!");
 			 System.out.print("Please enter again: ");
 			 }
 		}while(decision !=1 && decision !=2);
 		}catch(Exception decisionError) {
 			input.next();
-			System.out.println("Invalid Input!!!");
+			System.out.println("Must only digit!!");
 			System.out.println("Please enter again:");
 		}
 		}while(decision!=1&& decision !=2);
@@ -188,14 +190,14 @@ public class Staff{
 		 }
 		 else
 		 	{
-			 System.out.println("Invalid Input!!!");
+			 System.out.println("Must be only 1 or 2!!");
 			 System.out.println("Please enter again: ");
 		    } 
 		 }while(selected !=1 && selected !=2);
 		}
 		catch(Exception selectedError){
 			input.next();
-			System.out.println("Invalid Input!!!");
+			System.out.println("Must only digit!!");
 			System.out.println("Please enter again: ");
 		}
 		}while(selected!=1 && selected!=2);
@@ -221,7 +223,7 @@ public class Staff{
 		 }
 		 else
 		 {
-			 System.out.println("Invalid Input!!!");
+			 System.out.println("Must be only 1 or 2!!");
 			 System.out.print("Please enter again: ");
 		 }
 		 }while(selection!=1 && selection!=2);
@@ -229,47 +231,70 @@ public class Staff{
 		catch(Exception selectionError)
 		{
 			input.next();
-			System.out.println("Invalid Input!!!");
+			System.out.println("Must only digit!!");
 			System.out.println("Please enter again: ");
 		}
 		}while(selection!=1 && selection !=2);
 		 
 		 //if user choose full time,then will prompt out basic salary
 		 if(selected==1)
-		 {
+		 { 
+		   do {
 			 try {
-			 System.out.print("Enter a basic salary (RM) :");
-			 salary=input.nextDouble();
+				 System.out.print("Enter a basic salary (RM) :");
+				 salary=input.nextDouble();
+				 if(salary<0)
+				 {
+				 System.out.println("Must be positive!!");
+				 System.out.println("Please enter again: ");
+				 }
 			 }
 			 catch(Exception salaryError)
-			 {   input.next();
-				 System.out.println("Invalid Input!!!");
+			 {   
+				 input.next();
+				 salary = -999;
+				 System.out.println("Must only digit!!");
+				 System.out.println("Please enter again: ");
 
 			 }
+		   }while(salary < 0);
 		 }
 		 else
 			 salary=0;
 		 
 		 //check=1 means part-time,so salary is based on working hours
 		 if(check==1)
-		 {  
+		 {  do {
 			try {
 			System.out.print("Enter total working hours in 1 months:");
 			workingHours=input.nextInt();
 			}
 			catch(Exception workingHoursError)
-			{
-				System.out.println("Invalid Input!!!");
+			{   input.next();
+			workingHours=-999;
+			 System.out.println("Must only digit!!");
+			 System.out.println("Please enter again: ");
 			}
+		 }while(workingHours<0);
 		 }
 		 else
 			 workingHours=240;
 		 
 		 //check=0 mean full-time,overtime will get paid
 		 if(check==0)
-		 {
+		 { do {
+			 try {
 			 System.out.print("Enter total overtime hours :");
 			 overtimeHours=input.nextInt();
+			 }catch(Exception overtimeHoursError)
+			 {
+				 input.next();
+				 overtimeHours=-999;
+				 System.out.println("Must only digit!!");
+				 System.out.println("Please enter again: ");
+				 
+			 }
+		 }while(overtimeHours<0);
 		 }
 		 else
 			 overtimeHours=0;		 
@@ -294,11 +319,11 @@ public class Staff{
 		 System.out.print("Enter a phone number :");
 		do {
 		   handphone=input.nextLine();
-		 if(handphone.length()!=10 || handphone.matches("[0-9]+") == false)
+		 if(!handphone.matches("[0-9]{12}"))
 		 {  
 			 System.out.print("Please enter a correct handphone number!");
 		 }
-		 }while(handphone.length()!=10||handphone.matches("[0-9]+") == false);
+		 }while(!handphone.matches("[0-9]{12}"));
 		
 		//Entering Home address
 		 System.out.print("Enter a street name :");

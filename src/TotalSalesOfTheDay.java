@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TotalSalesOfTheDay {
-    public static void r1(){
+    public static void r1(ArrayList<OrderDetails>orderDetailsList69){
     	
         Scanner input = new Scanner (System.in);
         
@@ -18,7 +18,7 @@ public class TotalSalesOfTheDay {
             System.out.print("\nEnter the number of the date (exit = 0) : ");
              int n = input.nextInt();
         	
-             ArrayList<OrderDetails> orderDetailsList69 = AcceptSalesMain.orderDetailsList1;
+   
             switch (n) {
                 case 1:
                     {
