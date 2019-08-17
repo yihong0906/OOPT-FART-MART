@@ -545,9 +545,10 @@ class product_details_module {
     	
 			do{
 				try{
-				modifyType  = input.nextInt();	
+				modifyType=input.nextInt();	
 		    	} catch(Exception e){
 		    		modifyType=-1;
+		    		input.nextLine();
 		    		System.out.print("Invalid number! Please enter again : ");
 		    	}
 			}while (modifyType==-1);
@@ -559,14 +560,15 @@ class product_details_module {
     		switch(modifyType){
     		case 1: 
     			System.out.print("Enter new product quantity: ");
-    			int newQty=-1;
+    			int newQty=0;
     			
     			do{
 					try{
-					newQty  = input.nextInt();	
+					newQty=input.nextInt();	
 			    	} catch(Exception e){
 			    		newQty=-1;
-			    		System.out.print("Invalid number! Please enter again : ");
+			    		input.nextLine();
+			    		System.out.print("Invalid quantity! Please enter again : ");
 			    	}
 				}while (newQty==-1);
     			
@@ -639,15 +641,17 @@ class product_details_module {
 	    				newPrice  = input.nextDouble();	
 	    				} catch(Exception e){
 			    		newPrice=-1;
+			    		input.nextLine();
 			    		System.out.print("Invalid price! Please enter a valid price: ");
 			    	}
+	    			}while (newPrice <= 0);
 			    	
 			    	
 	    				if (newPrice <= 0){
 	    					System.out.print("Invalid price! Please enter a valid price: ");
 	    					newPrice = input.nextDouble();
 	    				}
-	    			}while (newPrice <= 0);
+	    			
 	    		if(modify_cat_type == 1){
 	    			 oldPrice = product.get(modify_index).getPrice();
 	    			
@@ -890,14 +894,13 @@ class product_details_module {
     	//validate whether user wants to modify products or not
     	do {
     	 	if(toValidate =='y' || toValidate =='Y'){
-    		//do nothing is input is correct
+    		//do nothing means input is correct
     		} else if(toValidate =='n' || toValidate =='N') {
     			return false;
     		}else if(Character.isDigit(toValidate)){
     			System.out.print("Please enter 'y' or 'n' only: ");
     			toValidate = input.next().charAt(0);
     		}else {
-    		
     			System.out.print("Please enter 'y' or 'n' only: ");
     			toValidate = input.next().charAt(0);
     		}
