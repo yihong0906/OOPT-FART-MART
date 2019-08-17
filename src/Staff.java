@@ -20,6 +20,8 @@ public class Staff{
 			 2700.00,"Staff",LocalDate.parse("12-11-1997",format),"0151230915","sionghou","hxkiller06","fulltime",240,8) ),
 	 (new PartTime("CHEE BAO QI","18WMD06255","960701069123","Female",new Address("L13/22","Taman Bangkok","64000","Selangor","Malaysia"),
 			 2800.00,"Staff",LocalDate.parse("18-06-1996",format),"0136091423","baoqi","hxkiller07","parttime",190,0) ),
+	 (new PartTime("TAN YI WEI","18WMD12345","990701062438","Female",new Address("NO,123","Taman TARC","64000","Selangor","Malaysia"),
+			 2800.00,"Manager",LocalDate.parse("18-06-1999",format),"0132436748","yiwei","lenglui","parttime",210,0) ),
 	 (new FullTime("YAP KIM CHUN","18WMD06256","961004046286","Male",new Address("Z01/25","Taman Bangsar","56000","Selangor","Malaysia"),
 			 2900.00,"Manager",LocalDate.parse("25-10-1996",format),"0181120909","kimchun","hxkiller08","fulltime",240,15) )));
 
