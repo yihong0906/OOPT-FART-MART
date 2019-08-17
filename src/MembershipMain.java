@@ -226,48 +226,59 @@ public class MembershipMain {
 					//check the format of member's phone no
 					do {
 						checkPhoneNumberFormat = true;
+						newMemberPhoneNo = "0";
+						try {
+							System.out.print("Enter Member Phone No. : ");
+							newMemberPhoneNo = inputNewMemberDetails.nextLine();
 							
-						System.out.print("Enter Member Phone No. : ");
-						newMemberPhoneNo = inputNewMemberDetails.nextLine();
-						
-						//check the length of newMemberPhoneNo '= 11' and '= 12' 01273923500
-						//then replace the "-" with the number after it
-						if (newMemberPhoneNo.charAt(3) == '-' && newMemberPhoneNo.length() == 11) {
-							newMemberPhoneNo = newMemberPhoneNo.replace(newMemberPhoneNo.substring(3, 11), newMemberPhoneNo.substring(4, 11));
-						}
-						else if (newMemberPhoneNo.charAt(3) == '-' && newMemberPhoneNo.charAt(2) == '1' && newMemberPhoneNo.length() == 12){
-							newMemberPhoneNo = newMemberPhoneNo.replace(newMemberPhoneNo.substring(3, 12), newMemberPhoneNo.substring(4, 12));
-						}
-						
-						//if the newMemberPhoneNo having "-" change the checkPhoneNumberFormat to false
-						for (countForLoop = 0; countForLoop < newMemberPhoneNo.length(); countForLoop++) {
-							if (newMemberPhoneNo.charAt(countForLoop) == '-')
+							//check the length of newMemberPhoneNo '= 11' and '= 12' 01273923500
+							//then replace the "-" with the number after it
+							if (newMemberPhoneNo.charAt(3) == '-' && newMemberPhoneNo.length() == 11) {
+								newMemberPhoneNo = newMemberPhoneNo.replace(newMemberPhoneNo.substring(3, 11), newMemberPhoneNo.substring(4, 11));
+							}
+							else if (newMemberPhoneNo.charAt(3) == '-' && newMemberPhoneNo.charAt(2) == '1' && newMemberPhoneNo.length() == 12){
+								newMemberPhoneNo = newMemberPhoneNo.replace(newMemberPhoneNo.substring(3, 12), newMemberPhoneNo.substring(4, 12));
+							}
+							
+							//if the newMemberPhoneNo having "-" change the checkPhoneNumberFormat to false
+							for (countForLoop = 0; countForLoop < newMemberPhoneNo.length(); countForLoop++) {
+								if (newMemberPhoneNo.charAt(countForLoop) == '-')
+									checkPhoneNumberFormat = false;
+							}
+							
+							//check the phone number starting with "01"
+							if(newMemberPhoneNo.charAt(0) != '0' || newMemberPhoneNo.charAt(1) != '1')
 								checkPhoneNumberFormat = false;
+							//check the phone is not starting with "011" and having 10 number
+							else if (newMemberPhoneNo.charAt(2) != '1' && newMemberPhoneNo.length() == 10)
+								checkPhoneNumberFormat = true;
+							//check the phone is starting with "011" and having 11 number
+							else if (newMemberPhoneNo.charAt(2) == '1' && newMemberPhoneNo.length() == 11)
+								checkPhoneNumberFormat = true;
+							else
+								checkPhoneNumberFormat = false;
+							
+							//do validation for newMemberPhoneNo
+							//update the newMemberPhoneNo's format
+							if(checkPhoneNumberFormat == false)
+								System.out.println("Invalid Phone No. Please Enter Again.\n");
+							else {
+								if (newMemberPhoneNo.length() == 10)
+									newMemberPhoneNo = newMemberPhoneNo.replaceFirst("(\\d{3})(\\d{7})", "$1-$2");
+								else if (newMemberPhoneNo.length() == 11)
+									newMemberPhoneNo = newMemberPhoneNo.replaceFirst("(\\d{3})(\\d{8})", "$1-$2");
+							}
 						}
-						
-						//check the phone number starting with "01"
-						if(newMemberPhoneNo.charAt(0) != '0' || newMemberPhoneNo.charAt(1) != '1')
-							checkPhoneNumberFormat = false;
-						
-						//check the phone is not starting with "011" and having 11 number
-						if (newMemberPhoneNo.charAt(2) != '1' && newMemberPhoneNo.length() == 11)
-							checkPhoneNumberFormat = false;
-						
-						//check the phone is starting with "011" and not having 11 number
-						if (newMemberPhoneNo.charAt(2) == '1' && newMemberPhoneNo.length() != 11)
-							checkPhoneNumberFormat = false;
-						
-						//do validation for newMemberPhoneNo
-						//update the newMemberPhoneNo's format
-						if(checkPhoneNumberFormat == false)
-							System.out.println("Invalid Phone No. Please Enter Again.\n");
-						else if(newMemberPhoneNo.length() != 10 && newMemberPhoneNo.length() != 11)
-							System.out.println("Invalid Phone No. Please Enter Again.\n");
-						else {
-							if (newMemberPhoneNo.length() == 10)
-								newMemberPhoneNo = newMemberPhoneNo.replaceFirst("(\\d{3})(\\d{7})", "$1-$2");
-							else if (newMemberPhoneNo.length() == 11)
-								newMemberPhoneNo = newMemberPhoneNo.replaceFirst("(\\d{3})(\\d{8})", "$1-$2");
+						catch(Exception newMemberPhoneNoError) {
+							if(newMemberPhoneNo.equals("x") || newMemberPhoneNo.equals("X")) {
+								checkPhoneNumberFormat = true;
+								newMemberPhoneNo = "00000000000";
+								System.out.println();
+							}
+							else {
+								checkPhoneNumberFormat = false;
+								System.out.println("Invalid Phone No. Please Enter Again.\n");
+							}
 						}
 					}while((newMemberPhoneNo.length() != 11 && newMemberPhoneNo.length() != 12) || checkPhoneNumberFormat == false);
 					//end check the format of member's phone no
@@ -316,11 +327,12 @@ public class MembershipMain {
 		boolean checkDateSignUpStrFormat;   //check the format of the date of sign up in String format
 		char confirmModify;                 //confirm to modify or not
 		char continueModifyMemberDetails;   //continue to modify another member details or not
-		
-		do {
-			displayMemberDetails(modifyMemberDetails);
 			
+		do{
+			displayMemberDetails(modifyMemberDetails);
 			do {
+				
+					
 				validModifyID = false;
 				indexModify = 0;
 				
@@ -454,7 +466,7 @@ public class MembershipMain {
 						
 						System.out.println("\nMember Phone Number (Now)        : " + modifyMemberDetails.get(indexModify).getMemberPhoneNo());
 						do {
-							checkPhoneNumberFormat = true;
+							checkPhoneNumberFormat = false;  // true or false
 							
 							newMemberPhoneNo = modifyMemberDetails.get(indexModify).getMemberPhoneNo();
 							
@@ -465,12 +477,6 @@ public class MembershipMain {
 								System.out.print("New Member Phone Number (Modify) : ");
 								newMemberPhoneNo = inputModifyMemberDetails.nextLine();
 								
-								if(newMemberPhoneNo.equals("x") || newMemberPhoneNo.equals("X")) {
-									newMemberPhoneNo = modifyMemberDetails.get(indexModify).getMemberPhoneNo();
-									System.out.println();
-								}
-							}
-							catch(Exception newMemberPhoneNoError) {
 								//check the length of newMemberPhoneNo '= 11' and '= 12'
 								//then replace the "-" with the number after it
 								if (newMemberPhoneNo.charAt(3) == '-' && newMemberPhoneNo.length() == 11) {
@@ -489,21 +495,19 @@ public class MembershipMain {
 								//check the phone number starting with "01"
 								if(newMemberPhoneNo.charAt(0) != '0' || newMemberPhoneNo.charAt(1) != '1')
 									checkPhoneNumberFormat = false;
-								
+								//check the phone is not starting with "011" and having 10 number
+								else if (newMemberPhoneNo.charAt(2) != '1' && newMemberPhoneNo.length() == 10)
+									checkPhoneNumberFormat = true;
 								//check the phone is starting with "011" and having 11 number
-								if (newMemberPhoneNo.charAt(2) != '1' && newMemberPhoneNo.length() == 11)
-									checkPhoneNumberFormat = false;
-								
-								//check the phone is starting with "011" and not having 11 number
-								if (newMemberPhoneNo.charAt(2) == '1' && newMemberPhoneNo.length() != 11)
+								else if (newMemberPhoneNo.charAt(2) == '1' && newMemberPhoneNo.length() == 11)
+									checkPhoneNumberFormat = true;
+								else
 									checkPhoneNumberFormat = false;
 								
 								//do validation for newMemberPhoneNo
-								//update the newMemberPhoneNo's format
 								if(checkPhoneNumberFormat == false)
 									System.out.println("Invalid Phone No. Please Enter Again.\n");
-								else if(newMemberPhoneNo.length() != 10 && newMemberPhoneNo.length() != 11)
-									System.out.println("Invalid Phone No. Please Enter Again.\n");
+								//update the newMemberPhoneNo's format
 								else {
 									if (newMemberPhoneNo.length() == 10)
 										newMemberPhoneNo = newMemberPhoneNo.replaceFirst("(\\d{3})(\\d{7})", "$1-$2");
@@ -513,6 +517,7 @@ public class MembershipMain {
 									System.out.print("\nConfrim to modify Member Phone Number (Y or N) : ");
 									confirmModify = inputModifyMemberDetails.next().charAt(0);
 									confirmModify = Character.toUpperCase(confirmModify);
+									inputModifyMemberDetails.nextLine();
 									
 									if(confirmModify == 'Y') {
 										modifyMemberDetails.get(indexModify).setMemberPhoneNo(newMemberPhoneNo);
@@ -520,6 +525,17 @@ public class MembershipMain {
 									}
 									else
 										System.out.println();
+								}
+							}
+							catch(Exception newMemberPhoneNoError) {
+								if(newMemberPhoneNo.equals("x") || newMemberPhoneNo.equals("X")) {
+									checkPhoneNumberFormat = true;
+									newMemberPhoneNo = modifyMemberDetails.get(indexModify).getMemberPhoneNo();
+									System.out.println();
+								}
+								else {
+									checkPhoneNumberFormat = false;
+									System.out.println("Invalid Phone No. Please Enter Again.\n");
 								}
 							}
 							count++;
@@ -537,54 +553,57 @@ public class MembershipMain {
 								System.out.println("You can enter \"X\" in member Date Sign Up field if you don't want to proceed.\n");
 							
 							try {
+								System.out.println(" >> Follow format \"dd-mm-yyyy\" << ");
 								System.out.print("New Date Sign Up (Modify) : ");
 								newDateSignUpStr = inputModifyMemberDetails.nextLine();
 								
-								if(newDateSignUpStr.equals("x") || newDateSignUpStr.equals("X")) {
-									checkDateSignUpStrFormat = true;
-									System.out.println();
-								}
-								else
-									System.out.println("Invalid Input For Date Sign Up. Please Enter Again.\n");
-							}
-							catch(Exception newDateSignUpStrError) {
+								//change the format of 'newDateSignUpStr' to "dd-mm-yyyy"
 								if(Character.isDigit(newDateSignUpStr.charAt(0)) && newDateSignUpStr.charAt(1) == '-')
 									newDateSignUpStr = "0" + newDateSignUpStr;
 								if(Character.isDigit(newDateSignUpStr.charAt(3)) && newDateSignUpStr.charAt(4) == '-')
 									newDateSignUpStr = newDateSignUpStr.substring(0, 3) + "0" + newDateSignUpStr.substring(3, 9);
 								
+								//if enter "x" or "X", can allow user jump out
 								if(LocalDate.parse(newDateSignUpStr, dateFormat).compareTo(LocalDate.now()) > 0) {
 									checkDateSignUpStrFormat = false;
 									System.out.println("Invalid Input For Date Sign Up.");
 									System.out.println("Date is bigger than today date.");
 								}
 								else {
-									try {
-										newDateSignUp = LocalDate.parse(newDateSignUpStr, dateFormat);
+									newDateSignUp = LocalDate.parse(newDateSignUpStr, dateFormat);
+									
+									System.out.print("\nConfrim to modify Date Sign Up (Y or N) : ");
+									confirmModify = inputModifyMemberDetails.next().charAt(0);
+									confirmModify = Character.toUpperCase(confirmModify);
+									inputModifyMemberDetails.nextLine();
+									
+									if(confirmModify == 'Y') {
+										checkDateSignUpStrFormat = true;
 										
-										System.out.print("\nConfrim to modify Date Sign Up (Y or N) : ");
-										confirmModify = inputModifyMemberDetails.next().charAt(0);
-										confirmModify = Character.toUpperCase(confirmModify);
-										
-										if(confirmModify == 'Y') {
-											modifyMemberDetails.get(indexModify).setDateSignUp(newDateSignUp);
-											newDeadLine = newDateSignUp.plusYears(1);
-											newDeadLine = newDeadLine.minusDays(1);
-											modifyMemberDetails.get(indexModify).setDeadLine(newDeadLine);
-											System.out.println("Modify for Date Sign Up Successfully Done.\n");
-										}
-										else
-											System.out.println();
-									} catch (Exception newDateSignUperror) {
-										checkDateSignUpStrFormat = false;
-										System.out.println("Invalid Input for Date Sign Up. Please Enter Again. Follow format \"dd-mm-yyyy\".\n");
+										modifyMemberDetails.get(indexModify).setDateSignUp(newDateSignUp);
+										newDeadLine = newDateSignUp.plusYears(1);
+										newDeadLine = newDeadLine.minusDays(1);
+										modifyMemberDetails.get(indexModify).setDeadLine(newDeadLine);
+										System.out.println("Modify for Date Sign Up Successfully Done.\n");
 									}
+									else
+										System.out.println();
+								}
+							}
+							catch(Exception newDateSignUpStrError) {
+								if(newDateSignUpStr.equals("x") || newDateSignUpStr.equals("X")) {
+									checkDateSignUpStrFormat = true;
+									System.out.println();
+								}
+								else {
+									checkDateSignUpStrFormat = false;
+									System.out.println("Invalid Input. Please Enter Again.\n");
 								}
 							}
 							count++;
 						}while(checkDateSignUpStrFormat == false);
 					}
-					else
+					else 
 						System.out.println("Invalid Input Number of Modify Field.");
 				}
 				count++;
@@ -596,7 +615,6 @@ public class MembershipMain {
 			inputModifyMemberDetails.nextLine();
 			System.out.println();
 		}while(continueModifyMemberDetails == 'Y');
-		System.out.println();
 	}
 	/************************** (END) MODIFY MEMBER DETAILS METHOD **************************/
 	
