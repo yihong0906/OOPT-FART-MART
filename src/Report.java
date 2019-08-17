@@ -7,23 +7,23 @@ public class Report {
     	//ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
         Scanner input = new Scanner (System.in);
         
-        System.out.println("\n    _____                       _    ");
-        System.out.println("   |  __ \\                     | |   ");
-        System.out.println("   | |__) |___ _ __   ___  _ __| |_  ");
-        System.out.println("   |  _  // _ \\ '_ \\ / _ \\| '__| __| ");
-        System.out.println("   | | \\ \\  __/ |_) | (_) | |  | |_  ");
-        System.out.println("   |_|  \\_\\___| .__/ \\___/|_|   \\__| ");
-        System.out.println("              | |                    ");
-        System.out.println("              |_|                    ");
+        System.out.println("\n         _____                       _    ");
+        System.out.println("        |  __ \\                     | |   ");
+        System.out.println("        | |__) |___ _ __   ___  _ __| |_  ");
+        System.out.println("        |  _  // _ \\ '_ \\ / _ \\| '__| __| ");
+        System.out.println("        | | \\ \\  __/ |_) | (_) | |  | |_  ");
+        System.out.println("        |_|  \\_\\___| .__/ \\___/|_|   \\__| ");
+        System.out.println("                   | |                    ");
+        System.out.println("                   |_|                    ");
     
-    	System.out.println("+====================================+");
-        System.out.println("|These are the reports :			 |");
-        System.out.println("+====================================+");
-        System.out.println("|1. Total sales of the day			 |");
-        System.out.println("|2. Total sales based on the product |");
-        System.out.println("|3. Salary of the employees          |");
-        System.out.println("|4. Membership report                |");
-        System.out.println("+====================================+");
+    	System.out.println("	   +====================================+");
+        System.out.println("	   |These are the reports :			    |");
+        System.out.println("	   +====================================+");
+        System.out.println("	   |1. Total sales of the day			|");
+        System.out.println("	   |2. Total sales based on the product |");
+        System.out.println("	   |3. Salary of the employees          |");
+        System.out.println("	   |4. Membership report                |");
+        System.out.println("	   +====================================+");
 
         while(true){
             System.out.print("\nEnter the number of the report (exit = 0) : ");

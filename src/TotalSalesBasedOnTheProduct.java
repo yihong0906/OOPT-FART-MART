@@ -82,7 +82,7 @@ public class TotalSalesBasedOnTheProduct {
                             }
         }
         
-       System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d\n" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);
+       System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);
 
         break;
                     }
@@ -139,7 +139,7 @@ public class TotalSalesBasedOnTheProduct {
 	                          }
 	        }
                             
-	        System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d\n" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);}
+	        System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);}
         break;
                     
                         
@@ -196,7 +196,7 @@ public class TotalSalesBasedOnTheProduct {
                       }
     			}
                     
-        		System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d\n" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);}
+        		System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);}
         break;
                     
                     case 4:
@@ -251,7 +251,7 @@ public class TotalSalesBasedOnTheProduct {
                        }
      	}
                            
-                 System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d\n" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);}
+                 System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);}
         break;
                     
                     case 5:
@@ -307,7 +307,7 @@ public class TotalSalesBasedOnTheProduct {
                }
         }
                             
-        System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d\n" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);}
+        System.out.printf("\n" + String.format("%20s", "Total quantity : ") + "%5d" + String.format("%57s", "Total amount : RM ") + "%6.2f" + "\n",totalQty,totalA);}
         break; 
                 case 0:
                 {

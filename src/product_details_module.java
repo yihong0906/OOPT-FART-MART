@@ -15,7 +15,7 @@ class product_details_module {
 	(new Food_Related_Product("E001", "ABC Fresh Egg 15pcs", 49.60, 21, 6.49,new Category("FF05", "Fresh Foods"),new Manufacturer("ABC", LocalDate.parse("12-08-2019", format)),LocalDate.parse("31-08-2019", format))),
 	(new Food_Related_Product("E034", "BAO Yellow Noodle", 450.00, 50, 1.10,new Category("FF81", "Fresh Foods"),new Manufacturer("BAO", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2019", format))),
 	(new Food_Related_Product("B009", "Anmum Milk Powder", 650.00, 15, 66.10,new Category("BM20", "Baby"),new Manufacturer("Anmum", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format))),
-	(new Food_Related_Product("C201", "Nestle Chocolate Ice Cream", 850.00, 25, 8.49,new Category("CF90", "Frozen"),new Manufacturer("Nestlé", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format))),
+	(new Food_Related_Product("C201", "Nestle Chocolate Ice Cream", 850.00, 25, 8.49,new Category("CF90", "Frozen"),new Manufacturer("Nestle", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format))),
 	(new Food_Related_Product("D002", "Homesoy Soya Milk", 1.00, 10, 2.50,new Category("DD01", "Drinks"),new Manufacturer("Homesoy", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-12-2019", format))),
 	(new Food_Related_Product("D792", "Pedigree Dog Food", 10.00, 27, 77.90 ,new Category("PD19", "Pets"),new Manufacturer("Pedigree", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-08-2029", format))),
 	(new Food_Related_Product("A809", "Snickers 12 x 20g", 240.00, 40, 13.99 ,new Category("GA12", "Grocery"),new Manufacturer("Snickers", LocalDate.parse("12-08-2019", format)), LocalDate.parse("31-12-2020", format)))));

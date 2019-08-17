@@ -21,7 +21,7 @@ public class SalaryOfTheEmployees {
                              
                          }
         System.out.println("----------------------------------------------------------------------------");
-        System.out.println("\nTotal : "+total);
+        System.out.println("\nTotal : RM "+total);
         //return;
     }
 }
