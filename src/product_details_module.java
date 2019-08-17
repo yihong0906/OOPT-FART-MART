@@ -123,9 +123,9 @@ class product_details_module {
     	//display low quantity products
     	for (int i=0;i<product.size(); i++){
     		if(product.get(i).getQty() <5){
-    			System.out.println("\n+===================================================================DISPLAY LOW QUANTITY PRODUCTS==================================================================+");
-		    	System.out.printf("								*Any products that have quantity less than 5 will be displayed as below! Please re-stock as soon as possible!							 |");
-		    	 System.out.printf("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");
+    			System.out.println("\n+===================================================================DISPLAY LOW QUANTITY PRODUCTS====================================================================+");
+		    	System.out.printf("|								*Any products that have quantity less than 5 will be displayed as below! Please re-stock as soon as possible!					     |");
+		    	 System.out.printf("\n+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");
     	 
 	    		System.out.printf( "|%2d %s\n", i+1,product.get(i).toString() );// +(i+1) + " "+ product.get(i).toString() );
 	    		System.out.print("+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");
