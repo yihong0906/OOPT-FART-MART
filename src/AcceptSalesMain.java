@@ -328,8 +328,6 @@ public class AcceptSalesMain {
 					orderDetailsList.get(count-4).getProductName(), orderDetailsList.get(count-4).getProductWeight(),
 					orderDetailsList.get(count-4).getProductUnitPrice(), orderDetailsList.get(count-4).getPurcahseQuantity(),
 					orderDetailsList.get(count-4).getSubtotalPerItem()));
-					
-					System.out.println(wholeOrderDetailsList);
 			
 			paymentDetails.setUpdateSubTotal(0.0);
 			orderDetails.setOrderNo();
