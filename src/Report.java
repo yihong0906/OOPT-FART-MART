@@ -33,7 +33,7 @@ public class Report {
                 case 1:
                     {
                         TotalSalesOfTheDay totalSalesOfTheDay = new TotalSalesOfTheDay();
-                        totalSalesOfTheDay.r1();
+                        totalSalesOfTheDay.r1(AcceptSalesMain.grandOrderDetails);
                         
                         break;
                     }
