@@ -30,8 +30,6 @@ public class OrderDetails extends PaymentDetails{
 		this.productUnitPrice = productUnitPrice;
 		this.purcahseQuantity = purcahseQuantity;
 		this.subtotalPerItem = subtotalPerItem;
-		
-		updateOrderNo = "OD" + (Integer.parseInt(updateOrderNo.substring(2, updateOrderNo.length()))+1);
 	}
 	
 	//constructor
