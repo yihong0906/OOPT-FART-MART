@@ -794,21 +794,33 @@ class product_details_module {
     	System.out.println("Before we begin, which type of products you would like to delete?\n1. Non-food related products\n2. Food related products");
     	System.out.print("Please enter your choice based on the numbers: ");
     	Scanner deleteType = new Scanner (System.in);
-    	int delete_cat_type = deleteType.nextInt();
+    	int delete_cat_type=-1;
     	//validate the input data
-
-    	
     	do {
-			if(delete_cat_type != 1 && delete_cat_type !=2){
-			
-	    		System.out.printf("\nInvalid types of product! Please select '1' or '2' based on the description beside it: ");
-	    		delete_cat_type = deleteType.nextInt(); //this is used to check whether is it food product or normal product
-	    	}
-    	} while(delete_cat_type!=1 && delete_cat_type!=2);
-
+    		try{
+    			delete_cat_type = deleteType.nextInt();
+    			if(delete_cat_type != 1 && delete_cat_type !=2){
+	    		System.out.printf("\nInvalid types of product! Please select '1' or '2' based on the description beside it: ");	 //this is used to check whether is it food product or normal product
+    			}
+	    	}catch(Exception e){
+				deleteType.nextLine();
+				System.out.print("\nInvalid types of product! Please select '1' or '2' based on the description beside it: ");
+    		} 
+    	}while(delete_cat_type!=1 && delete_cat_type!=2);
+		
     	System.out.print("Great! Now please enter the product number you wish to delete: ");
     	Scanner deleteScanner = new Scanner (System.in);
-    	int delete_index = deleteScanner.nextInt();
+    	int delete_index=-1;
+    	
+    	do{
+			try{
+			delete_index = deleteScanner.nextInt();
+	    	} catch(Exception e){
+	    		delete_index=-1;
+	    		deleteScanner.next();
+	    		System.out.print("Invalid product number! Please select a product number in column 'No': ");
+			}
+		}while (delete_index==-1);
     	
     	
 		//validate delete_index
@@ -904,8 +916,9 @@ class product_details_module {
     			System.out.print("Please enter 'y' or 'n' only: ");
     			toValidate = input.next().charAt(0);
     		}
-    		return true;
+    		
     	} while ((toValidate!='y' && toValidate!='Y'));
+    	return true;
     }
     
 		
