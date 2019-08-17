@@ -6,17 +6,18 @@ public class TotalSalesOfTheDay {
     	
         Scanner input = new Scanner (System.in);
         
-        System.out.println("\n+==============================================+");
-        System.out.println("|Date for the total sales of the day report :  |");
-        System.out.println("+==============================================+");
-        System.out.println("|1. 1 August 2019							   |");
-        System.out.println("|2. 2 August 2019							   |");
-        System.out.println("|3. 3 August 2019							   |");
-        System.out.println("+==============================================+");
-        
-        while(true){
+			        System.out.println("\n+==============================================+");
+			        System.out.println("|Date for the total sales of the day report :  |");
+			        System.out.println("+==============================================+");
+			        System.out.println("|1. 1 August 2019							   |");
+			        System.out.println("|2. 2 August 2019							   |");
+			        System.out.println("|3. 3 August 2019							   |");
+			        System.out.println("+==============================================+");
+	        
+	            	while(true){
             System.out.print("\nEnter the number of the date (exit = 0) : ");
              int n = input.nextInt();
+        	
              ArrayList<OrderDetails> orderDetailsList69 = AcceptSalesMain.orderDetailsList1;
             switch (n) {
                 case 1:
@@ -50,13 +51,13 @@ public class TotalSalesOfTheDay {
             totalA+=total;
            
              System.out.printf("|       %-20d %-40s %-35d %-40.2f %.2f\n",t+1,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
-             System.out.println("|-----------------------------------------------------------------------------------------------------------------------------------------------------------|");
+             System.out.println("|----------------------------------------------------------------------------------------------------------------------------------------------------------|");
 
         }
-        System.out.printf("|\t\t\t\t\t\t%48d\t\t\t\t\t%65.2f\t\t\t\t\n",totalQty,totalA); 																													 
+        																													 
         System.out.println("|==========================================================================================================================================================|");
-        System.out.println("|																									TOTAL QUANTITY							TOTAL AMOUNT   |");
-        System.out.println("|==========================================================================================================================================================|");
+        System.out.printf("|																							TOTAL QUANTITY : %d				   TOTAL AMOUNT : RM %.2f    \n|",totalQty,totalA);
+        System.out.println("|=========================================================================================================================================================|");
                       
                         break;
                     }
@@ -87,13 +88,13 @@ public class TotalSalesOfTheDay {
             totalA+=total;
            
              System.out.printf("|       %-20d %-40s %-35d %-40.2f %.2f\n",t+1,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
-             System.out.println("|-----------------------------------------------------------------------------------------------------------------------------------------------------------|");
+             System.out.println("|----------------------------------------------------------------------------------------------------------------------------------------------------------|");
 
         }
-        System.out.printf("|\t\t\t\t\t\t%48d\t\t\t\t\t%65.2f\t\t\t\t\n",totalQty,totalA); 																													 
+        																													 
         System.out.println("|==========================================================================================================================================================|");
-        System.out.println("|																									TOTAL QUANTITY							TOTAL AMOUNT   |");
-        System.out.println("|==========================================================================================================================================================|");
+        System.out.printf("|																							TOTAL QUANTITY : %d				   TOTAL AMOUNT : RM %.2f    \n|",totalQty,totalA);
+        System.out.println("|=========================================================================================================================================================|");
            
         break;
                     }
@@ -125,13 +126,13 @@ public class TotalSalesOfTheDay {
             totalA+=total;
            
              System.out.printf("|       %-20d %-40s %-35d %-40.2f %.2f\n",t+1,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
-             System.out.println("|-----------------------------------------------------------------------------------------------------------------------------------------------------------|");
+             System.out.println("|----------------------------------------------------------------------------------------------------------------------------------------------------------|");
 
         }
-        System.out.printf("|\t\t\t\t\t\t%48d\t\t\t\t\t%65.2f\t\t\t\t\n",totalQty,totalA); 																													 
+        																													 
         System.out.println("|==========================================================================================================================================================|");
-        System.out.println("|																									TOTAL QUANTITY							TOTAL AMOUNT   |");
-        System.out.println("|==========================================================================================================================================================|");
+        System.out.printf("|																							TOTAL QUANTITY : %d				   TOTAL AMOUNT : RM %.2f    \n|",totalQty,totalA);
+        System.out.println("|=========================================================================================================================================================|");
 
         /*for(int t=0;t<orderDetailsList69.size();t++) {
         	 total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
@@ -161,7 +162,11 @@ public class TotalSalesOfTheDay {
                     System.out.print("\nInvalid input. Please enter a number between 1-4.");
                     System.out.println("");
                     }
+                    
           }
+          
         }
+        
+        
     }
 }
