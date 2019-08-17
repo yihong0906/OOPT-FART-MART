@@ -151,6 +151,8 @@ public class AcceptSalesMain {
 								System.out.println("Invalid Member ID. Please Enter Again.\n");
 						}while(indexMemberID == -1 && memberID.equals("X") == false);
 					}
+					else
+						System.out.println("Invalid Input. Please Enter Again\n");
 				}
 				catch(Exception typeOfCustomerError) {
 					acceptSalesUserInput.next();
@@ -272,8 +274,8 @@ public class AcceptSalesMain {
 			for(countForLoop = 0; countForLoop < salesProductList.size(); countForLoop++) {
 				if((salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode())) && (countForLoop < foodproduct.size()))
 					foodproduct.get(countForLoop).setQty(foodproduct.get(countForLoop).getQty()-purchaseProductQuantity);
-				else if((salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode())) && (countForLoop < products.size()))
-					products.get(countForLoop).setQty(products.get(countForLoop).getQty()-purchaseProductQuantity);
+				else if((salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode())) && (countForLoop < (products.size()+foodproduct.size())))
+					products.get(countForLoop-foodproduct.size()).setQty(products.get(countForLoop-foodproduct.size()).getQty()-purchaseProductQuantity);
 			}
 			
 			//if the customer is a member then update their member point & member grade
