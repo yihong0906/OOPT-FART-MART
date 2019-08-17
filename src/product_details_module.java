@@ -463,13 +463,13 @@ class product_details_module {
     	
 	    	    	
     
-    //**********************END OF ADD PRODUCT**************************
+    //*********************************************END OF ADD PRODUCT*************************************************
     
     
-    //**********************MODIFY PRODUCT**************************
+    //**********************************************MODIFY PRODUCT****************************************************
     public static void modifyProduct(ArrayList<Product> product ,ArrayList<Food_Related_Product>food_product){
     	
-    	int modify_index, modify_cat_type;
+    	int modify_index=0, modify_cat_type;
     	
     	Scanner input = new Scanner(System.in);
     	
@@ -481,7 +481,7 @@ class product_details_module {
     	System.out.println("Before we begin, which type of products you would like to modify?\n1. Non-food related products\n2. Food related products");
     	System.out.print("Please enter your choice based on the numbers: ");
     	Scanner modifyScanner = new Scanner (System.in);
-    	modify_cat_type=0;
+    	modify_cat_type=-1;
     	do {
 	    	try {
 	    		modify_cat_type = modifyScanner.nextInt();
@@ -496,22 +496,25 @@ class product_details_module {
 	    	
 		} while(modify_cat_type!=1 && modify_cat_type!=2);
     	//validate the input data
-
-    	
-    
-	    
-    		
-    		
     	System.out.print("Great! Now please enter the product number you wish to modify: ");
-    	modify_index = modifyScanner.nextInt();
     	
     	
-    	
-    	
+		
+		do{
+			try{
+			modify_index = modifyScanner.nextInt();
+	    	} catch(Exception e){
+	    		modify_index=-1;
+	    		modifyScanner.next();
+	    		System.out.print("Invalid product number! Please select a product number in column 'No': ");
+			}
+		
+		
+		}while (modify_index==-1);
+		
+		
     	if (modify_cat_type == 1) {
     		do {
-    		
-    		
     			if ((modify_index>product.size()) || (modify_index<1)){
     			
     			System.out.printf("\nInvalid product number! Please select a product number in column 'No': ");
@@ -519,8 +522,8 @@ class product_details_module {
     			
     			}
     		
-    		}while ((modify_index > product.size())||(modify_index<1) );
-    	}
+    			}while ((modify_index > product.size())||(modify_index<1) );
+    		}
     	
     	
     	if (modify_cat_type == 2) {
@@ -538,23 +541,47 @@ class product_details_module {
     	
     	
     	System.out.printf("\n 1. Quantity\n 2. Price\n 3. Supplier\n Please enter the your modification data based on the numbers repespectively: ");
-    	int modifyType = input.nextInt();		
-    		modify_index = modify_index-1;
-    		int oldQty;
+    	int modifyType;
+    	
+			do{
+				try{
+				modifyType=input.nextInt();	
+		    	} catch(Exception e){
+		    		modifyType=-1;
+		    		input.nextLine();
+		    		System.out.print("Invalid number! Please enter again : ");
+		    	}
+			}while (modifyType==-1);
+    			
+		modify_index = modify_index-1;
+		int oldQty;
     		
     	do {
     		switch(modifyType){
     		case 1: 
     			System.out.print("Enter new product quantity: ");
-    			int newQty = input.nextInt();
+    			int newQty=0;
+    			
+    			do{
+					try{
+					newQty=input.nextInt();	
+			    	} catch(Exception e){
+			    		newQty=-1;
+			    		input.nextLine();
+			    		System.out.print("Invalid quantity! Please enter again : ");
+			    	}
+				}while (newQty==-1);
+    			
+    			
     			
     			//validate quantity
 	    			do {
+	    				
 	    				if (newQty <= 0){
-	    					System.out.print("Invalid quantity! Please enter a valid quantity: ");
-	    					newQty = input.nextInt();
+	    					System.out.print("Invalid quantity! Please enter a valid quantity: ");	
 	    				}
 	    			}while (newQty <= 0);
+	    			
 	    		if(modify_cat_type == 1){ //get quantity based on the product type
 	    			 oldQty = product.get(modify_index).getQty();
 	    		} else 
@@ -604,15 +631,27 @@ class product_details_module {
     		
     		case 2 :
     			System.out.print("Enter new product price: ");
-    			double newPrice = input.nextDouble();
+    			double newPrice;
     			double oldPrice ;
+				
+    			
     			//validate price
 	    			do {
+	    				try{ //try catch
+	    				newPrice  = input.nextDouble();	
+	    				} catch(Exception e){
+			    		newPrice=-1;
+			    		input.nextLine();
+			    		System.out.print("Invalid price! Please enter a valid price: ");
+			    	}
+	    			}while (newPrice <= 0);
+			    	
+			    	
 	    				if (newPrice <= 0){
 	    					System.out.print("Invalid price! Please enter a valid price: ");
 	    					newPrice = input.nextDouble();
 	    				}
-	    			}while (newPrice <= 0);
+	    			
 	    		if(modify_cat_type == 1){
 	    			 oldPrice = product.get(modify_index).getPrice();
 	    			
@@ -855,14 +894,16 @@ class product_details_module {
     	//validate whether user wants to modify products or not
     	do {
     	 	if(toValidate =='y' || toValidate =='Y'){
-    		//do nothing is input is correct
+    		//do nothing means input is correct
     		} else if(toValidate =='n' || toValidate =='N') {
     			return false;
+    		}else if(Character.isDigit(toValidate)){
+    			System.out.print("Please enter 'y' or 'n' only: ");
+    			toValidate = input.next().charAt(0);
     		}else {
     			System.out.print("Please enter 'y' or 'n' only: ");
     			toValidate = input.next().charAt(0);
     		}
-    		
     		return true;
     	} while ((toValidate!='y' && toValidate!='Y'));
     }
