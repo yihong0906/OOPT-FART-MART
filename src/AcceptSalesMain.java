@@ -12,21 +12,21 @@ public class AcceptSalesMain {
 			
 			static ArrayList<OrderDetails>orderDetailsList1 = new ArrayList<OrderDetails>(Arrays.asList(
 					(new OrderDetails("OD1900001", "E034", "BAO Yellow Noodle", 450.00, 1.10, 2, 2.20)),
-					(new OrderDetails("OD1900002", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10))));
+					(new OrderDetails("OD1900001", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10))));
 			
 
 			static ArrayList<OrderDetails> orderDetailsList2 = new ArrayList<OrderDetails>(Arrays.asList(
-					(new OrderDetails("OD1900003", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 3, 19.47))));		
+					(new OrderDetails("OD1900002", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 3, 19.47))));		
 			
 			
 			static ArrayList<OrderDetails> orderDetailsList3 = new ArrayList<OrderDetails>(Arrays.asList(
-					(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
-					(new OrderDetails("OD1900005", "C201", "Nestle Chocolate Ice Cream", 850.00, 8.49, 2, 16.98))));
+					(new OrderDetails("OD1900003", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
+					(new OrderDetails("OD1900003", "C201", "Nestle Chocolate Ice Cream", 850.00, 8.49, 2, 16.98))));
 			
 			static ArrayList<OrderDetails> orderDetailsList4 = new ArrayList<OrderDetails>(Arrays.asList(
-					(new OrderDetails("OD1900006", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
-					(new OrderDetails("OD1900007", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10)),
-					(new OrderDetails("OD1900008", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49))));
+					(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
+					(new OrderDetails("OD1900004", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10)),
+					(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49))));
 			
 			
 			static ArrayList<PaymentDetails> paymentDetailsList = new ArrayList<PaymentDetails>(Arrays.asList(
@@ -88,25 +88,28 @@ public class AcceptSalesMain {
 													   orderDetailsList1.get(countForLoop).getProductUnitPrice(), orderDetailsList1.get(countForLoop).getPurcahseQuantity(),
 													   orderDetailsList1.get(countForLoop).getSubtotalPerItem()));
 		}
+		orderDetails.setOrderNo();
 		for(countForLoop = 0; countForLoop < orderDetailsList2.size(); countForLoop++){
 			wholeOrderDetailsList.add(new OrderDetails(orderDetailsList2.get(countForLoop).getOrderNo(), orderDetailsList2.get(countForLoop).getProductCode(),
 													   orderDetailsList2.get(countForLoop).getProductName(), orderDetailsList2.get(countForLoop).getProductWeight(),
 													   orderDetailsList2.get(countForLoop).getProductUnitPrice(), orderDetailsList2.get(countForLoop).getPurcahseQuantity(),
 													   orderDetailsList2.get(countForLoop).getSubtotalPerItem()));
 		}
+		orderDetails.setOrderNo();
 		for(countForLoop = 0; countForLoop < orderDetailsList3.size(); countForLoop++){
 			wholeOrderDetailsList.add(new OrderDetails(orderDetailsList3.get(countForLoop).getOrderNo(), orderDetailsList3.get(countForLoop).getProductCode(),
 													   orderDetailsList3.get(countForLoop).getProductName(), orderDetailsList3.get(countForLoop).getProductWeight(),
 													   orderDetailsList3.get(countForLoop).getProductUnitPrice(), orderDetailsList3.get(countForLoop).getPurcahseQuantity(),
 													   orderDetailsList3.get(countForLoop).getSubtotalPerItem()));
 		}
+		orderDetails.setOrderNo();
 		for(countForLoop = 0; countForLoop < orderDetailsList4.size(); countForLoop++){
 			wholeOrderDetailsList.add(new OrderDetails(orderDetailsList4.get(countForLoop).getOrderNo(), orderDetailsList4.get(countForLoop).getProductCode(),
 													   orderDetailsList4.get(countForLoop).getProductName(), orderDetailsList4.get(countForLoop).getProductWeight(),
 													   orderDetailsList4.get(countForLoop).getProductUnitPrice(), orderDetailsList4.get(countForLoop).getPurcahseQuantity(),
 													   orderDetailsList4.get(countForLoop).getSubtotalPerItem()));
 		}
-		
+		orderDetails.setOrderNo();
 		
 		staffID = "";
 		staffName = "";
