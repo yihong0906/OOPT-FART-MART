@@ -30,31 +30,34 @@ public class TotalSalesOfTheDay {
                        
                        
                         
-        System.out.println("\nTotal Sales of the day");
-        System.out.println("[FART MART]");
-        System.out.println("Date : 1 August 2019");
-        System.out.println("---------------------------------------------------------------------------");
-        System.out.println("No.     Product code    Quantity    Unit Price          Total price");
-        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("|==========================================================================================================================================================|");
+        System.out.println("|	Report No: SA653A													TOTAL SALES OF 1 AUGUST 2019													   |");
+        System.out.println("|==========================================================================================================================================================|");
+        System.out.print("|\t\t\t\t\t\t\t\t\t						 ___ _   ___ _____   __  __   _   ___ _____																		   |\n");
+        System.out.print("|\t\t\t\t\t\t\t\t\t						| __/_\\ | _ \\_   _| |  \\/  | \\/_\\ | _ \\_   _|															       |\n");
+        System.out.print("|\t\t\t\t\t\t\t\t\t						| _/ _ \\|   / | |   | |\\/| |\\/ _ \\|   / | |  														           |\n");
+        System.out.print ("|\t\t\t\t\t\t\t\t\t						|_/_/ \\_\\_|_\\ |_|   |_|  |_\\/_\\/ \\_\\_|_\\\\ |_  												               |\n");
+        System.out.println("|==========================================================================================================================================================|");
+        System.out.println("|     No.       	     Product code                			  Quantity                		    Unit Price(RM)                    	   Total price(RM) |");
+        System.out.println("|==========================================================================================================================================================|");
     
         	
         for(int t=0;t<orderDetailsList69.size();t++) {
+
         	total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
  	
             totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
             totalA+=total;
            
-             System.out.printf("%-10d %-15s %-10d %-20.2f %.2f\n",t,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
+             System.out.printf("|       %-20d %-40s %-35d %-40.2f %.2f\n",t+1,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
+             System.out.println("|-----------------------------------------------------------------------------------------------------------------------------------------------------------|");
+
         }
-            /*for(OrderDetails p:orderDetailsList69){
-                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
-                            totalQty+=p.getPurcahseQuantity();
-                            totalA+=total;
-                             System.out.printf("%d %s %d %lf %lf\n",i,p.getProductCode(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
-                         }
-                         */
-       System.out.println("					Total quantity : "+totalQty+"			Total amount : "+totalA);
-        
+        System.out.printf("|\t\t\t\t\t\t%48d\t\t\t\t\t%65.2f\t\t\t\t\n",totalQty,totalA); 																													 
+        System.out.println("|==========================================================================================================================================================|");
+        System.out.println("|																									TOTAL QUANTITY							TOTAL AMOUNT   |");
+        System.out.println("|==========================================================================================================================================================|");
+                      
                         break;
                     }
                     
@@ -65,30 +68,33 @@ public class TotalSalesOfTheDay {
                         double totalA=0;
                         int i=0;
                         //ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
-        
-                        
-        System.out.println("\nTotal Sales of the day");
-        System.out.println("[FART MART]");
-        System.out.println("Date : 2 August 2019");
-        System.out.println("---------------------------------------------------------------------------");
-        System.out.println("No.     Product code    Quantity    Unit Price          Total price");
-        System.out.println("---------------------------------------------------------------------------");
-        
-        for(int t=0;t<orderDetailsList69.size();t++) {
-        	 total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
-             totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
-             totalA+=total;
-              System.out.printf("%-10d %-15s %-10d %-20.2f %.2f\n",t,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
+        System.out.println("|==========================================================================================================================================================|");
+        System.out.println("|	Report No: SA654A													TOTAL SALES OF 2 AUGUST 2019													   |");
+        System.out.println("|==========================================================================================================================================================|");
+        System.out.print("|\t\t\t\t\t\t\t\t\t						 ___ _   ___ _____   __  __   _   ___ _____												        				   |\n");
+        System.out.print("|\t\t\t\t\t\t\t\t\t						| __/_\\ | _ \\_   _| |  \\/  | \\/_\\ | _ \\_   _|																   |\n");
+        System.out.print("|\t\t\t\t\t\t\t\t\t						| _/ _ \\|   / | |   | |\\/| |\\/ _ \\|   / | |  																   |\n");
+        System.out.print("|\t\t\t\t\t\t\t\t\t						|_/_/ \\_\\_|_\\ |_|   |_|  |_\\/_\\/ \\_\\_|_\\\\ |_	  														   |\n");
+        System.out.println("|==========================================================================================================================================================|");
+        System.out.println("|     No.       	     Product code                			  Quantity                  		    Unit Price                    	   Total price(RM) |");
+        System.out.println("|==========================================================================================================================================================|");
+    
+   		 for(int t=0;t<orderDetailsList69.size();t++) {
+
+        	total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
+ 	
+            totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
+            totalA+=total;
+           
+             System.out.printf("|       %-20d %-40s %-35d %-40.2f %.2f\n",t+1,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
+             System.out.println("|-----------------------------------------------------------------------------------------------------------------------------------------------------------|");
+
         }
-        /*
-        for(OrderDetails p:orderDetailsList69){
-                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
-                            totalQty+=p.getPurcahseQuantity();
-                            totalA+=total;
-                             System.out.printf("%d %s %d %.2f %.2f\n",i,p.getProductCode(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
-                         }*/
-       System.out.println("					Total quantity : "+totalQty+"			Total amount : "+totalA);
-                       
+        System.out.printf("|\t\t\t\t\t\t%48d\t\t\t\t\t%65.2f\t\t\t\t\n",totalQty,totalA); 																													 
+        System.out.println("|==========================================================================================================================================================|");
+        System.out.println("|																									TOTAL QUANTITY							TOTAL AMOUNT   |");
+        System.out.println("|==========================================================================================================================================================|");
+           
         break;
                     }
                      
@@ -99,32 +105,44 @@ public class TotalSalesOfTheDay {
                         double totalA=0;
                         int i=0;
                         //ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
-        
-        
-        System.out.println("\nTotal Sales of the day");
-        System.out.println("[FART MART]");
-        System.out.println("Date : 3 August 2019");
-        System.out.println("---------------------------------------------------------------------------");
-        System.out.println("No.     Product code    Quantity    Unit Price          Total price");
-        System.out.println("---------------------------------------------------------------------------");
-        
-        for(int t=0;t<orderDetailsList69.size();t++) {
+                        
+        System.out.println("|==========================================================================================================================================================|");
+        System.out.println("|	Report No: SA654A													TOTAL SALES OF 2 AUGUST 2019													   |");
+        System.out.println("|==========================================================================================================================================================|");
+        System.out.print("|\t\t\t\t\t\t\t\t\t						 ___ _   ___ _____   __  __   _   ___ _____												        				   |\n");
+        System.out.print("|\t\t\t\t\t\t\t\t\t						| __/_\\ | _ \\_   _| |  \\/  | \\/_\\ | _ \\_   _|																   |\n");
+        System.out.print("|\t\t\t\t\t\t\t\t\t						| _/ _ \\|   / | |   | |\\/| |\\/ _ \\|   / | |  																   |\n");
+        System.out.print("|\t\t\t\t\t\t\t\t\t						|_/_/ \\_\\_|_\\ |_|   |_|  |_\\/_\\/ \\_\\_|_\\\\ |_	  														   |\n");
+        System.out.println("|==========================================================================================================================================================|");
+        System.out.println("|     No.       	     Product code                			  Quantity                  		    Unit Price                    	   Total price(RM) |");
+        System.out.println("|==========================================================================================================================================================|");
+    
+   		 for(int t=0;t<orderDetailsList69.size();t++) {
+
+        	total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
+ 	
+            totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
+            totalA+=total;
+           
+             System.out.printf("|       %-20d %-40s %-35d %-40.2f %.2f\n",t+1,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
+             System.out.println("|-----------------------------------------------------------------------------------------------------------------------------------------------------------|");
+
+        }
+        System.out.printf("|\t\t\t\t\t\t%48d\t\t\t\t\t%65.2f\t\t\t\t\n",totalQty,totalA); 																													 
+        System.out.println("|==========================================================================================================================================================|");
+        System.out.println("|																									TOTAL QUANTITY							TOTAL AMOUNT   |");
+        System.out.println("|==========================================================================================================================================================|");
+
+        /*for(int t=0;t<orderDetailsList69.size();t++) {
         	 total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
              totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
              totalA+=total;
              
               System.out.printf("%-10d %-15s %-10d %-20.2f %.2f\n",t,orderDetailsList69.get(t).getProductCode(),orderDetailsList69.get(t).getPurcahseQuantity(),orderDetailsList69.get(t).getProductUnitPrice(),total);
            }
-        /*
-        for(OrderDetails p:orderDetailsList69){
-                            total=p.getProductUnitPrice()*p.getPurcahseQuantity();
-                            totalQty+=p.getPurcahseQuantity();
-                            totalA+=total;
-                            
-                             System.out.printf("%d %s %d %lf %lf\n",i,p.getProductCode(),p.getPurcahseQuantity(),p.getProductUnitPrice(),total);
-                         }*/
         
-       System.out.println("					Total quantity : "+totalQty+"			Total amount : "+totalA);
+        
+       System.out.println(" +otal quantity : "+totalQty+"+			Total amount : "+totalA);*/
         break;
                     }
                 case 0:

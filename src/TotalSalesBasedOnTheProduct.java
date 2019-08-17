@@ -333,6 +333,3 @@ public class TotalSalesBasedOnTheProduct {
         }}
         }
     }
-
-            
-            

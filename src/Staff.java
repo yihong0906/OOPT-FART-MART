@@ -78,7 +78,7 @@ public class Staff{
 	 
 	 public static void AddStaff(ArrayList<StaffDetails> staff)
 	 {
-		int selection=8,decision=0,valid=8,valid1=8,check=8,overtimeHours, selected=0,workingHours=0;
+		int selection=8,decision=0,valid=8,check=8,overtimeHours, selected=0,workingHours=0;
 		String position="",gender="",handphone, name="",status="",userName="";
 		char choice,confirm;
 		double salary=0;
@@ -89,37 +89,43 @@ public class Staff{
 		
 		do {
 			
+		System.out.println("-----------ADDING STAFF-----------");
 		//entering staff name
 		 System.out.print("\nEnter a new employee name :");
 		 do {
-	      name=input.nextLine();
-		 name=name.toUpperCase();
-		 for(int count=0;count<staff.size();count++)
-		 {
-		   if(name.equals(staff.get(count).getName()))
-		   {
-			   valid=0;
-			   System.out.println("This Name has already been registered.");
-			   System.out.print("Please enter again :");
-		   }
-		 }
+			 valid=1;
+			 
+			 name=input.nextLine();
+			 name=name.toUpperCase();
+		 
+			 for(int count=0;count<staff.size();count++)
+			 {
+			   if(name.equals(staff.get(count).getName()))
+			   {
+				   valid=0;
+				   System.out.println("This Name has already been registered.");
+				   System.out.print("Please enter again :");
+			   }
+			 }
 		 }while(valid==0);
 		 
 		 //entering user name
 		 System.out.print("Enter an user name for employee :");
 		 do {
+			 
+		  valid=1;
 		 userName=input.nextLine();
 		 userName=userName.toLowerCase();
 		 for(int count=0;count<staff.size();count++)
 		 {
 		   if(userName.equals(staff.get(count).getUserName()))
 		   {
-			   valid1=0;
+			   valid=0;
 			   System.out.println("This User name has already been registered.");
 			   System.out.print("Please enter again :");
 		   }
 		 }
-		 }while(valid1==0);
+		 }while(valid==0);
 		 
 		 System.out.println("Enter a password for future login :");
 		 String password=input.nextLine();
