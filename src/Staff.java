@@ -272,18 +272,18 @@ public class Staff{
 		 
 		 //Entering date of birth start from "day-month-year"
 		 System.out.print("Enter date of birth(DD-MM-YYYY) :");
-		 String DOB=input.nextLine();
-		 LocalDate lDate = null;int time=1;
+		 String DOB;
+		 LocalDate lDate = null;
 		 do {
-			time=1;
-		 DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //date format
-		 try {
-			 lDate = LocalDate.parse(DOB,format); //date format
-		 }catch(Exception e) {
-			 time=0;
-			 System.out.println("Invalid input!!!");
-		 }
-		 }while(time==0);
+			DOB = input.nextLine()	;
+			DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //date format
+			try {
+				 lDate = LocalDate.parse(DOB,format); //date format
+			 }catch(Exception e) {
+				 //input.next();
+				 System.out.println("Invalid input!!!");
+			 }
+		 }while(lDate==null);
 		 //Entering phone number
 		 System.out.print("Enter a phone number :");
 		do {
@@ -292,7 +292,7 @@ public class Staff{
 		 {  
 			 System.out.print("Please enter a correct handphone number!");
 		 }
-		 }while(handphone.length()!=10);
+		 }while(handphone.length()!=10||handphone.matches("[0-9]+") == false);
 		
 		//Entering Home address
 		 System.out.print("Enter a street name :");
