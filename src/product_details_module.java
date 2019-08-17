@@ -481,16 +481,24 @@ class product_details_module {
     	System.out.println("Before we begin, which type of products you would like to modify?\n1. Non-food related products\n2. Food related products");
     	System.out.print("Please enter your choice based on the numbers: ");
     	Scanner modifyScanner = new Scanner (System.in);
-    	modify_cat_type = modifyScanner.nextInt();
+    	modify_cat_type=0;
+    	do {
+	    	try {
+	    		modify_cat_type = modifyScanner.nextInt();
+		    		if(modify_cat_type != 1 && modify_cat_type != 2) {
+		    			//this is used to check whether is it food product or normal product
+	    			System.out.printf("\nInvalid types of product! Please select '1' or '2' based on the description beside it: ");}
+	    	}catch(Exception e){
+	    		modifyScanner.next();
+	    		System.out.print("Invalid types of product! Please select '1' or '2' based on the description beside it: ");
+	    	//	modify_cat_type = modifyScanner.nextInt();
+	    	}
+	    	
+		} while(modify_cat_type!=1 && modify_cat_type!=2);
     	//validate the input data
 
     	
-    	do {
-			if(modify_cat_type != 1 && modify_cat_type != 2) {
-	    		System.out.printf("\nInvalid types of product! Please select '1' or '2' based on the description beside it: ");
-	    		modify_cat_type = modifyScanner.nextInt(); //this is used to check whether is it food product or normal product
-	    	}
-    	} while(modify_cat_type!=1 && modify_cat_type!=2);
+    
 	    
     		
     		
@@ -673,6 +681,12 @@ class product_details_module {
     			//get user confirmation on modifying product
     			char choose2;
     			System.out.print("Are you sure you want to modify this product? (Y=yes/ N=no): ");
+    			/*
+    			try{
+    				choose2 = input.next().charAt(0);
+    			}catch(Exception e){
+    				System.out.println("Error");
+    			}*/
     			choose2 = input.next().charAt(0);
     			if ( validateYN(choose2)){
     				

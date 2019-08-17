@@ -25,11 +25,11 @@ public class Login {
 		
 		
 			
-		    System.out.println("\n                                        +===============================================+");
+		    System.out.println("\n                                        +=================================================+");
 			System.out.println("                                        | Welcome to the Fart Mart Point of sale system   |\n" +
 							   "                                        |   Now please enter your username and password,  |\n"+
 					 		   "                                        |					(0 to exit)	     			  |");
-			System.out.println("                                        +===============================================+");
+			System.out.println("                                        +=================================================+");
 			
 		do {
 		System.out.print("\t\t\t\t\t\t\t\t\t\t\t\tUsername : ");
