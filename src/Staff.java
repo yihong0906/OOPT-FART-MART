@@ -406,7 +406,6 @@ public class Staff{
 		 viewStaff(staff);//display before modify
 			
 		 
-		 
 		 do {
 			 System.out.print("Select the row want to modify by entering Staff ID:");
 			 String staffID=m.nextLine();
