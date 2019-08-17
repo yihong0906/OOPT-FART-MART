@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TotalSalesOfTheDay {
-    public static void r1(ArrayList<ArrayList<OrderDetails>>orderDetailsList69){
+    public static void r1(ArrayList<OrderDetails>orderDetailsList69){
     	
         Scanner input = new Scanner (System.in);
         

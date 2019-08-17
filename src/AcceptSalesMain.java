@@ -8,7 +8,6 @@ import java.util.Arrays;
 public class AcceptSalesMain {
 	        static DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 			
-	        
 			static ArrayList<OrderDetails>orderDetailsList1 = new ArrayList<OrderDetails>(Arrays.asList(
 					(new OrderDetails("OD1900001", "E034", "BAO Yellow Noodle", 450.00, 1.10, 2, 2.20)),
 					(new OrderDetails("OD1900001", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10))));
@@ -34,23 +33,6 @@ public class AcceptSalesMain {
 					(new PaymentDetails("P1900003", false, LocalDateTime.parse("08-06-2019 12:12:00", dateTimeFormat), 23.47, 2.35, 0.0, 25.82, 25.80, 30.00, 4.20, orderDetailsList3)),
 					(new PaymentDetails("P1900004", true, LocalDateTime.parse("20-06-2019 12:12:00", dateTimeFormat), 79.08, 7.91, 4.35, 82.64, 82.60, 85.00, 2.40, orderDetailsList4))));
 	
-			public static ArrayList<ArrayList<OrderDetails>> grandOrderDetails = new ArrayList<>(Arrays.asList(
-					new ArrayList<OrderDetails>(Arrays.asList(
-							(new OrderDetails("OD1900001", "E034", "BAO Yellow Noodle", 450.00, 1.10, 2, 2.20)),
-							(new OrderDetails("OD1900001", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10)))),
-					new ArrayList<OrderDetails>(Arrays.asList(
-							(new OrderDetails("OD1900002", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 3, 19.47)))),
-					new ArrayList<OrderDetails>(Arrays.asList(
-							(new OrderDetails("OD1900003", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
-							(new OrderDetails("OD1900003", "C201", "Nestle Chocolate Ice Cream", 850.00, 8.49, 2, 16.98)))),
-					new ArrayList<OrderDetails>(Arrays.asList(
-							(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49)),
-							(new OrderDetails("OD1900004", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10)),
-							(new OrderDetails("OD1900004", "E001", "ABC Fresh Egg 15pcs", 49.60, 6.49, 1, 6.49))))
-					
-					));
-			
-			
 	public static void ACCEPT_SALES(int position) {
 		Scanner acceptSalesUserInput = new Scanner(System.in);
 		
