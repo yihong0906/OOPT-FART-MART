@@ -273,9 +273,17 @@ public class Staff{
 		 //Entering date of birth start from "day-month-year"
 		 System.out.print("Enter date of birth(DD-MM-YYYY) :");
 		 String DOB=input.nextLine();
+		 LocalDate lDate = null;int time=1;
+		 do {
+			time=1;
 		 DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //date format
-		 LocalDate lDate = LocalDate.parse(DOB,format); //date format
-
+		 try {
+			 lDate = LocalDate.parse(DOB,format); //date format
+		 }catch(Exception e) {
+			 time=0;
+			 System.out.println("Invalid input!!!");
+		 }
+		 }while(time==0);
 		 //Entering phone number
 		 System.out.print("Enter a phone number :");
 		do {
