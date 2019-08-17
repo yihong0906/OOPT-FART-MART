@@ -82,6 +82,7 @@ public class Staff{
 		String position="",gender="",handphone, name="",status="",userName="";
 		char choice,confirm;
 		double salary=0;
+		String icNumber="";
 		Scanner input=new Scanner(System.in);
 		 
 		
@@ -132,7 +133,12 @@ public class Staff{
 		 
 		 //Entering ic number
 		 System.out.print("Enter a IC number :");
-		 String icNumber=input.nextLine();
+		do {icNumber=input.nextLine();
+		 if(icNumber.matches("[0-9]+") == false||icNumber.length()!=12 )
+		 {
+			 System.out.println("Invalid input!!!");
+		 }
+		}while(icNumber.matches("[0-9]+") == false||icNumber.length()!=12 );
 		 
 		 //Entering gender
 		do{try { 
