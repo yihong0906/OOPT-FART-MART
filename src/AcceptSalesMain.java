@@ -8,8 +8,6 @@ import java.util.Arrays;
 public class AcceptSalesMain {
 	        static DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 			
-			static ArrayList<OrderDetails> wholeOrderDetailsList = new ArrayList<OrderDetails>();
-			
 			static ArrayList<OrderDetails>orderDetailsList1 = new ArrayList<OrderDetails>(Arrays.asList(
 					(new OrderDetails("OD1900001", "E034", "BAO Yellow Noodle", 450.00, 1.10, 2, 2.20)),
 					(new OrderDetails("OD1900001", "B009", "Anmum Milk Powder", 650.00, 66.10, 1, 66.10))));
@@ -80,36 +78,6 @@ public class AcceptSalesMain {
 			staffDetailsList.add(new StaffDetailsList(staff.get(countForLoop).getStaffID(), staff.get(countForLoop).getName(),
 					 		     staff.get(countForLoop).getUserName()));
 		}
-		
-		//store whole order details ArrayList
-		for(countForLoop = 0; countForLoop < orderDetailsList1.size(); countForLoop++){
-			wholeOrderDetailsList.add(new OrderDetails(orderDetailsList1.get(countForLoop).getOrderNo(), orderDetailsList1.get(countForLoop).getProductCode(),
-													   orderDetailsList1.get(countForLoop).getProductName(), orderDetailsList1.get(countForLoop).getProductWeight(),
-													   orderDetailsList1.get(countForLoop).getProductUnitPrice(), orderDetailsList1.get(countForLoop).getPurcahseQuantity(),
-													   orderDetailsList1.get(countForLoop).getSubtotalPerItem()));
-		}
-		orderDetails.setOrderNo();
-		for(countForLoop = 0; countForLoop < orderDetailsList2.size(); countForLoop++){
-			wholeOrderDetailsList.add(new OrderDetails(orderDetailsList2.get(countForLoop).getOrderNo(), orderDetailsList2.get(countForLoop).getProductCode(),
-													   orderDetailsList2.get(countForLoop).getProductName(), orderDetailsList2.get(countForLoop).getProductWeight(),
-													   orderDetailsList2.get(countForLoop).getProductUnitPrice(), orderDetailsList2.get(countForLoop).getPurcahseQuantity(),
-													   orderDetailsList2.get(countForLoop).getSubtotalPerItem()));
-		}
-		orderDetails.setOrderNo();
-		for(countForLoop = 0; countForLoop < orderDetailsList3.size(); countForLoop++){
-			wholeOrderDetailsList.add(new OrderDetails(orderDetailsList3.get(countForLoop).getOrderNo(), orderDetailsList3.get(countForLoop).getProductCode(),
-													   orderDetailsList3.get(countForLoop).getProductName(), orderDetailsList3.get(countForLoop).getProductWeight(),
-													   orderDetailsList3.get(countForLoop).getProductUnitPrice(), orderDetailsList3.get(countForLoop).getPurcahseQuantity(),
-													   orderDetailsList3.get(countForLoop).getSubtotalPerItem()));
-		}
-		orderDetails.setOrderNo();
-		for(countForLoop = 0; countForLoop < orderDetailsList4.size(); countForLoop++){
-			wholeOrderDetailsList.add(new OrderDetails(orderDetailsList4.get(countForLoop).getOrderNo(), orderDetailsList4.get(countForLoop).getProductCode(),
-													   orderDetailsList4.get(countForLoop).getProductName(), orderDetailsList4.get(countForLoop).getProductWeight(),
-													   orderDetailsList4.get(countForLoop).getProductUnitPrice(), orderDetailsList4.get(countForLoop).getPurcahseQuantity(),
-													   orderDetailsList4.get(countForLoop).getSubtotalPerItem()));
-		}
-		orderDetails.setOrderNo();
 		
 		staffID = "";
 		staffName = "";
@@ -323,11 +291,6 @@ public class AcceptSalesMain {
 				else if(memberDetail.get(indexMemberID).getMemberPoint() > 500)
 					memberDetail.get(indexMemberID).setMembershipGrade("SILVER");
 			}
-			
-			wholeOrderDetailsList.add(new OrderDetails(orderDetailsList.get(count-4).getOrderNo(), orderDetailsList.get(count-4).getProductCode(),
-					orderDetailsList.get(count-4).getProductName(), orderDetailsList.get(count-4).getProductWeight(),
-					orderDetailsList.get(count-4).getProductUnitPrice(), orderDetailsList.get(count-4).getPurcahseQuantity(),
-					orderDetailsList.get(count-4).getSubtotalPerItem()));
 			
 			paymentDetails.setUpdateSubTotal(0.0);
 			orderDetails.setOrderNo();
