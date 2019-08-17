@@ -270,9 +270,9 @@ public class AcceptSalesMain {
 			
 			//update the quantity of product in product details after a customer purchase product
 			for(countForLoop = 0; countForLoop < salesProductList.size(); countForLoop++) {
-				if(salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode()))
+				if((salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode())) && (countForLoop < foodproduct.size()))
 					foodproduct.get(countForLoop).setQty(foodproduct.get(countForLoop).getQty()-purchaseProductQuantity);
-				else if(salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode()))
+				else if((salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode())) && (countForLoop < products.size()))
 					products.get(countForLoop).setQty(products.get(countForLoop).getQty()-purchaseProductQuantity);
 			}
 			
