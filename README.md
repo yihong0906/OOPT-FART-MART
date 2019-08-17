@@ -5,3 +5,9 @@ TEH YI HONG
 CHEONG SIONG HOU
 CHEE BAO QI
 BENJAMIN CHEN
+--------------------
+Login Details
+Staff Username = baoqi
+Staff password = hxkiller07
+Manager Username =  yiwei
+Manager password = lenglui
