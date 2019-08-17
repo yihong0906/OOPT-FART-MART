@@ -128,7 +128,7 @@ public class AcceptSalesMain {
 					else if(typeOfCustomer == 2) {
 						System.out.println("\nMember Customer Purchasing.");
 						do {
-							System.out.println("\nYou can Enter \"X\" to Exit");
+							System.out.println("\nYou can Enter \"X\" to Exit this field.");
 							
 							System.out.print("Please Enter Member ID : ");   //if the customer is a member, this will get the customer's member ID
 							memberID = acceptSalesUserInput.nextLine();
