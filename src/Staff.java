@@ -70,6 +70,7 @@ public class Staff{
 		}while(selection !=5);
 		}
 		catch(Exception selectionError) {
+			s.next();
 			System.out.println("Invalid Input!!!");
 		}
 		}while(selection!=5);
@@ -82,6 +83,7 @@ public class Staff{
 		String position="",gender="",handphone, name="",status="",userName="";
 		char choice,confirm;
 		double salary=0;
+		String icNumber="";
 		Scanner input=new Scanner(System.in);
 		 
 		
@@ -127,12 +129,18 @@ public class Staff{
 		 }
 		 }while(valid==0);
 		 
-		 System.out.println("Enter a password for future login :");
+		 System.out.print("Enter a password for future login :");
 		 String password=input.nextLine();
 		 
 		 //Entering ic number
 		 System.out.print("Enter a IC number :");
-		 String icNumber=input.nextLine();
+		do {icNumber=input.nextLine();
+		 if(!icNumber.matches("[0-9]{12}"))
+		 {
+			 System.out.println("Ic number must be only 12 digit");
+			 System.out.println("Please enter again :");
+		 }
+		}while(!icNumber.matches("[0-9]{12}") );
 		 
 		 //Entering gender
 		do{try { 
@@ -150,13 +158,13 @@ public class Staff{
 			 gender="Female";
 		 }
 		 else
-			 {System.out.println("Invalid Input!!!");
+			 {System.out.println("Must be only 1 or 2!!");
 			 System.out.print("Please enter again: ");
 			 }
 		}while(decision !=1 && decision !=2);
 		}catch(Exception decisionError) {
 			input.next();
-			System.out.println("Invalid Input!!!");
+			System.out.println("Must only digit!!");
 			System.out.println("Please enter again:");
 		}
 		}while(decision!=1&& decision !=2);
@@ -182,14 +190,14 @@ public class Staff{
 		 }
 		 else
 		 	{
-			 System.out.println("Invalid Input!!!");
+			 System.out.println("Must be only 1 or 2!!");
 			 System.out.println("Please enter again: ");
 		    } 
 		 }while(selected !=1 && selected !=2);
 		}
 		catch(Exception selectedError){
 			input.next();
-			System.out.println("Invalid Input!!!");
+			System.out.println("Must only digit!!");
 			System.out.println("Please enter again: ");
 		}
 		}while(selected!=1 && selected!=2);
@@ -215,7 +223,7 @@ public class Staff{
 		 }
 		 else
 		 {
-			 System.out.println("Invalid Input!!!");
+			 System.out.println("Must be only 1 or 2!!");
 			 System.out.print("Please enter again: ");
 		 }
 		 }while(selection!=1 && selection!=2);
@@ -223,47 +231,70 @@ public class Staff{
 		catch(Exception selectionError)
 		{
 			input.next();
-			System.out.println("Invalid Input!!!");
+			System.out.println("Must only digit!!");
 			System.out.println("Please enter again: ");
 		}
 		}while(selection!=1 && selection !=2);
 		 
 		 //if user choose full time,then will prompt out basic salary
 		 if(selected==1)
-		 {
+		 { 
+		   do {
 			 try {
-			 System.out.print("Enter a basic salary (RM) :");
-			 salary=input.nextDouble();
+				 System.out.print("Enter a basic salary (RM) :");
+				 salary=input.nextDouble();
+				 if(salary<0)
+				 {
+				 System.out.println("Must be positive!!");
+				 System.out.println("Please enter again: ");
+				 }
 			 }
 			 catch(Exception salaryError)
-			 {   input.next();
-				 System.out.println("Invalid Input!!!");
+			 {   
+				 input.next();
+				 salary = -999;
+				 System.out.println("Must only digit!!");
+				 System.out.println("Please enter again: ");
 
 			 }
+		   }while(salary < 0);
 		 }
 		 else
 			 salary=0;
 		 
 		 //check=1 means part-time,so salary is based on working hours
 		 if(check==1)
-		 {  
+		 {  do {
 			try {
 			System.out.print("Enter total working hours in 1 months:");
 			workingHours=input.nextInt();
 			}
 			catch(Exception workingHoursError)
-			{
-				System.out.println("Invalid Input!!!");
+			{   input.next();
+			workingHours=-999;
+			 System.out.println("Must only digit!!");
+			 System.out.println("Please enter again: ");
 			}
+		 }while(workingHours<0);
 		 }
 		 else
 			 workingHours=240;
 		 
 		 //check=0 mean full-time,overtime will get paid
 		 if(check==0)
-		 {
+		 { do {
+			 try {
 			 System.out.print("Enter total overtime hours :");
 			 overtimeHours=input.nextInt();
+			 }catch(Exception overtimeHoursError)
+			 {
+				 input.next();
+				 overtimeHours=-999;
+				 System.out.println("Must only digit!!");
+				 System.out.println("Please enter again: ");
+				 
+			 }
+		 }while(overtimeHours<0);
 		 }
 		 else
 			 overtimeHours=0;		 
@@ -272,19 +303,27 @@ public class Staff{
 		 
 		 //Entering date of birth start from "day-month-year"
 		 System.out.print("Enter date of birth(DD-MM-YYYY) :");
-		 String DOB=input.nextLine();
-		 DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //date format
-		 LocalDate lDate = LocalDate.parse(DOB,format); //date format
-
+		 String DOB;
+		 LocalDate lDate = null;
+		 do {
+			DOB = input.nextLine()	;
+			DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //date format
+			try {
+				 lDate = LocalDate.parse(DOB,format); //date format
+			 }catch(Exception e) {
+				 //input.next();
+				 System.out.println("Invalid input!!!");
+			 }
+		 }while(lDate==null);
 		 //Entering phone number
 		 System.out.print("Enter a phone number :");
 		do {
 		   handphone=input.nextLine();
-		 if(handphone.length()!=10)
+		 if(!handphone.matches("[0-9]{12}"))
 		 {  
 			 System.out.print("Please enter a correct handphone number!");
 		 }
-		 }while(handphone.length()!=10);
+		 }while(!handphone.matches("[0-9]{12}"));
 		
 		//Entering Home address
 		 System.out.print("Enter a street name :");
@@ -303,13 +342,13 @@ public class Staff{
 		 String country=input.nextLine();
 		 
 		 //display the data entered by user just now
-		 System.out.println("+========================================================================================================================================================================================+");
+		 System.out.println("+======================================================================================================================================================================================+");
 		 System.out.printf("|%-17s |%-10s|%-12s |%-6s |%-8s|%-13s|%-9s|%-10s |%-8s |%-13s |%-12s |%-46s|\n",
 				 "Staff Name","User name","Staff IC","Gender","Status","Working Hours","Overtime","Salary(RM)","Position","Date of birth",
 				 "Phone Number","Home Address");
-		 System.out.println("+========================================================================================================================================================================================+");
+		 System.out.println("+======================================================================================================================================================================================+");
 		 System.out.printf("|%-17s |%-10s|%-12s |%-6s |%-8s|%-13d|%-9d|%-10.2f |%-8s |%-13s |%-12s |%-46s|\n",name,userName,icNumber,gender,status,workingHours,overtimeHours,salary,position,DOB,handphone,streetName+","+rArea+","+postCode+","+state+","+country);
-		 System.out.println("+========================================================================================================================================================================================+");
+		 System.out.println("+======================================================================================================================================================================================+");
 		 System.out.print("Confirm to add these data?(Y/N) :");
 		 confirm=input.next().charAt(0);
 		 confirm=Character.toLowerCase(confirm);
@@ -366,7 +405,6 @@ public class Staff{
 	     char confirm;
 		 viewStaff(staff);//display before modify
 			
-		 
 		 
 		 do {
 			 System.out.print("Select the row want to modify by entering Staff ID:");
