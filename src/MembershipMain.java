@@ -218,7 +218,7 @@ public class MembershipMain {
 					do {
 						System.out.print("Enter Member IC No.    : ");
 						newMemberIC = inputNewMemberDetails.nextLine();
-							
+						
 						if(newMemberIC.length() != 12 || newMemberIC.matches("[0-9]+") == false)
 							System.out.println("Invalid IC No. Enter Again.\n");
 					}while (newMemberIC.length() != 12 || newMemberIC.matches("[0-9]+") == false);
@@ -270,15 +270,8 @@ public class MembershipMain {
 							}
 						}
 						catch(Exception newMemberPhoneNoError) {
-							if(newMemberPhoneNo.equals("x") || newMemberPhoneNo.equals("X")) {
-								checkPhoneNumberFormat = true;
-								newMemberPhoneNo = "00000000000";
-								System.out.println();
-							}
-							else {
-								checkPhoneNumberFormat = false;
-								System.out.println("Invalid Phone No. Please Enter Again.\n");
-							}
+							checkPhoneNumberFormat = false;
+							System.out.println("Invalid Phone No. Please Enter Again.\n");
 						}
 					}while((newMemberPhoneNo.length() != 11 && newMemberPhoneNo.length() != 12) || checkPhoneNumberFormat == false);
 					//end check the format of member's phone no
