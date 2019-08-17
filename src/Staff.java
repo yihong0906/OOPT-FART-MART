@@ -54,7 +54,7 @@ public class Staff{
 		
 		 if(selection==1)
 		 {
-			AddStaff(staffs);
+			addStaff(staffs);
 		 }
 		 else if(selection==2)
 		 {
@@ -77,7 +77,7 @@ public class Staff{
 		System.out.println("Exiting Staff details module...");
 	 }
 	 
-	 public static void AddStaff(ArrayList<StaffDetails> staff)
+	 public static void addStaff(ArrayList<StaffDetails> staff)
 	 {
 		int selection=8,decision=0,valid=8,check=8,overtimeHours, selected=0,workingHours=0;
 		String position="",gender="",handphone, name="",status="",userName="";

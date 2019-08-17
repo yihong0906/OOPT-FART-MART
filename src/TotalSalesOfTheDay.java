@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TotalSalesOfTheDay {
-    public static void r1(ArrayList<OrderDetails>orderDetailsList69){
+    public static void r1(){
     	
         Scanner input = new Scanner (System.in);
         
@@ -26,8 +26,9 @@ public class TotalSalesOfTheDay {
                         int totalQty=0;
                         double totalA=0;
                         int i=0;
+                      //  ArrayList<OrderDetails>orderDetailsList69
                        //ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
-                       //ArrayList<OrderDetails> orderDetailsList69 = AcceptSalesMain.orderDetailsList1;
+                       ArrayList<OrderDetails> orderDetailsList69 = AcceptSalesMain.orderDetailsList1;
                        
                        
                         
@@ -68,6 +69,7 @@ public class TotalSalesOfTheDay {
                         int totalQty=0;
                         double totalA=0;
                         int i=0;
+                        ArrayList<OrderDetails> orderDetailsList69 = AcceptSalesMain.orderDetailsList1;
                         //ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
         System.out.println("|==========================================================================================================================================================|");
         System.out.println("|	Report No: SA654A													TOTAL SALES OF 2 AUGUST 2019													   |");
@@ -83,7 +85,7 @@ public class TotalSalesOfTheDay {
    		 for(int t=0;t<orderDetailsList69.size();t++) {
 
         	total=orderDetailsList69.get(t).getProductUnitPrice()*orderDetailsList69.get(t).getPurcahseQuantity();
- 	
+
             totalQty+=orderDetailsList69.get(t).getPurcahseQuantity();
             totalA+=total;
            
@@ -105,6 +107,7 @@ public class TotalSalesOfTheDay {
                         int totalQty=0;
                         double totalA=0;
                         int i=0;
+                        ArrayList<OrderDetails> orderDetailsList69 = AcceptSalesMain.orderDetailsList1;
                         //ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
                         
         System.out.println("|==========================================================================================================================================================|");
