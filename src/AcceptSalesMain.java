@@ -128,7 +128,7 @@ public class AcceptSalesMain {
 					else if(typeOfCustomer == 2) {
 						System.out.println("\nMember Customer Purchasing.");
 						do {
-							System.out.println("\nYou can Enter \"X\" to Exit");
+							System.out.println("\nYou can Enter \"X\" to Exit this field.");
 							
 							System.out.print("Please Enter Member ID : ");   //if the customer is a member, this will get the customer's member ID
 							memberID = acceptSalesUserInput.nextLine();
@@ -151,6 +151,8 @@ public class AcceptSalesMain {
 								System.out.println("Invalid Member ID. Please Enter Again.\n");
 						}while(indexMemberID == -1 && memberID.equals("X") == false);
 					}
+					else
+						System.out.println("Invalid Input. Please Enter Again\n");
 				}
 				catch(Exception typeOfCustomerError) {
 					acceptSalesUserInput.next();
@@ -270,10 +272,10 @@ public class AcceptSalesMain {
 			
 			//update the quantity of product in product details after a customer purchase product
 			for(countForLoop = 0; countForLoop < salesProductList.size(); countForLoop++) {
-				if(salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode()))
+				if((salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode())) && (countForLoop < foodproduct.size()))
 					foodproduct.get(countForLoop).setQty(foodproduct.get(countForLoop).getQty()-purchaseProductQuantity);
-				else if(salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode()))
-					products.get(countForLoop).setQty(products.get(countForLoop).getQty()-purchaseProductQuantity);
+				else if((salesProductList.get(choiceProduct-1).getProductCode().equals(salesProductList.get(countForLoop).getProductCode())) && (countForLoop < (products.size()+foodproduct.size())))
+					products.get(countForLoop-foodproduct.size()).setQty(products.get(countForLoop-foodproduct.size()).getQty()-purchaseProductQuantity);
 			}
 			
 			//if the customer is a member then update their member point & member grade
