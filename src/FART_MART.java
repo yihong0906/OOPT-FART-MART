@@ -31,62 +31,65 @@ public class FART_MART {
     			return;
     		}
 	    	do {
-	    		
-	    	
-	    		
-	    		
-		    System.out.println("\n                                        +===============================================+");
-			System.out.println("                                        |           	WELCOME TO FART MART!           |");
-			System.out.println("                                        +===============================================+");
-			System.out.println("                                        |1. Accept Sales                                |");
-			System.out.println("                                        |2. Products Module                             |");
-			System.out.println("                                        |3. Staff Details                               |");
-			System.out.println("                                        |4. Membership Module                           |");
-			System.out.println("                                        |5. Reports Module                              |");
-			System.out.println("                                        |6. Logout                                      |");
-			System.out.println("                                        +===============================================+                                          copyright@2019");
-			
-	
-	    	System.out.print(" \n\t\t\t\t\t\t\t\t\t\t\tWhat would you like to do? \n\t\t\t\t\t\t\t\tPlease select based on the number in the list above: ");
-			choice = input.nextInt();
-	    	
-	    	
-	    		
-	    	  	if(choice == 1){
-	    			accept_sales.ACCEPT_SALES(position);
-	    			// make transaction
-	
-	    		} else if (choice ==2){
-	    			
-	    			prod_details.PRODUCT_DETAILS_MODULE(position); 
-	    				
-	    		} else if (choice ==3) {
-	    			if(staffDetails.get(position).getPosition().equals("Manager")){
-	    				staff_info.STAFF_DETAILS_MODULE();
-	    			}	else if (staffDetails.get(position).getPosition().equals("Staff")){
-	    				System.out.println("Oops! You are now allowed to enter this module!");
-	    	
-	    			}
-	
-	    		} else if (choice ==4) {
-	    			membership.MEMBERSHIP_MODULE(position);
-		    			
-	
-	    		} else if(choice ==5){
-	    				if(staffDetails.get(position).getPosition().equals("Manager")){
-	    				reports.REPORT_MODULE();
-	    			}	else if (staffDetails.get(position).getPosition().equals("Staff")){
-	    				System.out.println("Oops! You are now allowed to enter this module!");
-	    	
-	    			}
+		    	do {
+					try{
+					    System.out.println("\n                                        +===============================================+");
+						System.out.println("                                        |           	WELCOME TO FART MART!           |");
+						System.out.println("                                        +===============================================+");
+						System.out.println("                                        |1. Accept Sales                                |");
+						System.out.println("                                        |2. Products Module                             |");
+						System.out.println("                                        |3. Staff Details                               |");
+						System.out.println("                                        |4. Membership Module                           |");
+						System.out.println("                                        |5. Reports Module                              |");
+						System.out.println("                                        |6. Logout                                      |");
+						System.out.println("                                        +===============================================+                                          copyright@2019");
 						
-	    		}else if (choice ==6) {
-	    			System.out.println("\t\tLogged out!");
-	    		}else {
-	    			
-	    		System.out.print("Invalid input!");
-	    		choice = input.nextInt();
-	    		}
+						System.out.print(" \n\t\t\t\t\t\t\t\t\t\t\tWhat would you like to do? \n\t\t\t\t\t\t\t\tPlease select based on the number in the list above: ");
+						choice = input.nextInt();	
+					}
+					catch(Exception mainChoiceError){
+						input.next();
+						choice = 0;
+						System.out.println("Invalid Input. Please Enter Again.");
+					}
+				}while(choice == 0);
+		    	
+		    		
+		    	  	if(choice == 1){
+		    			accept_sales.ACCEPT_SALES(position);
+		    			// make transaction
+		
+		    		} else if (choice ==2){
+		    			
+		    			prod_details.PRODUCT_DETAILS_MODULE(position); 
+		    				
+		    		} else if (choice ==3) {
+		    			if(staffDetails.get(position).getPosition().equals("Manager")){
+		    				staff_info.STAFF_DETAILS_MODULE();
+		    			}	else if (staffDetails.get(position).getPosition().equals("Staff")){
+		    				System.out.println("Oops! You are now allowed to enter this module!");
+		    	
+		    			}
+		
+		    		} else if (choice ==4) {
+		    			membership.MEMBERSHIP_MODULE(position);
+			    			
+		
+		    		} else if(choice ==5){
+		    				if(staffDetails.get(position).getPosition().equals("Manager")){
+		    				reports.REPORT_MODULE();
+		    			}	else if (staffDetails.get(position).getPosition().equals("Staff")){
+		    				System.out.println("Oops! You are now allowed to enter this module!");
+		    	
+		    			}
+							
+		    		}else if (choice ==6) {
+		    			System.out.println("\t\tLogged out!");
+		    		}else {
+		    			
+		    		System.out.print("Invalid input!");
+		    		//choice = input.nextInt();
+		    		}
 		
 	    	}while (choice !=6);  
     		
