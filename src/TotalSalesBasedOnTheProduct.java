@@ -23,9 +23,11 @@ public class TotalSalesBasedOnTheProduct {
         System.out.println("|5. Febreze Fabric Refresher 200ml		  |");
         System.out.println("+=========================================+");
         while(true){
-            System.out.print("\nEnter the number of the product (exit = 0) : ");
-             int n = input.nextInt();
-             
+        	
+        	try {
+        		 System.out.print("\nEnter the number of the product (exit = 0) : ");
+           		 int n = input.nextInt();
+
             switch (n) {
                 case 1:
                     {
@@ -330,6 +332,11 @@ public class TotalSalesBasedOnTheProduct {
                     }
                 }
     						
-        }}
+        }
+        }catch (Exception e){
+			      		input.next();
+			        	System.out.println("Invalid Input. Please Enter Again:");
+		   }
+        }
         }
     }

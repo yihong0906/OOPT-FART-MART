@@ -15,10 +15,12 @@ public class TotalSalesOfTheDay {
 			        System.out.println("+==============================================+");
 	        
 	            	while(true){
-            System.out.print("\nEnter the number of the date (exit = 0) : ");
+	            		
+
+    	try {
+          	 System.out.print("\nEnter the number of the date (exit = 0) : ");
              int n = input.nextInt();
-        	
-   
+
             switch (n) {
                 case 1:
                     {
@@ -111,7 +113,7 @@ public class TotalSalesOfTheDay {
                         //ArrayList<OrderDetails> orderDetailsList1 = new ArrayList<>();
                         
         System.out.println("|==========================================================================================================================================================|");
-        System.out.println("|	Report No: SA654A													TOTAL SALES OF 2 AUGUST 2019													   |");
+        System.out.println("|	Report No: SA654A													TOTAL SALES OF 3 AUGUST 2019													   |");
         System.out.println("|==========================================================================================================================================================|");
         System.out.print("|\t\t\t\t\t\t\t\t\t						 ___ _   ___ _____   __  __   _   ___ _____												        				   |\n");
         System.out.print("|\t\t\t\t\t\t\t\t\t						| __/_\\ | _ \\_   _| |  \\/  | \\/_\\ | _ \\_   _|																   |\n");
@@ -166,7 +168,12 @@ public class TotalSalesOfTheDay {
                     System.out.println("");
                     }
                     
-          }
+            
+           }
+           } catch (Exception e){
+			      		input.next();
+			        	System.out.println("Invalid Input. Please Enter Again:");
+		   }	
           
         }
         
