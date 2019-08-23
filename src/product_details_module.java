@@ -45,9 +45,11 @@ class product_details_module {
  		System.out.println("\t\t\t\t\t\t\t\t\t\t|_|   |_| \\_\\\\___/|____/ \\___/ \\____| |_| |____/  ");
 
     	//************************** USER CHOOSE THEIR FUNCTIONS**********************************/
-    	int choice;	
+    	int choice=0;	
+    		
     	do {
-    		System.out.println("\n                                        +===============================================+");
+    		try {
+    			System.out.println("\n                                        +===============================================+");
 			System.out.println("                                        |              	  PRODUCTS MODULE               |");
 			System.out.println("                                        +===============================================+");
 			System.out.println("                                        |1. View Product                                |");
@@ -95,6 +97,12 @@ class product_details_module {
     		
     		choice = input.nextInt();
     		}
+    		
+    		} catch(Exception e){
+    			input.next();
+				System.out.println("Invalid Input. Please Enter Again.");
+    		}
+    		
     		
     		
     	}while (choice !=5);
